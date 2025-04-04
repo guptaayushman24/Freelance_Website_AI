@@ -15,24 +15,27 @@ export const  NEXT_AUTH = ({
             credentials:{
                 email:{label: "Email", type: "text", placeholder: "Enter your Email" },
                 password: { label: "Password", type: "password" ,placeholder:"Enter your Password"},
+                clientjobseeker:{label:"Client Or Job Seeker",type:"text",placeholder:"Client or Job Seeker"}
+                
             },
             async authorize(credentials:any) {
-                // console.log("Github Credentials",process.env.GITHUB_ID);
-                // console.log("Github Credentials",process.env.GITHUB_SECRET);
                 const email = credentials.email;
                 const password = credentials.password;
-                if (!email || !password) {
-                    throw new Error("Email and Password are required");
+                const whichuser = credentials.clientjobseeker
+                if (!email || !password || !whichuser) {
+                    throw new Error("Email and Password are user is required");
                   }
                 // Add the zod validation on the email and password
                 const success = signinobject.parse({
                     email:email,
-                    password:password
+                    password:password,
+                    clientjobseeker:whichuser
                 })
                 if (!success){
                     return "Check credentials"
                 }
-                const user = await client.userSchema.findUnique({
+                if (whichuser=='Job Seeker'){
+                    const user = await client.userSchema.findUnique({
                     where:{
                         Email:email
                     }
@@ -54,6 +57,35 @@ export const  NEXT_AUTH = ({
                 else{
                     return null;
                 }
+                }
+                else if (whichuser=='Client'){
+                    const user = await client.clientSchema.findUnique({
+                        where:{
+                            Email:email
+                        }
+                    })
+                    if (!user){
+                        return null;
+                    }
+                    const userpassword = await client.clientSchema.findUnique({
+                        where:{
+                            Email:email
+                        }
+                    })
+                    if (userpassword?.Password==password){
+                        return{
+                            id:userpassword?.client_id,
+                            name:userpassword?.client_name
+                        }
+                    }
+                    else{
+                        return null;
+                    }
+                }
+                else{
+                    return "Please enter Job Seeker or Client in text box"
+                }
+               
             },
         },
     ),

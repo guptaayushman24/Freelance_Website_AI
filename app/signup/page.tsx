@@ -14,7 +14,7 @@ export default function(){
        try{
         const createnewuser = await Signup(name,email,password,expeience,rating,skills);
         if (createnewuser==1){
-            alert("User exist please do the signup");
+            alert("User exist please do the signin");
             setLoading(false);
             return;
         }

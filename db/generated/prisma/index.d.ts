@@ -18,6 +18,11 @@ export type PrismaPromise<T> = $Public.PrismaPromise<T>
  * 
  */
 export type UserSchema = $Result.DefaultSelection<Prisma.$UserSchemaPayload>
+/**
+ * Model ClientSchema
+ * 
+ */
+export type ClientSchema = $Result.DefaultSelection<Prisma.$ClientSchemaPayload>
 
 /**
  * ##  Prisma Client ʲˢ
@@ -153,6 +158,16 @@ export class PrismaClient<
     * ```
     */
   get userSchema(): Prisma.UserSchemaDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.clientSchema`: Exposes CRUD operations for the **ClientSchema** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more ClientSchemas
+    * const clientSchemas = await prisma.clientSchema.findMany()
+    * ```
+    */
+  get clientSchema(): Prisma.ClientSchemaDelegate<ExtArgs, ClientOptions>;
 }
 
 export namespace Prisma {
@@ -593,7 +608,8 @@ export namespace Prisma {
 
 
   export const ModelName: {
-    UserSchema: 'UserSchema'
+    UserSchema: 'UserSchema',
+    ClientSchema: 'ClientSchema'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -612,7 +628,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "userSchema"
+      modelProps: "userSchema" | "clientSchema"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -687,6 +703,80 @@ export namespace Prisma {
           count: {
             args: Prisma.UserSchemaCountArgs<ExtArgs>
             result: $Utils.Optional<UserSchemaCountAggregateOutputType> | number
+          }
+        }
+      }
+      ClientSchema: {
+        payload: Prisma.$ClientSchemaPayload<ExtArgs>
+        fields: Prisma.ClientSchemaFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.ClientSchemaFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ClientSchemaPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.ClientSchemaFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ClientSchemaPayload>
+          }
+          findFirst: {
+            args: Prisma.ClientSchemaFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ClientSchemaPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.ClientSchemaFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ClientSchemaPayload>
+          }
+          findMany: {
+            args: Prisma.ClientSchemaFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ClientSchemaPayload>[]
+          }
+          create: {
+            args: Prisma.ClientSchemaCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ClientSchemaPayload>
+          }
+          createMany: {
+            args: Prisma.ClientSchemaCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.ClientSchemaCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ClientSchemaPayload>[]
+          }
+          delete: {
+            args: Prisma.ClientSchemaDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ClientSchemaPayload>
+          }
+          update: {
+            args: Prisma.ClientSchemaUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ClientSchemaPayload>
+          }
+          deleteMany: {
+            args: Prisma.ClientSchemaDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.ClientSchemaUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.ClientSchemaUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ClientSchemaPayload>[]
+          }
+          upsert: {
+            args: Prisma.ClientSchemaUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ClientSchemaPayload>
+          }
+          aggregate: {
+            args: Prisma.ClientSchemaAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateClientSchema>
+          }
+          groupBy: {
+            args: Prisma.ClientSchemaGroupByArgs<ExtArgs>
+            result: $Utils.Optional<ClientSchemaGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.ClientSchemaCountArgs<ExtArgs>
+            result: $Utils.Optional<ClientSchemaCountAggregateOutputType> | number
           }
         }
       }
@@ -775,6 +865,7 @@ export namespace Prisma {
   }
   export type GlobalOmitConfig = {
     userSchema?: UserSchemaOmit
+    clientSchema?: ClientSchemaOmit
   }
 
   /* Types for Logging */
@@ -1929,6 +2020,1035 @@ export namespace Prisma {
 
 
   /**
+   * Model ClientSchema
+   */
+
+  export type AggregateClientSchema = {
+    _count: ClientSchemaCountAggregateOutputType | null
+    _avg: ClientSchemaAvgAggregateOutputType | null
+    _sum: ClientSchemaSumAggregateOutputType | null
+    _min: ClientSchemaMinAggregateOutputType | null
+    _max: ClientSchemaMaxAggregateOutputType | null
+  }
+
+  export type ClientSchemaAvgAggregateOutputType = {
+    client_id: number | null
+  }
+
+  export type ClientSchemaSumAggregateOutputType = {
+    client_id: number | null
+  }
+
+  export type ClientSchemaMinAggregateOutputType = {
+    client_id: number | null
+    client_name: string | null
+    Email: string | null
+    Password: string | null
+    Organization: string | null
+  }
+
+  export type ClientSchemaMaxAggregateOutputType = {
+    client_id: number | null
+    client_name: string | null
+    Email: string | null
+    Password: string | null
+    Organization: string | null
+  }
+
+  export type ClientSchemaCountAggregateOutputType = {
+    client_id: number
+    client_name: number
+    Email: number
+    Password: number
+    Organization: number
+    _all: number
+  }
+
+
+  export type ClientSchemaAvgAggregateInputType = {
+    client_id?: true
+  }
+
+  export type ClientSchemaSumAggregateInputType = {
+    client_id?: true
+  }
+
+  export type ClientSchemaMinAggregateInputType = {
+    client_id?: true
+    client_name?: true
+    Email?: true
+    Password?: true
+    Organization?: true
+  }
+
+  export type ClientSchemaMaxAggregateInputType = {
+    client_id?: true
+    client_name?: true
+    Email?: true
+    Password?: true
+    Organization?: true
+  }
+
+  export type ClientSchemaCountAggregateInputType = {
+    client_id?: true
+    client_name?: true
+    Email?: true
+    Password?: true
+    Organization?: true
+    _all?: true
+  }
+
+  export type ClientSchemaAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which ClientSchema to aggregate.
+     */
+    where?: ClientSchemaWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ClientSchemas to fetch.
+     */
+    orderBy?: ClientSchemaOrderByWithRelationInput | ClientSchemaOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: ClientSchemaWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ClientSchemas from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ClientSchemas.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned ClientSchemas
+    **/
+    _count?: true | ClientSchemaCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: ClientSchemaAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: ClientSchemaSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: ClientSchemaMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: ClientSchemaMaxAggregateInputType
+  }
+
+  export type GetClientSchemaAggregateType<T extends ClientSchemaAggregateArgs> = {
+        [P in keyof T & keyof AggregateClientSchema]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateClientSchema[P]>
+      : GetScalarType<T[P], AggregateClientSchema[P]>
+  }
+
+
+
+
+  export type ClientSchemaGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ClientSchemaWhereInput
+    orderBy?: ClientSchemaOrderByWithAggregationInput | ClientSchemaOrderByWithAggregationInput[]
+    by: ClientSchemaScalarFieldEnum[] | ClientSchemaScalarFieldEnum
+    having?: ClientSchemaScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: ClientSchemaCountAggregateInputType | true
+    _avg?: ClientSchemaAvgAggregateInputType
+    _sum?: ClientSchemaSumAggregateInputType
+    _min?: ClientSchemaMinAggregateInputType
+    _max?: ClientSchemaMaxAggregateInputType
+  }
+
+  export type ClientSchemaGroupByOutputType = {
+    client_id: number
+    client_name: string
+    Email: string
+    Password: string
+    Organization: string | null
+    _count: ClientSchemaCountAggregateOutputType | null
+    _avg: ClientSchemaAvgAggregateOutputType | null
+    _sum: ClientSchemaSumAggregateOutputType | null
+    _min: ClientSchemaMinAggregateOutputType | null
+    _max: ClientSchemaMaxAggregateOutputType | null
+  }
+
+  type GetClientSchemaGroupByPayload<T extends ClientSchemaGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<ClientSchemaGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof ClientSchemaGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], ClientSchemaGroupByOutputType[P]>
+            : GetScalarType<T[P], ClientSchemaGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type ClientSchemaSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    client_id?: boolean
+    client_name?: boolean
+    Email?: boolean
+    Password?: boolean
+    Organization?: boolean
+  }, ExtArgs["result"]["clientSchema"]>
+
+  export type ClientSchemaSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    client_id?: boolean
+    client_name?: boolean
+    Email?: boolean
+    Password?: boolean
+    Organization?: boolean
+  }, ExtArgs["result"]["clientSchema"]>
+
+  export type ClientSchemaSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    client_id?: boolean
+    client_name?: boolean
+    Email?: boolean
+    Password?: boolean
+    Organization?: boolean
+  }, ExtArgs["result"]["clientSchema"]>
+
+  export type ClientSchemaSelectScalar = {
+    client_id?: boolean
+    client_name?: boolean
+    Email?: boolean
+    Password?: boolean
+    Organization?: boolean
+  }
+
+  export type ClientSchemaOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"client_id" | "client_name" | "Email" | "Password" | "Organization", ExtArgs["result"]["clientSchema"]>
+
+  export type $ClientSchemaPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "ClientSchema"
+    objects: {}
+    scalars: $Extensions.GetPayloadResult<{
+      client_id: number
+      client_name: string
+      Email: string
+      Password: string
+      Organization: string | null
+    }, ExtArgs["result"]["clientSchema"]>
+    composites: {}
+  }
+
+  type ClientSchemaGetPayload<S extends boolean | null | undefined | ClientSchemaDefaultArgs> = $Result.GetResult<Prisma.$ClientSchemaPayload, S>
+
+  type ClientSchemaCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<ClientSchemaFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: ClientSchemaCountAggregateInputType | true
+    }
+
+  export interface ClientSchemaDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['ClientSchema'], meta: { name: 'ClientSchema' } }
+    /**
+     * Find zero or one ClientSchema that matches the filter.
+     * @param {ClientSchemaFindUniqueArgs} args - Arguments to find a ClientSchema
+     * @example
+     * // Get one ClientSchema
+     * const clientSchema = await prisma.clientSchema.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends ClientSchemaFindUniqueArgs>(args: SelectSubset<T, ClientSchemaFindUniqueArgs<ExtArgs>>): Prisma__ClientSchemaClient<$Result.GetResult<Prisma.$ClientSchemaPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one ClientSchema that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {ClientSchemaFindUniqueOrThrowArgs} args - Arguments to find a ClientSchema
+     * @example
+     * // Get one ClientSchema
+     * const clientSchema = await prisma.clientSchema.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends ClientSchemaFindUniqueOrThrowArgs>(args: SelectSubset<T, ClientSchemaFindUniqueOrThrowArgs<ExtArgs>>): Prisma__ClientSchemaClient<$Result.GetResult<Prisma.$ClientSchemaPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first ClientSchema that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ClientSchemaFindFirstArgs} args - Arguments to find a ClientSchema
+     * @example
+     * // Get one ClientSchema
+     * const clientSchema = await prisma.clientSchema.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends ClientSchemaFindFirstArgs>(args?: SelectSubset<T, ClientSchemaFindFirstArgs<ExtArgs>>): Prisma__ClientSchemaClient<$Result.GetResult<Prisma.$ClientSchemaPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first ClientSchema that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ClientSchemaFindFirstOrThrowArgs} args - Arguments to find a ClientSchema
+     * @example
+     * // Get one ClientSchema
+     * const clientSchema = await prisma.clientSchema.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends ClientSchemaFindFirstOrThrowArgs>(args?: SelectSubset<T, ClientSchemaFindFirstOrThrowArgs<ExtArgs>>): Prisma__ClientSchemaClient<$Result.GetResult<Prisma.$ClientSchemaPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more ClientSchemas that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ClientSchemaFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all ClientSchemas
+     * const clientSchemas = await prisma.clientSchema.findMany()
+     * 
+     * // Get first 10 ClientSchemas
+     * const clientSchemas = await prisma.clientSchema.findMany({ take: 10 })
+     * 
+     * // Only select the `client_id`
+     * const clientSchemaWithClient_idOnly = await prisma.clientSchema.findMany({ select: { client_id: true } })
+     * 
+     */
+    findMany<T extends ClientSchemaFindManyArgs>(args?: SelectSubset<T, ClientSchemaFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ClientSchemaPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a ClientSchema.
+     * @param {ClientSchemaCreateArgs} args - Arguments to create a ClientSchema.
+     * @example
+     * // Create one ClientSchema
+     * const ClientSchema = await prisma.clientSchema.create({
+     *   data: {
+     *     // ... data to create a ClientSchema
+     *   }
+     * })
+     * 
+     */
+    create<T extends ClientSchemaCreateArgs>(args: SelectSubset<T, ClientSchemaCreateArgs<ExtArgs>>): Prisma__ClientSchemaClient<$Result.GetResult<Prisma.$ClientSchemaPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many ClientSchemas.
+     * @param {ClientSchemaCreateManyArgs} args - Arguments to create many ClientSchemas.
+     * @example
+     * // Create many ClientSchemas
+     * const clientSchema = await prisma.clientSchema.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends ClientSchemaCreateManyArgs>(args?: SelectSubset<T, ClientSchemaCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many ClientSchemas and returns the data saved in the database.
+     * @param {ClientSchemaCreateManyAndReturnArgs} args - Arguments to create many ClientSchemas.
+     * @example
+     * // Create many ClientSchemas
+     * const clientSchema = await prisma.clientSchema.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many ClientSchemas and only return the `client_id`
+     * const clientSchemaWithClient_idOnly = await prisma.clientSchema.createManyAndReturn({
+     *   select: { client_id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends ClientSchemaCreateManyAndReturnArgs>(args?: SelectSubset<T, ClientSchemaCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ClientSchemaPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a ClientSchema.
+     * @param {ClientSchemaDeleteArgs} args - Arguments to delete one ClientSchema.
+     * @example
+     * // Delete one ClientSchema
+     * const ClientSchema = await prisma.clientSchema.delete({
+     *   where: {
+     *     // ... filter to delete one ClientSchema
+     *   }
+     * })
+     * 
+     */
+    delete<T extends ClientSchemaDeleteArgs>(args: SelectSubset<T, ClientSchemaDeleteArgs<ExtArgs>>): Prisma__ClientSchemaClient<$Result.GetResult<Prisma.$ClientSchemaPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one ClientSchema.
+     * @param {ClientSchemaUpdateArgs} args - Arguments to update one ClientSchema.
+     * @example
+     * // Update one ClientSchema
+     * const clientSchema = await prisma.clientSchema.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends ClientSchemaUpdateArgs>(args: SelectSubset<T, ClientSchemaUpdateArgs<ExtArgs>>): Prisma__ClientSchemaClient<$Result.GetResult<Prisma.$ClientSchemaPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more ClientSchemas.
+     * @param {ClientSchemaDeleteManyArgs} args - Arguments to filter ClientSchemas to delete.
+     * @example
+     * // Delete a few ClientSchemas
+     * const { count } = await prisma.clientSchema.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends ClientSchemaDeleteManyArgs>(args?: SelectSubset<T, ClientSchemaDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more ClientSchemas.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ClientSchemaUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many ClientSchemas
+     * const clientSchema = await prisma.clientSchema.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends ClientSchemaUpdateManyArgs>(args: SelectSubset<T, ClientSchemaUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more ClientSchemas and returns the data updated in the database.
+     * @param {ClientSchemaUpdateManyAndReturnArgs} args - Arguments to update many ClientSchemas.
+     * @example
+     * // Update many ClientSchemas
+     * const clientSchema = await prisma.clientSchema.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more ClientSchemas and only return the `client_id`
+     * const clientSchemaWithClient_idOnly = await prisma.clientSchema.updateManyAndReturn({
+     *   select: { client_id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends ClientSchemaUpdateManyAndReturnArgs>(args: SelectSubset<T, ClientSchemaUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ClientSchemaPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one ClientSchema.
+     * @param {ClientSchemaUpsertArgs} args - Arguments to update or create a ClientSchema.
+     * @example
+     * // Update or create a ClientSchema
+     * const clientSchema = await prisma.clientSchema.upsert({
+     *   create: {
+     *     // ... data to create a ClientSchema
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the ClientSchema we want to update
+     *   }
+     * })
+     */
+    upsert<T extends ClientSchemaUpsertArgs>(args: SelectSubset<T, ClientSchemaUpsertArgs<ExtArgs>>): Prisma__ClientSchemaClient<$Result.GetResult<Prisma.$ClientSchemaPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of ClientSchemas.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ClientSchemaCountArgs} args - Arguments to filter ClientSchemas to count.
+     * @example
+     * // Count the number of ClientSchemas
+     * const count = await prisma.clientSchema.count({
+     *   where: {
+     *     // ... the filter for the ClientSchemas we want to count
+     *   }
+     * })
+    **/
+    count<T extends ClientSchemaCountArgs>(
+      args?: Subset<T, ClientSchemaCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], ClientSchemaCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a ClientSchema.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ClientSchemaAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends ClientSchemaAggregateArgs>(args: Subset<T, ClientSchemaAggregateArgs>): Prisma.PrismaPromise<GetClientSchemaAggregateType<T>>
+
+    /**
+     * Group by ClientSchema.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ClientSchemaGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends ClientSchemaGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: ClientSchemaGroupByArgs['orderBy'] }
+        : { orderBy?: ClientSchemaGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, ClientSchemaGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetClientSchemaGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the ClientSchema model
+   */
+  readonly fields: ClientSchemaFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for ClientSchema.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__ClientSchemaClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the ClientSchema model
+   */ 
+  interface ClientSchemaFieldRefs {
+    readonly client_id: FieldRef<"ClientSchema", 'Int'>
+    readonly client_name: FieldRef<"ClientSchema", 'String'>
+    readonly Email: FieldRef<"ClientSchema", 'String'>
+    readonly Password: FieldRef<"ClientSchema", 'String'>
+    readonly Organization: FieldRef<"ClientSchema", 'String'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * ClientSchema findUnique
+   */
+  export type ClientSchemaFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ClientSchema
+     */
+    select?: ClientSchemaSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ClientSchema
+     */
+    omit?: ClientSchemaOmit<ExtArgs> | null
+    /**
+     * Filter, which ClientSchema to fetch.
+     */
+    where: ClientSchemaWhereUniqueInput
+  }
+
+  /**
+   * ClientSchema findUniqueOrThrow
+   */
+  export type ClientSchemaFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ClientSchema
+     */
+    select?: ClientSchemaSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ClientSchema
+     */
+    omit?: ClientSchemaOmit<ExtArgs> | null
+    /**
+     * Filter, which ClientSchema to fetch.
+     */
+    where: ClientSchemaWhereUniqueInput
+  }
+
+  /**
+   * ClientSchema findFirst
+   */
+  export type ClientSchemaFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ClientSchema
+     */
+    select?: ClientSchemaSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ClientSchema
+     */
+    omit?: ClientSchemaOmit<ExtArgs> | null
+    /**
+     * Filter, which ClientSchema to fetch.
+     */
+    where?: ClientSchemaWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ClientSchemas to fetch.
+     */
+    orderBy?: ClientSchemaOrderByWithRelationInput | ClientSchemaOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for ClientSchemas.
+     */
+    cursor?: ClientSchemaWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ClientSchemas from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ClientSchemas.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of ClientSchemas.
+     */
+    distinct?: ClientSchemaScalarFieldEnum | ClientSchemaScalarFieldEnum[]
+  }
+
+  /**
+   * ClientSchema findFirstOrThrow
+   */
+  export type ClientSchemaFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ClientSchema
+     */
+    select?: ClientSchemaSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ClientSchema
+     */
+    omit?: ClientSchemaOmit<ExtArgs> | null
+    /**
+     * Filter, which ClientSchema to fetch.
+     */
+    where?: ClientSchemaWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ClientSchemas to fetch.
+     */
+    orderBy?: ClientSchemaOrderByWithRelationInput | ClientSchemaOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for ClientSchemas.
+     */
+    cursor?: ClientSchemaWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ClientSchemas from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ClientSchemas.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of ClientSchemas.
+     */
+    distinct?: ClientSchemaScalarFieldEnum | ClientSchemaScalarFieldEnum[]
+  }
+
+  /**
+   * ClientSchema findMany
+   */
+  export type ClientSchemaFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ClientSchema
+     */
+    select?: ClientSchemaSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ClientSchema
+     */
+    omit?: ClientSchemaOmit<ExtArgs> | null
+    /**
+     * Filter, which ClientSchemas to fetch.
+     */
+    where?: ClientSchemaWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ClientSchemas to fetch.
+     */
+    orderBy?: ClientSchemaOrderByWithRelationInput | ClientSchemaOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing ClientSchemas.
+     */
+    cursor?: ClientSchemaWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ClientSchemas from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ClientSchemas.
+     */
+    skip?: number
+    distinct?: ClientSchemaScalarFieldEnum | ClientSchemaScalarFieldEnum[]
+  }
+
+  /**
+   * ClientSchema create
+   */
+  export type ClientSchemaCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ClientSchema
+     */
+    select?: ClientSchemaSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ClientSchema
+     */
+    omit?: ClientSchemaOmit<ExtArgs> | null
+    /**
+     * The data needed to create a ClientSchema.
+     */
+    data: XOR<ClientSchemaCreateInput, ClientSchemaUncheckedCreateInput>
+  }
+
+  /**
+   * ClientSchema createMany
+   */
+  export type ClientSchemaCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many ClientSchemas.
+     */
+    data: ClientSchemaCreateManyInput | ClientSchemaCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * ClientSchema createManyAndReturn
+   */
+  export type ClientSchemaCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ClientSchema
+     */
+    select?: ClientSchemaSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the ClientSchema
+     */
+    omit?: ClientSchemaOmit<ExtArgs> | null
+    /**
+     * The data used to create many ClientSchemas.
+     */
+    data: ClientSchemaCreateManyInput | ClientSchemaCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * ClientSchema update
+   */
+  export type ClientSchemaUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ClientSchema
+     */
+    select?: ClientSchemaSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ClientSchema
+     */
+    omit?: ClientSchemaOmit<ExtArgs> | null
+    /**
+     * The data needed to update a ClientSchema.
+     */
+    data: XOR<ClientSchemaUpdateInput, ClientSchemaUncheckedUpdateInput>
+    /**
+     * Choose, which ClientSchema to update.
+     */
+    where: ClientSchemaWhereUniqueInput
+  }
+
+  /**
+   * ClientSchema updateMany
+   */
+  export type ClientSchemaUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update ClientSchemas.
+     */
+    data: XOR<ClientSchemaUpdateManyMutationInput, ClientSchemaUncheckedUpdateManyInput>
+    /**
+     * Filter which ClientSchemas to update
+     */
+    where?: ClientSchemaWhereInput
+    /**
+     * Limit how many ClientSchemas to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * ClientSchema updateManyAndReturn
+   */
+  export type ClientSchemaUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ClientSchema
+     */
+    select?: ClientSchemaSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the ClientSchema
+     */
+    omit?: ClientSchemaOmit<ExtArgs> | null
+    /**
+     * The data used to update ClientSchemas.
+     */
+    data: XOR<ClientSchemaUpdateManyMutationInput, ClientSchemaUncheckedUpdateManyInput>
+    /**
+     * Filter which ClientSchemas to update
+     */
+    where?: ClientSchemaWhereInput
+    /**
+     * Limit how many ClientSchemas to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * ClientSchema upsert
+   */
+  export type ClientSchemaUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ClientSchema
+     */
+    select?: ClientSchemaSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ClientSchema
+     */
+    omit?: ClientSchemaOmit<ExtArgs> | null
+    /**
+     * The filter to search for the ClientSchema to update in case it exists.
+     */
+    where: ClientSchemaWhereUniqueInput
+    /**
+     * In case the ClientSchema found by the `where` argument doesn't exist, create a new ClientSchema with this data.
+     */
+    create: XOR<ClientSchemaCreateInput, ClientSchemaUncheckedCreateInput>
+    /**
+     * In case the ClientSchema was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<ClientSchemaUpdateInput, ClientSchemaUncheckedUpdateInput>
+  }
+
+  /**
+   * ClientSchema delete
+   */
+  export type ClientSchemaDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ClientSchema
+     */
+    select?: ClientSchemaSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ClientSchema
+     */
+    omit?: ClientSchemaOmit<ExtArgs> | null
+    /**
+     * Filter which ClientSchema to delete.
+     */
+    where: ClientSchemaWhereUniqueInput
+  }
+
+  /**
+   * ClientSchema deleteMany
+   */
+  export type ClientSchemaDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which ClientSchemas to delete
+     */
+    where?: ClientSchemaWhereInput
+    /**
+     * Limit how many ClientSchemas to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * ClientSchema without action
+   */
+  export type ClientSchemaDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ClientSchema
+     */
+    select?: ClientSchemaSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ClientSchema
+     */
+    omit?: ClientSchemaOmit<ExtArgs> | null
+  }
+
+
+  /**
    * Enums
    */
 
@@ -1955,6 +3075,17 @@ export namespace Prisma {
   export type UserSchemaScalarFieldEnum = (typeof UserSchemaScalarFieldEnum)[keyof typeof UserSchemaScalarFieldEnum]
 
 
+  export const ClientSchemaScalarFieldEnum: {
+    client_id: 'client_id',
+    client_name: 'client_name',
+    Email: 'Email',
+    Password: 'Password',
+    Organization: 'Organization'
+  };
+
+  export type ClientSchemaScalarFieldEnum = (typeof ClientSchemaScalarFieldEnum)[keyof typeof ClientSchemaScalarFieldEnum]
+
+
   export const SortOrder: {
     asc: 'asc',
     desc: 'desc'
@@ -1969,6 +3100,14 @@ export namespace Prisma {
   };
 
   export type QueryMode = (typeof QueryMode)[keyof typeof QueryMode]
+
+
+  export const NullsOrder: {
+    first: 'first',
+    last: 'last'
+  };
+
+  export type NullsOrder = (typeof NullsOrder)[keyof typeof NullsOrder]
 
 
   /**
@@ -2085,6 +3224,60 @@ export namespace Prisma {
     Skills?: StringNullableListFilter<"UserSchema">
   }
 
+  export type ClientSchemaWhereInput = {
+    AND?: ClientSchemaWhereInput | ClientSchemaWhereInput[]
+    OR?: ClientSchemaWhereInput[]
+    NOT?: ClientSchemaWhereInput | ClientSchemaWhereInput[]
+    client_id?: IntFilter<"ClientSchema"> | number
+    client_name?: StringFilter<"ClientSchema"> | string
+    Email?: StringFilter<"ClientSchema"> | string
+    Password?: StringFilter<"ClientSchema"> | string
+    Organization?: StringNullableFilter<"ClientSchema"> | string | null
+  }
+
+  export type ClientSchemaOrderByWithRelationInput = {
+    client_id?: SortOrder
+    client_name?: SortOrder
+    Email?: SortOrder
+    Password?: SortOrder
+    Organization?: SortOrderInput | SortOrder
+  }
+
+  export type ClientSchemaWhereUniqueInput = Prisma.AtLeast<{
+    client_id?: number
+    Email?: string
+    AND?: ClientSchemaWhereInput | ClientSchemaWhereInput[]
+    OR?: ClientSchemaWhereInput[]
+    NOT?: ClientSchemaWhereInput | ClientSchemaWhereInput[]
+    client_name?: StringFilter<"ClientSchema"> | string
+    Password?: StringFilter<"ClientSchema"> | string
+    Organization?: StringNullableFilter<"ClientSchema"> | string | null
+  }, "client_id" | "Email">
+
+  export type ClientSchemaOrderByWithAggregationInput = {
+    client_id?: SortOrder
+    client_name?: SortOrder
+    Email?: SortOrder
+    Password?: SortOrder
+    Organization?: SortOrderInput | SortOrder
+    _count?: ClientSchemaCountOrderByAggregateInput
+    _avg?: ClientSchemaAvgOrderByAggregateInput
+    _max?: ClientSchemaMaxOrderByAggregateInput
+    _min?: ClientSchemaMinOrderByAggregateInput
+    _sum?: ClientSchemaSumOrderByAggregateInput
+  }
+
+  export type ClientSchemaScalarWhereWithAggregatesInput = {
+    AND?: ClientSchemaScalarWhereWithAggregatesInput | ClientSchemaScalarWhereWithAggregatesInput[]
+    OR?: ClientSchemaScalarWhereWithAggregatesInput[]
+    NOT?: ClientSchemaScalarWhereWithAggregatesInput | ClientSchemaScalarWhereWithAggregatesInput[]
+    client_id?: IntWithAggregatesFilter<"ClientSchema"> | number
+    client_name?: StringWithAggregatesFilter<"ClientSchema"> | string
+    Email?: StringWithAggregatesFilter<"ClientSchema"> | string
+    Password?: StringWithAggregatesFilter<"ClientSchema"> | string
+    Organization?: StringNullableWithAggregatesFilter<"ClientSchema"> | string | null
+  }
+
   export type UserSchemaCreateInput = {
     Name: string
     Email: string
@@ -2150,6 +3343,59 @@ export namespace Prisma {
     Experience?: IntFieldUpdateOperationsInput | number
     Rating?: IntFieldUpdateOperationsInput | number
     Skills?: UserSchemaUpdateSkillsInput | string[]
+  }
+
+  export type ClientSchemaCreateInput = {
+    client_name: string
+    Email: string
+    Password: string
+    Organization?: string | null
+  }
+
+  export type ClientSchemaUncheckedCreateInput = {
+    client_id?: number
+    client_name: string
+    Email: string
+    Password: string
+    Organization?: string | null
+  }
+
+  export type ClientSchemaUpdateInput = {
+    client_name?: StringFieldUpdateOperationsInput | string
+    Email?: StringFieldUpdateOperationsInput | string
+    Password?: StringFieldUpdateOperationsInput | string
+    Organization?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type ClientSchemaUncheckedUpdateInput = {
+    client_id?: IntFieldUpdateOperationsInput | number
+    client_name?: StringFieldUpdateOperationsInput | string
+    Email?: StringFieldUpdateOperationsInput | string
+    Password?: StringFieldUpdateOperationsInput | string
+    Organization?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type ClientSchemaCreateManyInput = {
+    client_id?: number
+    client_name: string
+    Email: string
+    Password: string
+    Organization?: string | null
+  }
+
+  export type ClientSchemaUpdateManyMutationInput = {
+    client_name?: StringFieldUpdateOperationsInput | string
+    Email?: StringFieldUpdateOperationsInput | string
+    Password?: StringFieldUpdateOperationsInput | string
+    Organization?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type ClientSchemaUncheckedUpdateManyInput = {
+    client_id?: IntFieldUpdateOperationsInput | number
+    client_name?: StringFieldUpdateOperationsInput | string
+    Email?: StringFieldUpdateOperationsInput | string
+    Password?: StringFieldUpdateOperationsInput | string
+    Organization?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type IntFilter<$PrismaModel = never> = {
@@ -2260,6 +3506,76 @@ export namespace Prisma {
     _max?: NestedStringFilter<$PrismaModel>
   }
 
+  export type StringNullableFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    mode?: QueryMode
+    not?: NestedStringNullableFilter<$PrismaModel> | string | null
+  }
+
+  export type SortOrderInput = {
+    sort: SortOrder
+    nulls?: NullsOrder
+  }
+
+  export type ClientSchemaCountOrderByAggregateInput = {
+    client_id?: SortOrder
+    client_name?: SortOrder
+    Email?: SortOrder
+    Password?: SortOrder
+    Organization?: SortOrder
+  }
+
+  export type ClientSchemaAvgOrderByAggregateInput = {
+    client_id?: SortOrder
+  }
+
+  export type ClientSchemaMaxOrderByAggregateInput = {
+    client_id?: SortOrder
+    client_name?: SortOrder
+    Email?: SortOrder
+    Password?: SortOrder
+    Organization?: SortOrder
+  }
+
+  export type ClientSchemaMinOrderByAggregateInput = {
+    client_id?: SortOrder
+    client_name?: SortOrder
+    Email?: SortOrder
+    Password?: SortOrder
+    Organization?: SortOrder
+  }
+
+  export type ClientSchemaSumOrderByAggregateInput = {
+    client_id?: SortOrder
+  }
+
+  export type StringNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    mode?: QueryMode
+    not?: NestedStringNullableWithAggregatesFilter<$PrismaModel> | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedStringNullableFilter<$PrismaModel>
+    _max?: NestedStringNullableFilter<$PrismaModel>
+  }
+
   export type UserSchemaCreateSkillsInput = {
     set: string[]
   }
@@ -2279,6 +3595,10 @@ export namespace Prisma {
   export type UserSchemaUpdateSkillsInput = {
     set?: string[]
     push?: string | string[]
+  }
+
+  export type NullableStringFieldUpdateOperationsInput = {
+    set?: string | null
   }
 
   export type NestedIntFilter<$PrismaModel = never> = {
@@ -2348,6 +3668,48 @@ export namespace Prisma {
     _count?: NestedIntFilter<$PrismaModel>
     _min?: NestedStringFilter<$PrismaModel>
     _max?: NestedStringFilter<$PrismaModel>
+  }
+
+  export type NestedStringNullableFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    not?: NestedStringNullableFilter<$PrismaModel> | string | null
+  }
+
+  export type NestedStringNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    not?: NestedStringNullableWithAggregatesFilter<$PrismaModel> | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedStringNullableFilter<$PrismaModel>
+    _max?: NestedStringNullableFilter<$PrismaModel>
+  }
+
+  export type NestedIntNullableFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntNullableFilter<$PrismaModel> | number | null
   }
 
 

@@ -127,6 +127,14 @@ exports.Prisma.UserSchemaScalarFieldEnum = {
   Skills: 'Skills'
 };
 
+exports.Prisma.ClientSchemaScalarFieldEnum = {
+  client_id: 'client_id',
+  client_name: 'client_name',
+  Email: 'Email',
+  Password: 'Password',
+  Organization: 'Organization'
+};
+
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -137,9 +145,15 @@ exports.Prisma.QueryMode = {
   insensitive: 'insensitive'
 };
 
+exports.Prisma.NullsOrder = {
+  first: 'first',
+  last: 'last'
+};
+
 
 exports.Prisma.ModelName = {
-  UserSchema: 'UserSchema'
+  UserSchema: 'UserSchema',
+  ClientSchema: 'ClientSchema'
 };
 
 /**

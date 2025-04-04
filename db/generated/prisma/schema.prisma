@@ -24,3 +24,11 @@ model UserSchema {
   Rating     Int
   Skills     String[]
 }
+
+model ClientSchema {
+  client_id    Int     @id @default(autoincrement())
+  client_name  String
+  Email        String  @unique
+  Password     String
+  Organization String? @default("Personal")
+}

@@ -51,7 +51,9 @@ export const  NEXT_AUTH = ({
                 if (userpassword?.Password==password){
                     return{
                         id:userpassword?.user_id,
-                        name:userpassword?.Name
+                        whichuser:whichuser
+
+                        
                     }
                 }
                 else{
@@ -75,7 +77,7 @@ export const  NEXT_AUTH = ({
                     if (userpassword?.Password==password){
                         return{
                             id:userpassword?.client_id,
-                            name:userpassword?.client_name
+                            whichuser:whichuser
                         }
                     }
                     else{
@@ -94,17 +96,23 @@ export const  NEXT_AUTH = ({
         clientSecret:process.env.GITHUB_SECRET || "MISSING_SECRET",
       }),
     ],
-    secret: process.env.NEXTAUTH_SECRET || "secret",
-    // Creating the JWT route
-    callbacks:{
-        async session({token,session}:any){
-            session.user.id = token.sub;
-            return session;
+    secret: process.env.SESSION_SECRET || "secret",
+    callbacks: {
+        async jwt({ token, user }:any) {
+          if (user) {
+            return { ...token, ...user };
+          }
+          return token;
+        },
+        async session({ session, token }:any) {
+          session.user = {
+            id: token.id,
+            whichuser: token.whichuser
+          };
+          return session;
         }
-    },
+      }
   }
 );
-
-  
   
   

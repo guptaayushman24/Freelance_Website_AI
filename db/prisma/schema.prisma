@@ -24,6 +24,7 @@ model UserSchema{
   Experience Int
   Rating Int
   Skills String[]
+  Profile ProfileSchema ?
 }
 
 model ClientSchema{
@@ -32,4 +33,23 @@ model ClientSchema{
   Email String @unique
   Password String
   Organization  String? @default("Personal")
+  jobschema JobSchema[]
+}
+
+model ProfileSchema{
+  profile_id Int @id @default(autoincrement())
+  About String
+  ProjectLink String []
+  userid Int  @unique 
+   user       UserSchema   @relation(fields: [userid],references: [user_id])
+}
+
+model JobSchema{
+  job_id Int @id @default(autoincrement())
+  clientid Int
+  Job_titile String
+  Job_description String
+  Budget String
+  Timeline String
+  client ClientSchema @relation(fields: [clientid],references: [client_id])
 }

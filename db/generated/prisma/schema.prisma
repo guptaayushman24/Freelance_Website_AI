@@ -16,19 +16,39 @@ datasource db {
 }
 
 model UserSchema {
-  user_id    Int      @id @default(autoincrement())
+  user_id    Int            @id @default(autoincrement())
   Name       String
-  Email      String   @unique
+  Email      String         @unique
   Password   String
   Experience Int
   Rating     Int
   Skills     String[]
+  Profile    ProfileSchema?
 }
 
 model ClientSchema {
-  client_id    Int     @id @default(autoincrement())
+  client_id    Int         @id @default(autoincrement())
   client_name  String
-  Email        String  @unique
+  Email        String      @unique
   Password     String
-  Organization String? @default("Personal")
+  Organization String?     @default("Personal")
+  jobschema    JobSchema[]
+}
+
+model ProfileSchema {
+  profile_id  Int        @id @default(autoincrement())
+  About       String
+  ProjectLink String[]
+  userid      Int        @unique
+  user        UserSchema @relation(fields: [userid], references: [user_id])
+}
+
+model JobSchema {
+  job_id          Int          @id @default(autoincrement())
+  clientid        Int
+  Job_titile      String
+  Job_description String
+  Budget          String
+  Timeline        String
+  client          ClientSchema @relation(fields: [clientid], references: [client_id])
 }

@@ -23,6 +23,16 @@ export type UserSchema = $Result.DefaultSelection<Prisma.$UserSchemaPayload>
  * 
  */
 export type ClientSchema = $Result.DefaultSelection<Prisma.$ClientSchemaPayload>
+/**
+ * Model ProfileSchema
+ * 
+ */
+export type ProfileSchema = $Result.DefaultSelection<Prisma.$ProfileSchemaPayload>
+/**
+ * Model JobSchema
+ * 
+ */
+export type JobSchema = $Result.DefaultSelection<Prisma.$JobSchemaPayload>
 
 /**
  * ##  Prisma Client ʲˢ
@@ -168,6 +178,26 @@ export class PrismaClient<
     * ```
     */
   get clientSchema(): Prisma.ClientSchemaDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.profileSchema`: Exposes CRUD operations for the **ProfileSchema** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more ProfileSchemas
+    * const profileSchemas = await prisma.profileSchema.findMany()
+    * ```
+    */
+  get profileSchema(): Prisma.ProfileSchemaDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.jobSchema`: Exposes CRUD operations for the **JobSchema** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more JobSchemas
+    * const jobSchemas = await prisma.jobSchema.findMany()
+    * ```
+    */
+  get jobSchema(): Prisma.JobSchemaDelegate<ExtArgs, ClientOptions>;
 }
 
 export namespace Prisma {
@@ -609,7 +639,9 @@ export namespace Prisma {
 
   export const ModelName: {
     UserSchema: 'UserSchema',
-    ClientSchema: 'ClientSchema'
+    ClientSchema: 'ClientSchema',
+    ProfileSchema: 'ProfileSchema',
+    JobSchema: 'JobSchema'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -628,7 +660,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "userSchema" | "clientSchema"
+      modelProps: "userSchema" | "clientSchema" | "profileSchema" | "jobSchema"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -780,6 +812,154 @@ export namespace Prisma {
           }
         }
       }
+      ProfileSchema: {
+        payload: Prisma.$ProfileSchemaPayload<ExtArgs>
+        fields: Prisma.ProfileSchemaFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.ProfileSchemaFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProfileSchemaPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.ProfileSchemaFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProfileSchemaPayload>
+          }
+          findFirst: {
+            args: Prisma.ProfileSchemaFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProfileSchemaPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.ProfileSchemaFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProfileSchemaPayload>
+          }
+          findMany: {
+            args: Prisma.ProfileSchemaFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProfileSchemaPayload>[]
+          }
+          create: {
+            args: Prisma.ProfileSchemaCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProfileSchemaPayload>
+          }
+          createMany: {
+            args: Prisma.ProfileSchemaCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.ProfileSchemaCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProfileSchemaPayload>[]
+          }
+          delete: {
+            args: Prisma.ProfileSchemaDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProfileSchemaPayload>
+          }
+          update: {
+            args: Prisma.ProfileSchemaUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProfileSchemaPayload>
+          }
+          deleteMany: {
+            args: Prisma.ProfileSchemaDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.ProfileSchemaUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.ProfileSchemaUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProfileSchemaPayload>[]
+          }
+          upsert: {
+            args: Prisma.ProfileSchemaUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProfileSchemaPayload>
+          }
+          aggregate: {
+            args: Prisma.ProfileSchemaAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateProfileSchema>
+          }
+          groupBy: {
+            args: Prisma.ProfileSchemaGroupByArgs<ExtArgs>
+            result: $Utils.Optional<ProfileSchemaGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.ProfileSchemaCountArgs<ExtArgs>
+            result: $Utils.Optional<ProfileSchemaCountAggregateOutputType> | number
+          }
+        }
+      }
+      JobSchema: {
+        payload: Prisma.$JobSchemaPayload<ExtArgs>
+        fields: Prisma.JobSchemaFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.JobSchemaFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$JobSchemaPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.JobSchemaFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$JobSchemaPayload>
+          }
+          findFirst: {
+            args: Prisma.JobSchemaFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$JobSchemaPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.JobSchemaFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$JobSchemaPayload>
+          }
+          findMany: {
+            args: Prisma.JobSchemaFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$JobSchemaPayload>[]
+          }
+          create: {
+            args: Prisma.JobSchemaCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$JobSchemaPayload>
+          }
+          createMany: {
+            args: Prisma.JobSchemaCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.JobSchemaCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$JobSchemaPayload>[]
+          }
+          delete: {
+            args: Prisma.JobSchemaDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$JobSchemaPayload>
+          }
+          update: {
+            args: Prisma.JobSchemaUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$JobSchemaPayload>
+          }
+          deleteMany: {
+            args: Prisma.JobSchemaDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.JobSchemaUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.JobSchemaUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$JobSchemaPayload>[]
+          }
+          upsert: {
+            args: Prisma.JobSchemaUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$JobSchemaPayload>
+          }
+          aggregate: {
+            args: Prisma.JobSchemaAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateJobSchema>
+          }
+          groupBy: {
+            args: Prisma.JobSchemaGroupByArgs<ExtArgs>
+            result: $Utils.Optional<JobSchemaGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.JobSchemaCountArgs<ExtArgs>
+            result: $Utils.Optional<JobSchemaCountAggregateOutputType> | number
+          }
+        }
+      }
     }
   } & {
     other: {
@@ -866,6 +1046,8 @@ export namespace Prisma {
   export type GlobalOmitConfig = {
     userSchema?: UserSchemaOmit
     clientSchema?: ClientSchemaOmit
+    profileSchema?: ProfileSchemaOmit
+    jobSchema?: JobSchemaOmit
   }
 
   /* Types for Logging */
@@ -954,6 +1136,36 @@ export namespace Prisma {
    * Count Types
    */
 
+
+  /**
+   * Count Type ClientSchemaCountOutputType
+   */
+
+  export type ClientSchemaCountOutputType = {
+    jobschema: number
+  }
+
+  export type ClientSchemaCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    jobschema?: boolean | ClientSchemaCountOutputTypeCountJobschemaArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * ClientSchemaCountOutputType without action
+   */
+  export type ClientSchemaCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ClientSchemaCountOutputType
+     */
+    select?: ClientSchemaCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * ClientSchemaCountOutputType without action
+   */
+  export type ClientSchemaCountOutputTypeCountJobschemaArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: JobSchemaWhereInput
+  }
 
 
   /**
@@ -1178,6 +1390,7 @@ export namespace Prisma {
     Experience?: boolean
     Rating?: boolean
     Skills?: boolean
+    Profile?: boolean | UserSchema$ProfileArgs<ExtArgs>
   }, ExtArgs["result"]["userSchema"]>
 
   export type UserSchemaSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -1211,10 +1424,17 @@ export namespace Prisma {
   }
 
   export type UserSchemaOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"user_id" | "Name" | "Email" | "Password" | "Experience" | "Rating" | "Skills", ExtArgs["result"]["userSchema"]>
+  export type UserSchemaInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    Profile?: boolean | UserSchema$ProfileArgs<ExtArgs>
+  }
+  export type UserSchemaIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+  export type UserSchemaIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
 
   export type $UserSchemaPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "UserSchema"
-    objects: {}
+    objects: {
+      Profile: Prisma.$ProfileSchemaPayload<ExtArgs> | null
+    }
     scalars: $Extensions.GetPayloadResult<{
       user_id: number
       Name: string
@@ -1617,6 +1837,7 @@ export namespace Prisma {
    */
   export interface Prisma__UserSchemaClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
+    Profile<T extends UserSchema$ProfileArgs<ExtArgs> = {}>(args?: Subset<T, UserSchema$ProfileArgs<ExtArgs>>): Prisma__ProfileSchemaClient<$Result.GetResult<Prisma.$ProfileSchemaPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1670,6 +1891,10 @@ export namespace Prisma {
      */
     omit?: UserSchemaOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserSchemaInclude<ExtArgs> | null
+    /**
      * Filter, which UserSchema to fetch.
      */
     where: UserSchemaWhereUniqueInput
@@ -1688,6 +1913,10 @@ export namespace Prisma {
      */
     omit?: UserSchemaOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserSchemaInclude<ExtArgs> | null
+    /**
      * Filter, which UserSchema to fetch.
      */
     where: UserSchemaWhereUniqueInput
@@ -1705,6 +1934,10 @@ export namespace Prisma {
      * Omit specific fields from the UserSchema
      */
     omit?: UserSchemaOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserSchemaInclude<ExtArgs> | null
     /**
      * Filter, which UserSchema to fetch.
      */
@@ -1754,6 +1987,10 @@ export namespace Prisma {
      */
     omit?: UserSchemaOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserSchemaInclude<ExtArgs> | null
+    /**
      * Filter, which UserSchema to fetch.
      */
     where?: UserSchemaWhereInput
@@ -1802,6 +2039,10 @@ export namespace Prisma {
      */
     omit?: UserSchemaOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserSchemaInclude<ExtArgs> | null
+    /**
      * Filter, which UserSchemas to fetch.
      */
     where?: UserSchemaWhereInput
@@ -1844,6 +2085,10 @@ export namespace Prisma {
      * Omit specific fields from the UserSchema
      */
     omit?: UserSchemaOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserSchemaInclude<ExtArgs> | null
     /**
      * The data needed to create a UserSchema.
      */
@@ -1892,6 +2137,10 @@ export namespace Prisma {
      * Omit specific fields from the UserSchema
      */
     omit?: UserSchemaOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserSchemaInclude<ExtArgs> | null
     /**
      * The data needed to update a UserSchema.
      */
@@ -1959,6 +2208,10 @@ export namespace Prisma {
      */
     omit?: UserSchemaOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserSchemaInclude<ExtArgs> | null
+    /**
      * The filter to search for the UserSchema to update in case it exists.
      */
     where: UserSchemaWhereUniqueInput
@@ -1985,6 +2238,10 @@ export namespace Prisma {
      */
     omit?: UserSchemaOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserSchemaInclude<ExtArgs> | null
+    /**
      * Filter which UserSchema to delete.
      */
     where: UserSchemaWhereUniqueInput
@@ -2005,6 +2262,25 @@ export namespace Prisma {
   }
 
   /**
+   * UserSchema.Profile
+   */
+  export type UserSchema$ProfileArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProfileSchema
+     */
+    select?: ProfileSchemaSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ProfileSchema
+     */
+    omit?: ProfileSchemaOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProfileSchemaInclude<ExtArgs> | null
+    where?: ProfileSchemaWhereInput
+  }
+
+  /**
    * UserSchema without action
    */
   export type UserSchemaDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -2016,6 +2292,10 @@ export namespace Prisma {
      * Omit specific fields from the UserSchema
      */
     omit?: UserSchemaOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserSchemaInclude<ExtArgs> | null
   }
 
 
@@ -2217,6 +2497,8 @@ export namespace Prisma {
     Email?: boolean
     Password?: boolean
     Organization?: boolean
+    jobschema?: boolean | ClientSchema$jobschemaArgs<ExtArgs>
+    _count?: boolean | ClientSchemaCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["clientSchema"]>
 
   export type ClientSchemaSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -2244,10 +2526,18 @@ export namespace Prisma {
   }
 
   export type ClientSchemaOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"client_id" | "client_name" | "Email" | "Password" | "Organization", ExtArgs["result"]["clientSchema"]>
+  export type ClientSchemaInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    jobschema?: boolean | ClientSchema$jobschemaArgs<ExtArgs>
+    _count?: boolean | ClientSchemaCountOutputTypeDefaultArgs<ExtArgs>
+  }
+  export type ClientSchemaIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+  export type ClientSchemaIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
 
   export type $ClientSchemaPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "ClientSchema"
-    objects: {}
+    objects: {
+      jobschema: Prisma.$JobSchemaPayload<ExtArgs>[]
+    }
     scalars: $Extensions.GetPayloadResult<{
       client_id: number
       client_name: string
@@ -2648,6 +2938,7 @@ export namespace Prisma {
    */
   export interface Prisma__ClientSchemaClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
+    jobschema<T extends ClientSchema$jobschemaArgs<ExtArgs> = {}>(args?: Subset<T, ClientSchema$jobschemaArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$JobSchemaPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -2699,6 +2990,10 @@ export namespace Prisma {
      */
     omit?: ClientSchemaOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ClientSchemaInclude<ExtArgs> | null
+    /**
      * Filter, which ClientSchema to fetch.
      */
     where: ClientSchemaWhereUniqueInput
@@ -2717,6 +3012,10 @@ export namespace Prisma {
      */
     omit?: ClientSchemaOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ClientSchemaInclude<ExtArgs> | null
+    /**
      * Filter, which ClientSchema to fetch.
      */
     where: ClientSchemaWhereUniqueInput
@@ -2734,6 +3033,10 @@ export namespace Prisma {
      * Omit specific fields from the ClientSchema
      */
     omit?: ClientSchemaOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ClientSchemaInclude<ExtArgs> | null
     /**
      * Filter, which ClientSchema to fetch.
      */
@@ -2783,6 +3086,10 @@ export namespace Prisma {
      */
     omit?: ClientSchemaOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ClientSchemaInclude<ExtArgs> | null
+    /**
      * Filter, which ClientSchema to fetch.
      */
     where?: ClientSchemaWhereInput
@@ -2831,6 +3138,10 @@ export namespace Prisma {
      */
     omit?: ClientSchemaOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ClientSchemaInclude<ExtArgs> | null
+    /**
      * Filter, which ClientSchemas to fetch.
      */
     where?: ClientSchemaWhereInput
@@ -2873,6 +3184,10 @@ export namespace Prisma {
      * Omit specific fields from the ClientSchema
      */
     omit?: ClientSchemaOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ClientSchemaInclude<ExtArgs> | null
     /**
      * The data needed to create a ClientSchema.
      */
@@ -2921,6 +3236,10 @@ export namespace Prisma {
      * Omit specific fields from the ClientSchema
      */
     omit?: ClientSchemaOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ClientSchemaInclude<ExtArgs> | null
     /**
      * The data needed to update a ClientSchema.
      */
@@ -2988,6 +3307,10 @@ export namespace Prisma {
      */
     omit?: ClientSchemaOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ClientSchemaInclude<ExtArgs> | null
+    /**
      * The filter to search for the ClientSchema to update in case it exists.
      */
     where: ClientSchemaWhereUniqueInput
@@ -3014,6 +3337,10 @@ export namespace Prisma {
      */
     omit?: ClientSchemaOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ClientSchemaInclude<ExtArgs> | null
+    /**
      * Filter which ClientSchema to delete.
      */
     where: ClientSchemaWhereUniqueInput
@@ -3034,6 +3361,30 @@ export namespace Prisma {
   }
 
   /**
+   * ClientSchema.jobschema
+   */
+  export type ClientSchema$jobschemaArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the JobSchema
+     */
+    select?: JobSchemaSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the JobSchema
+     */
+    omit?: JobSchemaOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: JobSchemaInclude<ExtArgs> | null
+    where?: JobSchemaWhereInput
+    orderBy?: JobSchemaOrderByWithRelationInput | JobSchemaOrderByWithRelationInput[]
+    cursor?: JobSchemaWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: JobSchemaScalarFieldEnum | JobSchemaScalarFieldEnum[]
+  }
+
+  /**
    * ClientSchema without action
    */
   export type ClientSchemaDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -3045,6 +3396,2198 @@ export namespace Prisma {
      * Omit specific fields from the ClientSchema
      */
     omit?: ClientSchemaOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ClientSchemaInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model ProfileSchema
+   */
+
+  export type AggregateProfileSchema = {
+    _count: ProfileSchemaCountAggregateOutputType | null
+    _avg: ProfileSchemaAvgAggregateOutputType | null
+    _sum: ProfileSchemaSumAggregateOutputType | null
+    _min: ProfileSchemaMinAggregateOutputType | null
+    _max: ProfileSchemaMaxAggregateOutputType | null
+  }
+
+  export type ProfileSchemaAvgAggregateOutputType = {
+    profile_id: number | null
+    userid: number | null
+  }
+
+  export type ProfileSchemaSumAggregateOutputType = {
+    profile_id: number | null
+    userid: number | null
+  }
+
+  export type ProfileSchemaMinAggregateOutputType = {
+    profile_id: number | null
+    About: string | null
+    userid: number | null
+  }
+
+  export type ProfileSchemaMaxAggregateOutputType = {
+    profile_id: number | null
+    About: string | null
+    userid: number | null
+  }
+
+  export type ProfileSchemaCountAggregateOutputType = {
+    profile_id: number
+    About: number
+    ProjectLink: number
+    userid: number
+    _all: number
+  }
+
+
+  export type ProfileSchemaAvgAggregateInputType = {
+    profile_id?: true
+    userid?: true
+  }
+
+  export type ProfileSchemaSumAggregateInputType = {
+    profile_id?: true
+    userid?: true
+  }
+
+  export type ProfileSchemaMinAggregateInputType = {
+    profile_id?: true
+    About?: true
+    userid?: true
+  }
+
+  export type ProfileSchemaMaxAggregateInputType = {
+    profile_id?: true
+    About?: true
+    userid?: true
+  }
+
+  export type ProfileSchemaCountAggregateInputType = {
+    profile_id?: true
+    About?: true
+    ProjectLink?: true
+    userid?: true
+    _all?: true
+  }
+
+  export type ProfileSchemaAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which ProfileSchema to aggregate.
+     */
+    where?: ProfileSchemaWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ProfileSchemas to fetch.
+     */
+    orderBy?: ProfileSchemaOrderByWithRelationInput | ProfileSchemaOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: ProfileSchemaWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ProfileSchemas from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ProfileSchemas.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned ProfileSchemas
+    **/
+    _count?: true | ProfileSchemaCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: ProfileSchemaAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: ProfileSchemaSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: ProfileSchemaMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: ProfileSchemaMaxAggregateInputType
+  }
+
+  export type GetProfileSchemaAggregateType<T extends ProfileSchemaAggregateArgs> = {
+        [P in keyof T & keyof AggregateProfileSchema]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateProfileSchema[P]>
+      : GetScalarType<T[P], AggregateProfileSchema[P]>
+  }
+
+
+
+
+  export type ProfileSchemaGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ProfileSchemaWhereInput
+    orderBy?: ProfileSchemaOrderByWithAggregationInput | ProfileSchemaOrderByWithAggregationInput[]
+    by: ProfileSchemaScalarFieldEnum[] | ProfileSchemaScalarFieldEnum
+    having?: ProfileSchemaScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: ProfileSchemaCountAggregateInputType | true
+    _avg?: ProfileSchemaAvgAggregateInputType
+    _sum?: ProfileSchemaSumAggregateInputType
+    _min?: ProfileSchemaMinAggregateInputType
+    _max?: ProfileSchemaMaxAggregateInputType
+  }
+
+  export type ProfileSchemaGroupByOutputType = {
+    profile_id: number
+    About: string
+    ProjectLink: string[]
+    userid: number
+    _count: ProfileSchemaCountAggregateOutputType | null
+    _avg: ProfileSchemaAvgAggregateOutputType | null
+    _sum: ProfileSchemaSumAggregateOutputType | null
+    _min: ProfileSchemaMinAggregateOutputType | null
+    _max: ProfileSchemaMaxAggregateOutputType | null
+  }
+
+  type GetProfileSchemaGroupByPayload<T extends ProfileSchemaGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<ProfileSchemaGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof ProfileSchemaGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], ProfileSchemaGroupByOutputType[P]>
+            : GetScalarType<T[P], ProfileSchemaGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type ProfileSchemaSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    profile_id?: boolean
+    About?: boolean
+    ProjectLink?: boolean
+    userid?: boolean
+    user?: boolean | UserSchemaDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["profileSchema"]>
+
+  export type ProfileSchemaSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    profile_id?: boolean
+    About?: boolean
+    ProjectLink?: boolean
+    userid?: boolean
+    user?: boolean | UserSchemaDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["profileSchema"]>
+
+  export type ProfileSchemaSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    profile_id?: boolean
+    About?: boolean
+    ProjectLink?: boolean
+    userid?: boolean
+    user?: boolean | UserSchemaDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["profileSchema"]>
+
+  export type ProfileSchemaSelectScalar = {
+    profile_id?: boolean
+    About?: boolean
+    ProjectLink?: boolean
+    userid?: boolean
+  }
+
+  export type ProfileSchemaOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"profile_id" | "About" | "ProjectLink" | "userid", ExtArgs["result"]["profileSchema"]>
+  export type ProfileSchemaInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UserSchemaDefaultArgs<ExtArgs>
+  }
+  export type ProfileSchemaIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UserSchemaDefaultArgs<ExtArgs>
+  }
+  export type ProfileSchemaIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UserSchemaDefaultArgs<ExtArgs>
+  }
+
+  export type $ProfileSchemaPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "ProfileSchema"
+    objects: {
+      user: Prisma.$UserSchemaPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      profile_id: number
+      About: string
+      ProjectLink: string[]
+      userid: number
+    }, ExtArgs["result"]["profileSchema"]>
+    composites: {}
+  }
+
+  type ProfileSchemaGetPayload<S extends boolean | null | undefined | ProfileSchemaDefaultArgs> = $Result.GetResult<Prisma.$ProfileSchemaPayload, S>
+
+  type ProfileSchemaCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<ProfileSchemaFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: ProfileSchemaCountAggregateInputType | true
+    }
+
+  export interface ProfileSchemaDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['ProfileSchema'], meta: { name: 'ProfileSchema' } }
+    /**
+     * Find zero or one ProfileSchema that matches the filter.
+     * @param {ProfileSchemaFindUniqueArgs} args - Arguments to find a ProfileSchema
+     * @example
+     * // Get one ProfileSchema
+     * const profileSchema = await prisma.profileSchema.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends ProfileSchemaFindUniqueArgs>(args: SelectSubset<T, ProfileSchemaFindUniqueArgs<ExtArgs>>): Prisma__ProfileSchemaClient<$Result.GetResult<Prisma.$ProfileSchemaPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one ProfileSchema that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {ProfileSchemaFindUniqueOrThrowArgs} args - Arguments to find a ProfileSchema
+     * @example
+     * // Get one ProfileSchema
+     * const profileSchema = await prisma.profileSchema.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends ProfileSchemaFindUniqueOrThrowArgs>(args: SelectSubset<T, ProfileSchemaFindUniqueOrThrowArgs<ExtArgs>>): Prisma__ProfileSchemaClient<$Result.GetResult<Prisma.$ProfileSchemaPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first ProfileSchema that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ProfileSchemaFindFirstArgs} args - Arguments to find a ProfileSchema
+     * @example
+     * // Get one ProfileSchema
+     * const profileSchema = await prisma.profileSchema.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends ProfileSchemaFindFirstArgs>(args?: SelectSubset<T, ProfileSchemaFindFirstArgs<ExtArgs>>): Prisma__ProfileSchemaClient<$Result.GetResult<Prisma.$ProfileSchemaPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first ProfileSchema that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ProfileSchemaFindFirstOrThrowArgs} args - Arguments to find a ProfileSchema
+     * @example
+     * // Get one ProfileSchema
+     * const profileSchema = await prisma.profileSchema.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends ProfileSchemaFindFirstOrThrowArgs>(args?: SelectSubset<T, ProfileSchemaFindFirstOrThrowArgs<ExtArgs>>): Prisma__ProfileSchemaClient<$Result.GetResult<Prisma.$ProfileSchemaPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more ProfileSchemas that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ProfileSchemaFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all ProfileSchemas
+     * const profileSchemas = await prisma.profileSchema.findMany()
+     * 
+     * // Get first 10 ProfileSchemas
+     * const profileSchemas = await prisma.profileSchema.findMany({ take: 10 })
+     * 
+     * // Only select the `profile_id`
+     * const profileSchemaWithProfile_idOnly = await prisma.profileSchema.findMany({ select: { profile_id: true } })
+     * 
+     */
+    findMany<T extends ProfileSchemaFindManyArgs>(args?: SelectSubset<T, ProfileSchemaFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ProfileSchemaPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a ProfileSchema.
+     * @param {ProfileSchemaCreateArgs} args - Arguments to create a ProfileSchema.
+     * @example
+     * // Create one ProfileSchema
+     * const ProfileSchema = await prisma.profileSchema.create({
+     *   data: {
+     *     // ... data to create a ProfileSchema
+     *   }
+     * })
+     * 
+     */
+    create<T extends ProfileSchemaCreateArgs>(args: SelectSubset<T, ProfileSchemaCreateArgs<ExtArgs>>): Prisma__ProfileSchemaClient<$Result.GetResult<Prisma.$ProfileSchemaPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many ProfileSchemas.
+     * @param {ProfileSchemaCreateManyArgs} args - Arguments to create many ProfileSchemas.
+     * @example
+     * // Create many ProfileSchemas
+     * const profileSchema = await prisma.profileSchema.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends ProfileSchemaCreateManyArgs>(args?: SelectSubset<T, ProfileSchemaCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many ProfileSchemas and returns the data saved in the database.
+     * @param {ProfileSchemaCreateManyAndReturnArgs} args - Arguments to create many ProfileSchemas.
+     * @example
+     * // Create many ProfileSchemas
+     * const profileSchema = await prisma.profileSchema.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many ProfileSchemas and only return the `profile_id`
+     * const profileSchemaWithProfile_idOnly = await prisma.profileSchema.createManyAndReturn({
+     *   select: { profile_id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends ProfileSchemaCreateManyAndReturnArgs>(args?: SelectSubset<T, ProfileSchemaCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ProfileSchemaPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a ProfileSchema.
+     * @param {ProfileSchemaDeleteArgs} args - Arguments to delete one ProfileSchema.
+     * @example
+     * // Delete one ProfileSchema
+     * const ProfileSchema = await prisma.profileSchema.delete({
+     *   where: {
+     *     // ... filter to delete one ProfileSchema
+     *   }
+     * })
+     * 
+     */
+    delete<T extends ProfileSchemaDeleteArgs>(args: SelectSubset<T, ProfileSchemaDeleteArgs<ExtArgs>>): Prisma__ProfileSchemaClient<$Result.GetResult<Prisma.$ProfileSchemaPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one ProfileSchema.
+     * @param {ProfileSchemaUpdateArgs} args - Arguments to update one ProfileSchema.
+     * @example
+     * // Update one ProfileSchema
+     * const profileSchema = await prisma.profileSchema.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends ProfileSchemaUpdateArgs>(args: SelectSubset<T, ProfileSchemaUpdateArgs<ExtArgs>>): Prisma__ProfileSchemaClient<$Result.GetResult<Prisma.$ProfileSchemaPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more ProfileSchemas.
+     * @param {ProfileSchemaDeleteManyArgs} args - Arguments to filter ProfileSchemas to delete.
+     * @example
+     * // Delete a few ProfileSchemas
+     * const { count } = await prisma.profileSchema.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends ProfileSchemaDeleteManyArgs>(args?: SelectSubset<T, ProfileSchemaDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more ProfileSchemas.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ProfileSchemaUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many ProfileSchemas
+     * const profileSchema = await prisma.profileSchema.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends ProfileSchemaUpdateManyArgs>(args: SelectSubset<T, ProfileSchemaUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more ProfileSchemas and returns the data updated in the database.
+     * @param {ProfileSchemaUpdateManyAndReturnArgs} args - Arguments to update many ProfileSchemas.
+     * @example
+     * // Update many ProfileSchemas
+     * const profileSchema = await prisma.profileSchema.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more ProfileSchemas and only return the `profile_id`
+     * const profileSchemaWithProfile_idOnly = await prisma.profileSchema.updateManyAndReturn({
+     *   select: { profile_id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends ProfileSchemaUpdateManyAndReturnArgs>(args: SelectSubset<T, ProfileSchemaUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ProfileSchemaPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one ProfileSchema.
+     * @param {ProfileSchemaUpsertArgs} args - Arguments to update or create a ProfileSchema.
+     * @example
+     * // Update or create a ProfileSchema
+     * const profileSchema = await prisma.profileSchema.upsert({
+     *   create: {
+     *     // ... data to create a ProfileSchema
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the ProfileSchema we want to update
+     *   }
+     * })
+     */
+    upsert<T extends ProfileSchemaUpsertArgs>(args: SelectSubset<T, ProfileSchemaUpsertArgs<ExtArgs>>): Prisma__ProfileSchemaClient<$Result.GetResult<Prisma.$ProfileSchemaPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of ProfileSchemas.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ProfileSchemaCountArgs} args - Arguments to filter ProfileSchemas to count.
+     * @example
+     * // Count the number of ProfileSchemas
+     * const count = await prisma.profileSchema.count({
+     *   where: {
+     *     // ... the filter for the ProfileSchemas we want to count
+     *   }
+     * })
+    **/
+    count<T extends ProfileSchemaCountArgs>(
+      args?: Subset<T, ProfileSchemaCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], ProfileSchemaCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a ProfileSchema.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ProfileSchemaAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends ProfileSchemaAggregateArgs>(args: Subset<T, ProfileSchemaAggregateArgs>): Prisma.PrismaPromise<GetProfileSchemaAggregateType<T>>
+
+    /**
+     * Group by ProfileSchema.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ProfileSchemaGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends ProfileSchemaGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: ProfileSchemaGroupByArgs['orderBy'] }
+        : { orderBy?: ProfileSchemaGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, ProfileSchemaGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetProfileSchemaGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the ProfileSchema model
+   */
+  readonly fields: ProfileSchemaFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for ProfileSchema.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__ProfileSchemaClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    user<T extends UserSchemaDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserSchemaDefaultArgs<ExtArgs>>): Prisma__UserSchemaClient<$Result.GetResult<Prisma.$UserSchemaPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the ProfileSchema model
+   */ 
+  interface ProfileSchemaFieldRefs {
+    readonly profile_id: FieldRef<"ProfileSchema", 'Int'>
+    readonly About: FieldRef<"ProfileSchema", 'String'>
+    readonly ProjectLink: FieldRef<"ProfileSchema", 'String[]'>
+    readonly userid: FieldRef<"ProfileSchema", 'Int'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * ProfileSchema findUnique
+   */
+  export type ProfileSchemaFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProfileSchema
+     */
+    select?: ProfileSchemaSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ProfileSchema
+     */
+    omit?: ProfileSchemaOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProfileSchemaInclude<ExtArgs> | null
+    /**
+     * Filter, which ProfileSchema to fetch.
+     */
+    where: ProfileSchemaWhereUniqueInput
+  }
+
+  /**
+   * ProfileSchema findUniqueOrThrow
+   */
+  export type ProfileSchemaFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProfileSchema
+     */
+    select?: ProfileSchemaSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ProfileSchema
+     */
+    omit?: ProfileSchemaOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProfileSchemaInclude<ExtArgs> | null
+    /**
+     * Filter, which ProfileSchema to fetch.
+     */
+    where: ProfileSchemaWhereUniqueInput
+  }
+
+  /**
+   * ProfileSchema findFirst
+   */
+  export type ProfileSchemaFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProfileSchema
+     */
+    select?: ProfileSchemaSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ProfileSchema
+     */
+    omit?: ProfileSchemaOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProfileSchemaInclude<ExtArgs> | null
+    /**
+     * Filter, which ProfileSchema to fetch.
+     */
+    where?: ProfileSchemaWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ProfileSchemas to fetch.
+     */
+    orderBy?: ProfileSchemaOrderByWithRelationInput | ProfileSchemaOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for ProfileSchemas.
+     */
+    cursor?: ProfileSchemaWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ProfileSchemas from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ProfileSchemas.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of ProfileSchemas.
+     */
+    distinct?: ProfileSchemaScalarFieldEnum | ProfileSchemaScalarFieldEnum[]
+  }
+
+  /**
+   * ProfileSchema findFirstOrThrow
+   */
+  export type ProfileSchemaFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProfileSchema
+     */
+    select?: ProfileSchemaSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ProfileSchema
+     */
+    omit?: ProfileSchemaOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProfileSchemaInclude<ExtArgs> | null
+    /**
+     * Filter, which ProfileSchema to fetch.
+     */
+    where?: ProfileSchemaWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ProfileSchemas to fetch.
+     */
+    orderBy?: ProfileSchemaOrderByWithRelationInput | ProfileSchemaOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for ProfileSchemas.
+     */
+    cursor?: ProfileSchemaWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ProfileSchemas from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ProfileSchemas.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of ProfileSchemas.
+     */
+    distinct?: ProfileSchemaScalarFieldEnum | ProfileSchemaScalarFieldEnum[]
+  }
+
+  /**
+   * ProfileSchema findMany
+   */
+  export type ProfileSchemaFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProfileSchema
+     */
+    select?: ProfileSchemaSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ProfileSchema
+     */
+    omit?: ProfileSchemaOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProfileSchemaInclude<ExtArgs> | null
+    /**
+     * Filter, which ProfileSchemas to fetch.
+     */
+    where?: ProfileSchemaWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ProfileSchemas to fetch.
+     */
+    orderBy?: ProfileSchemaOrderByWithRelationInput | ProfileSchemaOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing ProfileSchemas.
+     */
+    cursor?: ProfileSchemaWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ProfileSchemas from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ProfileSchemas.
+     */
+    skip?: number
+    distinct?: ProfileSchemaScalarFieldEnum | ProfileSchemaScalarFieldEnum[]
+  }
+
+  /**
+   * ProfileSchema create
+   */
+  export type ProfileSchemaCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProfileSchema
+     */
+    select?: ProfileSchemaSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ProfileSchema
+     */
+    omit?: ProfileSchemaOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProfileSchemaInclude<ExtArgs> | null
+    /**
+     * The data needed to create a ProfileSchema.
+     */
+    data: XOR<ProfileSchemaCreateInput, ProfileSchemaUncheckedCreateInput>
+  }
+
+  /**
+   * ProfileSchema createMany
+   */
+  export type ProfileSchemaCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many ProfileSchemas.
+     */
+    data: ProfileSchemaCreateManyInput | ProfileSchemaCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * ProfileSchema createManyAndReturn
+   */
+  export type ProfileSchemaCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProfileSchema
+     */
+    select?: ProfileSchemaSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the ProfileSchema
+     */
+    omit?: ProfileSchemaOmit<ExtArgs> | null
+    /**
+     * The data used to create many ProfileSchemas.
+     */
+    data: ProfileSchemaCreateManyInput | ProfileSchemaCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProfileSchemaIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * ProfileSchema update
+   */
+  export type ProfileSchemaUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProfileSchema
+     */
+    select?: ProfileSchemaSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ProfileSchema
+     */
+    omit?: ProfileSchemaOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProfileSchemaInclude<ExtArgs> | null
+    /**
+     * The data needed to update a ProfileSchema.
+     */
+    data: XOR<ProfileSchemaUpdateInput, ProfileSchemaUncheckedUpdateInput>
+    /**
+     * Choose, which ProfileSchema to update.
+     */
+    where: ProfileSchemaWhereUniqueInput
+  }
+
+  /**
+   * ProfileSchema updateMany
+   */
+  export type ProfileSchemaUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update ProfileSchemas.
+     */
+    data: XOR<ProfileSchemaUpdateManyMutationInput, ProfileSchemaUncheckedUpdateManyInput>
+    /**
+     * Filter which ProfileSchemas to update
+     */
+    where?: ProfileSchemaWhereInput
+    /**
+     * Limit how many ProfileSchemas to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * ProfileSchema updateManyAndReturn
+   */
+  export type ProfileSchemaUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProfileSchema
+     */
+    select?: ProfileSchemaSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the ProfileSchema
+     */
+    omit?: ProfileSchemaOmit<ExtArgs> | null
+    /**
+     * The data used to update ProfileSchemas.
+     */
+    data: XOR<ProfileSchemaUpdateManyMutationInput, ProfileSchemaUncheckedUpdateManyInput>
+    /**
+     * Filter which ProfileSchemas to update
+     */
+    where?: ProfileSchemaWhereInput
+    /**
+     * Limit how many ProfileSchemas to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProfileSchemaIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * ProfileSchema upsert
+   */
+  export type ProfileSchemaUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProfileSchema
+     */
+    select?: ProfileSchemaSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ProfileSchema
+     */
+    omit?: ProfileSchemaOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProfileSchemaInclude<ExtArgs> | null
+    /**
+     * The filter to search for the ProfileSchema to update in case it exists.
+     */
+    where: ProfileSchemaWhereUniqueInput
+    /**
+     * In case the ProfileSchema found by the `where` argument doesn't exist, create a new ProfileSchema with this data.
+     */
+    create: XOR<ProfileSchemaCreateInput, ProfileSchemaUncheckedCreateInput>
+    /**
+     * In case the ProfileSchema was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<ProfileSchemaUpdateInput, ProfileSchemaUncheckedUpdateInput>
+  }
+
+  /**
+   * ProfileSchema delete
+   */
+  export type ProfileSchemaDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProfileSchema
+     */
+    select?: ProfileSchemaSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ProfileSchema
+     */
+    omit?: ProfileSchemaOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProfileSchemaInclude<ExtArgs> | null
+    /**
+     * Filter which ProfileSchema to delete.
+     */
+    where: ProfileSchemaWhereUniqueInput
+  }
+
+  /**
+   * ProfileSchema deleteMany
+   */
+  export type ProfileSchemaDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which ProfileSchemas to delete
+     */
+    where?: ProfileSchemaWhereInput
+    /**
+     * Limit how many ProfileSchemas to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * ProfileSchema without action
+   */
+  export type ProfileSchemaDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProfileSchema
+     */
+    select?: ProfileSchemaSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ProfileSchema
+     */
+    omit?: ProfileSchemaOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProfileSchemaInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model JobSchema
+   */
+
+  export type AggregateJobSchema = {
+    _count: JobSchemaCountAggregateOutputType | null
+    _avg: JobSchemaAvgAggregateOutputType | null
+    _sum: JobSchemaSumAggregateOutputType | null
+    _min: JobSchemaMinAggregateOutputType | null
+    _max: JobSchemaMaxAggregateOutputType | null
+  }
+
+  export type JobSchemaAvgAggregateOutputType = {
+    job_id: number | null
+    clientid: number | null
+  }
+
+  export type JobSchemaSumAggregateOutputType = {
+    job_id: number | null
+    clientid: number | null
+  }
+
+  export type JobSchemaMinAggregateOutputType = {
+    job_id: number | null
+    clientid: number | null
+    Job_titile: string | null
+    Job_description: string | null
+    Budget: string | null
+    Timeline: string | null
+  }
+
+  export type JobSchemaMaxAggregateOutputType = {
+    job_id: number | null
+    clientid: number | null
+    Job_titile: string | null
+    Job_description: string | null
+    Budget: string | null
+    Timeline: string | null
+  }
+
+  export type JobSchemaCountAggregateOutputType = {
+    job_id: number
+    clientid: number
+    Job_titile: number
+    Job_description: number
+    Budget: number
+    Timeline: number
+    _all: number
+  }
+
+
+  export type JobSchemaAvgAggregateInputType = {
+    job_id?: true
+    clientid?: true
+  }
+
+  export type JobSchemaSumAggregateInputType = {
+    job_id?: true
+    clientid?: true
+  }
+
+  export type JobSchemaMinAggregateInputType = {
+    job_id?: true
+    clientid?: true
+    Job_titile?: true
+    Job_description?: true
+    Budget?: true
+    Timeline?: true
+  }
+
+  export type JobSchemaMaxAggregateInputType = {
+    job_id?: true
+    clientid?: true
+    Job_titile?: true
+    Job_description?: true
+    Budget?: true
+    Timeline?: true
+  }
+
+  export type JobSchemaCountAggregateInputType = {
+    job_id?: true
+    clientid?: true
+    Job_titile?: true
+    Job_description?: true
+    Budget?: true
+    Timeline?: true
+    _all?: true
+  }
+
+  export type JobSchemaAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which JobSchema to aggregate.
+     */
+    where?: JobSchemaWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of JobSchemas to fetch.
+     */
+    orderBy?: JobSchemaOrderByWithRelationInput | JobSchemaOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: JobSchemaWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` JobSchemas from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` JobSchemas.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned JobSchemas
+    **/
+    _count?: true | JobSchemaCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: JobSchemaAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: JobSchemaSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: JobSchemaMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: JobSchemaMaxAggregateInputType
+  }
+
+  export type GetJobSchemaAggregateType<T extends JobSchemaAggregateArgs> = {
+        [P in keyof T & keyof AggregateJobSchema]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateJobSchema[P]>
+      : GetScalarType<T[P], AggregateJobSchema[P]>
+  }
+
+
+
+
+  export type JobSchemaGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: JobSchemaWhereInput
+    orderBy?: JobSchemaOrderByWithAggregationInput | JobSchemaOrderByWithAggregationInput[]
+    by: JobSchemaScalarFieldEnum[] | JobSchemaScalarFieldEnum
+    having?: JobSchemaScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: JobSchemaCountAggregateInputType | true
+    _avg?: JobSchemaAvgAggregateInputType
+    _sum?: JobSchemaSumAggregateInputType
+    _min?: JobSchemaMinAggregateInputType
+    _max?: JobSchemaMaxAggregateInputType
+  }
+
+  export type JobSchemaGroupByOutputType = {
+    job_id: number
+    clientid: number
+    Job_titile: string
+    Job_description: string
+    Budget: string
+    Timeline: string
+    _count: JobSchemaCountAggregateOutputType | null
+    _avg: JobSchemaAvgAggregateOutputType | null
+    _sum: JobSchemaSumAggregateOutputType | null
+    _min: JobSchemaMinAggregateOutputType | null
+    _max: JobSchemaMaxAggregateOutputType | null
+  }
+
+  type GetJobSchemaGroupByPayload<T extends JobSchemaGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<JobSchemaGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof JobSchemaGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], JobSchemaGroupByOutputType[P]>
+            : GetScalarType<T[P], JobSchemaGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type JobSchemaSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    job_id?: boolean
+    clientid?: boolean
+    Job_titile?: boolean
+    Job_description?: boolean
+    Budget?: boolean
+    Timeline?: boolean
+    client?: boolean | ClientSchemaDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["jobSchema"]>
+
+  export type JobSchemaSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    job_id?: boolean
+    clientid?: boolean
+    Job_titile?: boolean
+    Job_description?: boolean
+    Budget?: boolean
+    Timeline?: boolean
+    client?: boolean | ClientSchemaDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["jobSchema"]>
+
+  export type JobSchemaSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    job_id?: boolean
+    clientid?: boolean
+    Job_titile?: boolean
+    Job_description?: boolean
+    Budget?: boolean
+    Timeline?: boolean
+    client?: boolean | ClientSchemaDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["jobSchema"]>
+
+  export type JobSchemaSelectScalar = {
+    job_id?: boolean
+    clientid?: boolean
+    Job_titile?: boolean
+    Job_description?: boolean
+    Budget?: boolean
+    Timeline?: boolean
+  }
+
+  export type JobSchemaOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"job_id" | "clientid" | "Job_titile" | "Job_description" | "Budget" | "Timeline", ExtArgs["result"]["jobSchema"]>
+  export type JobSchemaInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    client?: boolean | ClientSchemaDefaultArgs<ExtArgs>
+  }
+  export type JobSchemaIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    client?: boolean | ClientSchemaDefaultArgs<ExtArgs>
+  }
+  export type JobSchemaIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    client?: boolean | ClientSchemaDefaultArgs<ExtArgs>
+  }
+
+  export type $JobSchemaPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "JobSchema"
+    objects: {
+      client: Prisma.$ClientSchemaPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      job_id: number
+      clientid: number
+      Job_titile: string
+      Job_description: string
+      Budget: string
+      Timeline: string
+    }, ExtArgs["result"]["jobSchema"]>
+    composites: {}
+  }
+
+  type JobSchemaGetPayload<S extends boolean | null | undefined | JobSchemaDefaultArgs> = $Result.GetResult<Prisma.$JobSchemaPayload, S>
+
+  type JobSchemaCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<JobSchemaFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: JobSchemaCountAggregateInputType | true
+    }
+
+  export interface JobSchemaDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['JobSchema'], meta: { name: 'JobSchema' } }
+    /**
+     * Find zero or one JobSchema that matches the filter.
+     * @param {JobSchemaFindUniqueArgs} args - Arguments to find a JobSchema
+     * @example
+     * // Get one JobSchema
+     * const jobSchema = await prisma.jobSchema.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends JobSchemaFindUniqueArgs>(args: SelectSubset<T, JobSchemaFindUniqueArgs<ExtArgs>>): Prisma__JobSchemaClient<$Result.GetResult<Prisma.$JobSchemaPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one JobSchema that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {JobSchemaFindUniqueOrThrowArgs} args - Arguments to find a JobSchema
+     * @example
+     * // Get one JobSchema
+     * const jobSchema = await prisma.jobSchema.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends JobSchemaFindUniqueOrThrowArgs>(args: SelectSubset<T, JobSchemaFindUniqueOrThrowArgs<ExtArgs>>): Prisma__JobSchemaClient<$Result.GetResult<Prisma.$JobSchemaPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first JobSchema that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {JobSchemaFindFirstArgs} args - Arguments to find a JobSchema
+     * @example
+     * // Get one JobSchema
+     * const jobSchema = await prisma.jobSchema.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends JobSchemaFindFirstArgs>(args?: SelectSubset<T, JobSchemaFindFirstArgs<ExtArgs>>): Prisma__JobSchemaClient<$Result.GetResult<Prisma.$JobSchemaPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first JobSchema that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {JobSchemaFindFirstOrThrowArgs} args - Arguments to find a JobSchema
+     * @example
+     * // Get one JobSchema
+     * const jobSchema = await prisma.jobSchema.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends JobSchemaFindFirstOrThrowArgs>(args?: SelectSubset<T, JobSchemaFindFirstOrThrowArgs<ExtArgs>>): Prisma__JobSchemaClient<$Result.GetResult<Prisma.$JobSchemaPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more JobSchemas that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {JobSchemaFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all JobSchemas
+     * const jobSchemas = await prisma.jobSchema.findMany()
+     * 
+     * // Get first 10 JobSchemas
+     * const jobSchemas = await prisma.jobSchema.findMany({ take: 10 })
+     * 
+     * // Only select the `job_id`
+     * const jobSchemaWithJob_idOnly = await prisma.jobSchema.findMany({ select: { job_id: true } })
+     * 
+     */
+    findMany<T extends JobSchemaFindManyArgs>(args?: SelectSubset<T, JobSchemaFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$JobSchemaPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a JobSchema.
+     * @param {JobSchemaCreateArgs} args - Arguments to create a JobSchema.
+     * @example
+     * // Create one JobSchema
+     * const JobSchema = await prisma.jobSchema.create({
+     *   data: {
+     *     // ... data to create a JobSchema
+     *   }
+     * })
+     * 
+     */
+    create<T extends JobSchemaCreateArgs>(args: SelectSubset<T, JobSchemaCreateArgs<ExtArgs>>): Prisma__JobSchemaClient<$Result.GetResult<Prisma.$JobSchemaPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many JobSchemas.
+     * @param {JobSchemaCreateManyArgs} args - Arguments to create many JobSchemas.
+     * @example
+     * // Create many JobSchemas
+     * const jobSchema = await prisma.jobSchema.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends JobSchemaCreateManyArgs>(args?: SelectSubset<T, JobSchemaCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many JobSchemas and returns the data saved in the database.
+     * @param {JobSchemaCreateManyAndReturnArgs} args - Arguments to create many JobSchemas.
+     * @example
+     * // Create many JobSchemas
+     * const jobSchema = await prisma.jobSchema.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many JobSchemas and only return the `job_id`
+     * const jobSchemaWithJob_idOnly = await prisma.jobSchema.createManyAndReturn({
+     *   select: { job_id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends JobSchemaCreateManyAndReturnArgs>(args?: SelectSubset<T, JobSchemaCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$JobSchemaPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a JobSchema.
+     * @param {JobSchemaDeleteArgs} args - Arguments to delete one JobSchema.
+     * @example
+     * // Delete one JobSchema
+     * const JobSchema = await prisma.jobSchema.delete({
+     *   where: {
+     *     // ... filter to delete one JobSchema
+     *   }
+     * })
+     * 
+     */
+    delete<T extends JobSchemaDeleteArgs>(args: SelectSubset<T, JobSchemaDeleteArgs<ExtArgs>>): Prisma__JobSchemaClient<$Result.GetResult<Prisma.$JobSchemaPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one JobSchema.
+     * @param {JobSchemaUpdateArgs} args - Arguments to update one JobSchema.
+     * @example
+     * // Update one JobSchema
+     * const jobSchema = await prisma.jobSchema.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends JobSchemaUpdateArgs>(args: SelectSubset<T, JobSchemaUpdateArgs<ExtArgs>>): Prisma__JobSchemaClient<$Result.GetResult<Prisma.$JobSchemaPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more JobSchemas.
+     * @param {JobSchemaDeleteManyArgs} args - Arguments to filter JobSchemas to delete.
+     * @example
+     * // Delete a few JobSchemas
+     * const { count } = await prisma.jobSchema.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends JobSchemaDeleteManyArgs>(args?: SelectSubset<T, JobSchemaDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more JobSchemas.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {JobSchemaUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many JobSchemas
+     * const jobSchema = await prisma.jobSchema.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends JobSchemaUpdateManyArgs>(args: SelectSubset<T, JobSchemaUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more JobSchemas and returns the data updated in the database.
+     * @param {JobSchemaUpdateManyAndReturnArgs} args - Arguments to update many JobSchemas.
+     * @example
+     * // Update many JobSchemas
+     * const jobSchema = await prisma.jobSchema.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more JobSchemas and only return the `job_id`
+     * const jobSchemaWithJob_idOnly = await prisma.jobSchema.updateManyAndReturn({
+     *   select: { job_id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends JobSchemaUpdateManyAndReturnArgs>(args: SelectSubset<T, JobSchemaUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$JobSchemaPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one JobSchema.
+     * @param {JobSchemaUpsertArgs} args - Arguments to update or create a JobSchema.
+     * @example
+     * // Update or create a JobSchema
+     * const jobSchema = await prisma.jobSchema.upsert({
+     *   create: {
+     *     // ... data to create a JobSchema
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the JobSchema we want to update
+     *   }
+     * })
+     */
+    upsert<T extends JobSchemaUpsertArgs>(args: SelectSubset<T, JobSchemaUpsertArgs<ExtArgs>>): Prisma__JobSchemaClient<$Result.GetResult<Prisma.$JobSchemaPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of JobSchemas.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {JobSchemaCountArgs} args - Arguments to filter JobSchemas to count.
+     * @example
+     * // Count the number of JobSchemas
+     * const count = await prisma.jobSchema.count({
+     *   where: {
+     *     // ... the filter for the JobSchemas we want to count
+     *   }
+     * })
+    **/
+    count<T extends JobSchemaCountArgs>(
+      args?: Subset<T, JobSchemaCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], JobSchemaCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a JobSchema.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {JobSchemaAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends JobSchemaAggregateArgs>(args: Subset<T, JobSchemaAggregateArgs>): Prisma.PrismaPromise<GetJobSchemaAggregateType<T>>
+
+    /**
+     * Group by JobSchema.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {JobSchemaGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends JobSchemaGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: JobSchemaGroupByArgs['orderBy'] }
+        : { orderBy?: JobSchemaGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, JobSchemaGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetJobSchemaGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the JobSchema model
+   */
+  readonly fields: JobSchemaFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for JobSchema.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__JobSchemaClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    client<T extends ClientSchemaDefaultArgs<ExtArgs> = {}>(args?: Subset<T, ClientSchemaDefaultArgs<ExtArgs>>): Prisma__ClientSchemaClient<$Result.GetResult<Prisma.$ClientSchemaPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the JobSchema model
+   */ 
+  interface JobSchemaFieldRefs {
+    readonly job_id: FieldRef<"JobSchema", 'Int'>
+    readonly clientid: FieldRef<"JobSchema", 'Int'>
+    readonly Job_titile: FieldRef<"JobSchema", 'String'>
+    readonly Job_description: FieldRef<"JobSchema", 'String'>
+    readonly Budget: FieldRef<"JobSchema", 'String'>
+    readonly Timeline: FieldRef<"JobSchema", 'String'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * JobSchema findUnique
+   */
+  export type JobSchemaFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the JobSchema
+     */
+    select?: JobSchemaSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the JobSchema
+     */
+    omit?: JobSchemaOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: JobSchemaInclude<ExtArgs> | null
+    /**
+     * Filter, which JobSchema to fetch.
+     */
+    where: JobSchemaWhereUniqueInput
+  }
+
+  /**
+   * JobSchema findUniqueOrThrow
+   */
+  export type JobSchemaFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the JobSchema
+     */
+    select?: JobSchemaSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the JobSchema
+     */
+    omit?: JobSchemaOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: JobSchemaInclude<ExtArgs> | null
+    /**
+     * Filter, which JobSchema to fetch.
+     */
+    where: JobSchemaWhereUniqueInput
+  }
+
+  /**
+   * JobSchema findFirst
+   */
+  export type JobSchemaFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the JobSchema
+     */
+    select?: JobSchemaSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the JobSchema
+     */
+    omit?: JobSchemaOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: JobSchemaInclude<ExtArgs> | null
+    /**
+     * Filter, which JobSchema to fetch.
+     */
+    where?: JobSchemaWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of JobSchemas to fetch.
+     */
+    orderBy?: JobSchemaOrderByWithRelationInput | JobSchemaOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for JobSchemas.
+     */
+    cursor?: JobSchemaWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` JobSchemas from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` JobSchemas.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of JobSchemas.
+     */
+    distinct?: JobSchemaScalarFieldEnum | JobSchemaScalarFieldEnum[]
+  }
+
+  /**
+   * JobSchema findFirstOrThrow
+   */
+  export type JobSchemaFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the JobSchema
+     */
+    select?: JobSchemaSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the JobSchema
+     */
+    omit?: JobSchemaOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: JobSchemaInclude<ExtArgs> | null
+    /**
+     * Filter, which JobSchema to fetch.
+     */
+    where?: JobSchemaWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of JobSchemas to fetch.
+     */
+    orderBy?: JobSchemaOrderByWithRelationInput | JobSchemaOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for JobSchemas.
+     */
+    cursor?: JobSchemaWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` JobSchemas from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` JobSchemas.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of JobSchemas.
+     */
+    distinct?: JobSchemaScalarFieldEnum | JobSchemaScalarFieldEnum[]
+  }
+
+  /**
+   * JobSchema findMany
+   */
+  export type JobSchemaFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the JobSchema
+     */
+    select?: JobSchemaSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the JobSchema
+     */
+    omit?: JobSchemaOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: JobSchemaInclude<ExtArgs> | null
+    /**
+     * Filter, which JobSchemas to fetch.
+     */
+    where?: JobSchemaWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of JobSchemas to fetch.
+     */
+    orderBy?: JobSchemaOrderByWithRelationInput | JobSchemaOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing JobSchemas.
+     */
+    cursor?: JobSchemaWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` JobSchemas from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` JobSchemas.
+     */
+    skip?: number
+    distinct?: JobSchemaScalarFieldEnum | JobSchemaScalarFieldEnum[]
+  }
+
+  /**
+   * JobSchema create
+   */
+  export type JobSchemaCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the JobSchema
+     */
+    select?: JobSchemaSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the JobSchema
+     */
+    omit?: JobSchemaOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: JobSchemaInclude<ExtArgs> | null
+    /**
+     * The data needed to create a JobSchema.
+     */
+    data: XOR<JobSchemaCreateInput, JobSchemaUncheckedCreateInput>
+  }
+
+  /**
+   * JobSchema createMany
+   */
+  export type JobSchemaCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many JobSchemas.
+     */
+    data: JobSchemaCreateManyInput | JobSchemaCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * JobSchema createManyAndReturn
+   */
+  export type JobSchemaCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the JobSchema
+     */
+    select?: JobSchemaSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the JobSchema
+     */
+    omit?: JobSchemaOmit<ExtArgs> | null
+    /**
+     * The data used to create many JobSchemas.
+     */
+    data: JobSchemaCreateManyInput | JobSchemaCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: JobSchemaIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * JobSchema update
+   */
+  export type JobSchemaUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the JobSchema
+     */
+    select?: JobSchemaSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the JobSchema
+     */
+    omit?: JobSchemaOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: JobSchemaInclude<ExtArgs> | null
+    /**
+     * The data needed to update a JobSchema.
+     */
+    data: XOR<JobSchemaUpdateInput, JobSchemaUncheckedUpdateInput>
+    /**
+     * Choose, which JobSchema to update.
+     */
+    where: JobSchemaWhereUniqueInput
+  }
+
+  /**
+   * JobSchema updateMany
+   */
+  export type JobSchemaUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update JobSchemas.
+     */
+    data: XOR<JobSchemaUpdateManyMutationInput, JobSchemaUncheckedUpdateManyInput>
+    /**
+     * Filter which JobSchemas to update
+     */
+    where?: JobSchemaWhereInput
+    /**
+     * Limit how many JobSchemas to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * JobSchema updateManyAndReturn
+   */
+  export type JobSchemaUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the JobSchema
+     */
+    select?: JobSchemaSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the JobSchema
+     */
+    omit?: JobSchemaOmit<ExtArgs> | null
+    /**
+     * The data used to update JobSchemas.
+     */
+    data: XOR<JobSchemaUpdateManyMutationInput, JobSchemaUncheckedUpdateManyInput>
+    /**
+     * Filter which JobSchemas to update
+     */
+    where?: JobSchemaWhereInput
+    /**
+     * Limit how many JobSchemas to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: JobSchemaIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * JobSchema upsert
+   */
+  export type JobSchemaUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the JobSchema
+     */
+    select?: JobSchemaSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the JobSchema
+     */
+    omit?: JobSchemaOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: JobSchemaInclude<ExtArgs> | null
+    /**
+     * The filter to search for the JobSchema to update in case it exists.
+     */
+    where: JobSchemaWhereUniqueInput
+    /**
+     * In case the JobSchema found by the `where` argument doesn't exist, create a new JobSchema with this data.
+     */
+    create: XOR<JobSchemaCreateInput, JobSchemaUncheckedCreateInput>
+    /**
+     * In case the JobSchema was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<JobSchemaUpdateInput, JobSchemaUncheckedUpdateInput>
+  }
+
+  /**
+   * JobSchema delete
+   */
+  export type JobSchemaDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the JobSchema
+     */
+    select?: JobSchemaSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the JobSchema
+     */
+    omit?: JobSchemaOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: JobSchemaInclude<ExtArgs> | null
+    /**
+     * Filter which JobSchema to delete.
+     */
+    where: JobSchemaWhereUniqueInput
+  }
+
+  /**
+   * JobSchema deleteMany
+   */
+  export type JobSchemaDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which JobSchemas to delete
+     */
+    where?: JobSchemaWhereInput
+    /**
+     * Limit how many JobSchemas to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * JobSchema without action
+   */
+  export type JobSchemaDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the JobSchema
+     */
+    select?: JobSchemaSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the JobSchema
+     */
+    omit?: JobSchemaOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: JobSchemaInclude<ExtArgs> | null
   }
 
 
@@ -3084,6 +5627,28 @@ export namespace Prisma {
   };
 
   export type ClientSchemaScalarFieldEnum = (typeof ClientSchemaScalarFieldEnum)[keyof typeof ClientSchemaScalarFieldEnum]
+
+
+  export const ProfileSchemaScalarFieldEnum: {
+    profile_id: 'profile_id',
+    About: 'About',
+    ProjectLink: 'ProjectLink',
+    userid: 'userid'
+  };
+
+  export type ProfileSchemaScalarFieldEnum = (typeof ProfileSchemaScalarFieldEnum)[keyof typeof ProfileSchemaScalarFieldEnum]
+
+
+  export const JobSchemaScalarFieldEnum: {
+    job_id: 'job_id',
+    clientid: 'clientid',
+    Job_titile: 'Job_titile',
+    Job_description: 'Job_description',
+    Budget: 'Budget',
+    Timeline: 'Timeline'
+  };
+
+  export type JobSchemaScalarFieldEnum = (typeof JobSchemaScalarFieldEnum)[keyof typeof JobSchemaScalarFieldEnum]
 
 
   export const SortOrder: {
@@ -3171,6 +5736,7 @@ export namespace Prisma {
     Experience?: IntFilter<"UserSchema"> | number
     Rating?: IntFilter<"UserSchema"> | number
     Skills?: StringNullableListFilter<"UserSchema">
+    Profile?: XOR<ProfileSchemaNullableScalarRelationFilter, ProfileSchemaWhereInput> | null
   }
 
   export type UserSchemaOrderByWithRelationInput = {
@@ -3181,6 +5747,7 @@ export namespace Prisma {
     Experience?: SortOrder
     Rating?: SortOrder
     Skills?: SortOrder
+    Profile?: ProfileSchemaOrderByWithRelationInput
   }
 
   export type UserSchemaWhereUniqueInput = Prisma.AtLeast<{
@@ -3194,6 +5761,7 @@ export namespace Prisma {
     Experience?: IntFilter<"UserSchema"> | number
     Rating?: IntFilter<"UserSchema"> | number
     Skills?: StringNullableListFilter<"UserSchema">
+    Profile?: XOR<ProfileSchemaNullableScalarRelationFilter, ProfileSchemaWhereInput> | null
   }, "user_id" | "Email">
 
   export type UserSchemaOrderByWithAggregationInput = {
@@ -3233,6 +5801,7 @@ export namespace Prisma {
     Email?: StringFilter<"ClientSchema"> | string
     Password?: StringFilter<"ClientSchema"> | string
     Organization?: StringNullableFilter<"ClientSchema"> | string | null
+    jobschema?: JobSchemaListRelationFilter
   }
 
   export type ClientSchemaOrderByWithRelationInput = {
@@ -3241,6 +5810,7 @@ export namespace Prisma {
     Email?: SortOrder
     Password?: SortOrder
     Organization?: SortOrderInput | SortOrder
+    jobschema?: JobSchemaOrderByRelationAggregateInput
   }
 
   export type ClientSchemaWhereUniqueInput = Prisma.AtLeast<{
@@ -3252,6 +5822,7 @@ export namespace Prisma {
     client_name?: StringFilter<"ClientSchema"> | string
     Password?: StringFilter<"ClientSchema"> | string
     Organization?: StringNullableFilter<"ClientSchema"> | string | null
+    jobschema?: JobSchemaListRelationFilter
   }, "client_id" | "Email">
 
   export type ClientSchemaOrderByWithAggregationInput = {
@@ -3278,6 +5849,120 @@ export namespace Prisma {
     Organization?: StringNullableWithAggregatesFilter<"ClientSchema"> | string | null
   }
 
+  export type ProfileSchemaWhereInput = {
+    AND?: ProfileSchemaWhereInput | ProfileSchemaWhereInput[]
+    OR?: ProfileSchemaWhereInput[]
+    NOT?: ProfileSchemaWhereInput | ProfileSchemaWhereInput[]
+    profile_id?: IntFilter<"ProfileSchema"> | number
+    About?: StringFilter<"ProfileSchema"> | string
+    ProjectLink?: StringNullableListFilter<"ProfileSchema">
+    userid?: IntFilter<"ProfileSchema"> | number
+    user?: XOR<UserSchemaScalarRelationFilter, UserSchemaWhereInput>
+  }
+
+  export type ProfileSchemaOrderByWithRelationInput = {
+    profile_id?: SortOrder
+    About?: SortOrder
+    ProjectLink?: SortOrder
+    userid?: SortOrder
+    user?: UserSchemaOrderByWithRelationInput
+  }
+
+  export type ProfileSchemaWhereUniqueInput = Prisma.AtLeast<{
+    profile_id?: number
+    userid?: number
+    AND?: ProfileSchemaWhereInput | ProfileSchemaWhereInput[]
+    OR?: ProfileSchemaWhereInput[]
+    NOT?: ProfileSchemaWhereInput | ProfileSchemaWhereInput[]
+    About?: StringFilter<"ProfileSchema"> | string
+    ProjectLink?: StringNullableListFilter<"ProfileSchema">
+    user?: XOR<UserSchemaScalarRelationFilter, UserSchemaWhereInput>
+  }, "profile_id" | "userid">
+
+  export type ProfileSchemaOrderByWithAggregationInput = {
+    profile_id?: SortOrder
+    About?: SortOrder
+    ProjectLink?: SortOrder
+    userid?: SortOrder
+    _count?: ProfileSchemaCountOrderByAggregateInput
+    _avg?: ProfileSchemaAvgOrderByAggregateInput
+    _max?: ProfileSchemaMaxOrderByAggregateInput
+    _min?: ProfileSchemaMinOrderByAggregateInput
+    _sum?: ProfileSchemaSumOrderByAggregateInput
+  }
+
+  export type ProfileSchemaScalarWhereWithAggregatesInput = {
+    AND?: ProfileSchemaScalarWhereWithAggregatesInput | ProfileSchemaScalarWhereWithAggregatesInput[]
+    OR?: ProfileSchemaScalarWhereWithAggregatesInput[]
+    NOT?: ProfileSchemaScalarWhereWithAggregatesInput | ProfileSchemaScalarWhereWithAggregatesInput[]
+    profile_id?: IntWithAggregatesFilter<"ProfileSchema"> | number
+    About?: StringWithAggregatesFilter<"ProfileSchema"> | string
+    ProjectLink?: StringNullableListFilter<"ProfileSchema">
+    userid?: IntWithAggregatesFilter<"ProfileSchema"> | number
+  }
+
+  export type JobSchemaWhereInput = {
+    AND?: JobSchemaWhereInput | JobSchemaWhereInput[]
+    OR?: JobSchemaWhereInput[]
+    NOT?: JobSchemaWhereInput | JobSchemaWhereInput[]
+    job_id?: IntFilter<"JobSchema"> | number
+    clientid?: IntFilter<"JobSchema"> | number
+    Job_titile?: StringFilter<"JobSchema"> | string
+    Job_description?: StringFilter<"JobSchema"> | string
+    Budget?: StringFilter<"JobSchema"> | string
+    Timeline?: StringFilter<"JobSchema"> | string
+    client?: XOR<ClientSchemaScalarRelationFilter, ClientSchemaWhereInput>
+  }
+
+  export type JobSchemaOrderByWithRelationInput = {
+    job_id?: SortOrder
+    clientid?: SortOrder
+    Job_titile?: SortOrder
+    Job_description?: SortOrder
+    Budget?: SortOrder
+    Timeline?: SortOrder
+    client?: ClientSchemaOrderByWithRelationInput
+  }
+
+  export type JobSchemaWhereUniqueInput = Prisma.AtLeast<{
+    job_id?: number
+    AND?: JobSchemaWhereInput | JobSchemaWhereInput[]
+    OR?: JobSchemaWhereInput[]
+    NOT?: JobSchemaWhereInput | JobSchemaWhereInput[]
+    clientid?: IntFilter<"JobSchema"> | number
+    Job_titile?: StringFilter<"JobSchema"> | string
+    Job_description?: StringFilter<"JobSchema"> | string
+    Budget?: StringFilter<"JobSchema"> | string
+    Timeline?: StringFilter<"JobSchema"> | string
+    client?: XOR<ClientSchemaScalarRelationFilter, ClientSchemaWhereInput>
+  }, "job_id">
+
+  export type JobSchemaOrderByWithAggregationInput = {
+    job_id?: SortOrder
+    clientid?: SortOrder
+    Job_titile?: SortOrder
+    Job_description?: SortOrder
+    Budget?: SortOrder
+    Timeline?: SortOrder
+    _count?: JobSchemaCountOrderByAggregateInput
+    _avg?: JobSchemaAvgOrderByAggregateInput
+    _max?: JobSchemaMaxOrderByAggregateInput
+    _min?: JobSchemaMinOrderByAggregateInput
+    _sum?: JobSchemaSumOrderByAggregateInput
+  }
+
+  export type JobSchemaScalarWhereWithAggregatesInput = {
+    AND?: JobSchemaScalarWhereWithAggregatesInput | JobSchemaScalarWhereWithAggregatesInput[]
+    OR?: JobSchemaScalarWhereWithAggregatesInput[]
+    NOT?: JobSchemaScalarWhereWithAggregatesInput | JobSchemaScalarWhereWithAggregatesInput[]
+    job_id?: IntWithAggregatesFilter<"JobSchema"> | number
+    clientid?: IntWithAggregatesFilter<"JobSchema"> | number
+    Job_titile?: StringWithAggregatesFilter<"JobSchema"> | string
+    Job_description?: StringWithAggregatesFilter<"JobSchema"> | string
+    Budget?: StringWithAggregatesFilter<"JobSchema"> | string
+    Timeline?: StringWithAggregatesFilter<"JobSchema"> | string
+  }
+
   export type UserSchemaCreateInput = {
     Name: string
     Email: string
@@ -3285,6 +5970,7 @@ export namespace Prisma {
     Experience: number
     Rating: number
     Skills?: UserSchemaCreateSkillsInput | string[]
+    Profile?: ProfileSchemaCreateNestedOneWithoutUserInput
   }
 
   export type UserSchemaUncheckedCreateInput = {
@@ -3295,6 +5981,7 @@ export namespace Prisma {
     Experience: number
     Rating: number
     Skills?: UserSchemaCreateSkillsInput | string[]
+    Profile?: ProfileSchemaUncheckedCreateNestedOneWithoutUserInput
   }
 
   export type UserSchemaUpdateInput = {
@@ -3304,6 +5991,7 @@ export namespace Prisma {
     Experience?: IntFieldUpdateOperationsInput | number
     Rating?: IntFieldUpdateOperationsInput | number
     Skills?: UserSchemaUpdateSkillsInput | string[]
+    Profile?: ProfileSchemaUpdateOneWithoutUserNestedInput
   }
 
   export type UserSchemaUncheckedUpdateInput = {
@@ -3314,6 +6002,7 @@ export namespace Prisma {
     Experience?: IntFieldUpdateOperationsInput | number
     Rating?: IntFieldUpdateOperationsInput | number
     Skills?: UserSchemaUpdateSkillsInput | string[]
+    Profile?: ProfileSchemaUncheckedUpdateOneWithoutUserNestedInput
   }
 
   export type UserSchemaCreateManyInput = {
@@ -3350,6 +6039,7 @@ export namespace Prisma {
     Email: string
     Password: string
     Organization?: string | null
+    jobschema?: JobSchemaCreateNestedManyWithoutClientInput
   }
 
   export type ClientSchemaUncheckedCreateInput = {
@@ -3358,6 +6048,7 @@ export namespace Prisma {
     Email: string
     Password: string
     Organization?: string | null
+    jobschema?: JobSchemaUncheckedCreateNestedManyWithoutClientInput
   }
 
   export type ClientSchemaUpdateInput = {
@@ -3365,6 +6056,7 @@ export namespace Prisma {
     Email?: StringFieldUpdateOperationsInput | string
     Password?: StringFieldUpdateOperationsInput | string
     Organization?: NullableStringFieldUpdateOperationsInput | string | null
+    jobschema?: JobSchemaUpdateManyWithoutClientNestedInput
   }
 
   export type ClientSchemaUncheckedUpdateInput = {
@@ -3373,6 +6065,7 @@ export namespace Prisma {
     Email?: StringFieldUpdateOperationsInput | string
     Password?: StringFieldUpdateOperationsInput | string
     Organization?: NullableStringFieldUpdateOperationsInput | string | null
+    jobschema?: JobSchemaUncheckedUpdateManyWithoutClientNestedInput
   }
 
   export type ClientSchemaCreateManyInput = {
@@ -3396,6 +6089,110 @@ export namespace Prisma {
     Email?: StringFieldUpdateOperationsInput | string
     Password?: StringFieldUpdateOperationsInput | string
     Organization?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type ProfileSchemaCreateInput = {
+    About: string
+    ProjectLink?: ProfileSchemaCreateProjectLinkInput | string[]
+    user: UserSchemaCreateNestedOneWithoutProfileInput
+  }
+
+  export type ProfileSchemaUncheckedCreateInput = {
+    profile_id?: number
+    About: string
+    ProjectLink?: ProfileSchemaCreateProjectLinkInput | string[]
+    userid: number
+  }
+
+  export type ProfileSchemaUpdateInput = {
+    About?: StringFieldUpdateOperationsInput | string
+    ProjectLink?: ProfileSchemaUpdateProjectLinkInput | string[]
+    user?: UserSchemaUpdateOneRequiredWithoutProfileNestedInput
+  }
+
+  export type ProfileSchemaUncheckedUpdateInput = {
+    profile_id?: IntFieldUpdateOperationsInput | number
+    About?: StringFieldUpdateOperationsInput | string
+    ProjectLink?: ProfileSchemaUpdateProjectLinkInput | string[]
+    userid?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type ProfileSchemaCreateManyInput = {
+    profile_id?: number
+    About: string
+    ProjectLink?: ProfileSchemaCreateProjectLinkInput | string[]
+    userid: number
+  }
+
+  export type ProfileSchemaUpdateManyMutationInput = {
+    About?: StringFieldUpdateOperationsInput | string
+    ProjectLink?: ProfileSchemaUpdateProjectLinkInput | string[]
+  }
+
+  export type ProfileSchemaUncheckedUpdateManyInput = {
+    profile_id?: IntFieldUpdateOperationsInput | number
+    About?: StringFieldUpdateOperationsInput | string
+    ProjectLink?: ProfileSchemaUpdateProjectLinkInput | string[]
+    userid?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type JobSchemaCreateInput = {
+    Job_titile: string
+    Job_description: string
+    Budget: string
+    Timeline: string
+    client: ClientSchemaCreateNestedOneWithoutJobschemaInput
+  }
+
+  export type JobSchemaUncheckedCreateInput = {
+    job_id?: number
+    clientid: number
+    Job_titile: string
+    Job_description: string
+    Budget: string
+    Timeline: string
+  }
+
+  export type JobSchemaUpdateInput = {
+    Job_titile?: StringFieldUpdateOperationsInput | string
+    Job_description?: StringFieldUpdateOperationsInput | string
+    Budget?: StringFieldUpdateOperationsInput | string
+    Timeline?: StringFieldUpdateOperationsInput | string
+    client?: ClientSchemaUpdateOneRequiredWithoutJobschemaNestedInput
+  }
+
+  export type JobSchemaUncheckedUpdateInput = {
+    job_id?: IntFieldUpdateOperationsInput | number
+    clientid?: IntFieldUpdateOperationsInput | number
+    Job_titile?: StringFieldUpdateOperationsInput | string
+    Job_description?: StringFieldUpdateOperationsInput | string
+    Budget?: StringFieldUpdateOperationsInput | string
+    Timeline?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type JobSchemaCreateManyInput = {
+    job_id?: number
+    clientid: number
+    Job_titile: string
+    Job_description: string
+    Budget: string
+    Timeline: string
+  }
+
+  export type JobSchemaUpdateManyMutationInput = {
+    Job_titile?: StringFieldUpdateOperationsInput | string
+    Job_description?: StringFieldUpdateOperationsInput | string
+    Budget?: StringFieldUpdateOperationsInput | string
+    Timeline?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type JobSchemaUncheckedUpdateManyInput = {
+    job_id?: IntFieldUpdateOperationsInput | number
+    clientid?: IntFieldUpdateOperationsInput | number
+    Job_titile?: StringFieldUpdateOperationsInput | string
+    Job_description?: StringFieldUpdateOperationsInput | string
+    Budget?: StringFieldUpdateOperationsInput | string
+    Timeline?: StringFieldUpdateOperationsInput | string
   }
 
   export type IntFilter<$PrismaModel = never> = {
@@ -3430,6 +6227,11 @@ export namespace Prisma {
     hasEvery?: string[] | ListStringFieldRefInput<$PrismaModel>
     hasSome?: string[] | ListStringFieldRefInput<$PrismaModel>
     isEmpty?: boolean
+  }
+
+  export type ProfileSchemaNullableScalarRelationFilter = {
+    is?: ProfileSchemaWhereInput | null
+    isNot?: ProfileSchemaWhereInput | null
   }
 
   export type UserSchemaCountOrderByAggregateInput = {
@@ -3521,9 +6323,19 @@ export namespace Prisma {
     not?: NestedStringNullableFilter<$PrismaModel> | string | null
   }
 
+  export type JobSchemaListRelationFilter = {
+    every?: JobSchemaWhereInput
+    some?: JobSchemaWhereInput
+    none?: JobSchemaWhereInput
+  }
+
   export type SortOrderInput = {
     sort: SortOrder
     nulls?: NullsOrder
+  }
+
+  export type JobSchemaOrderByRelationAggregateInput = {
+    _count?: SortOrder
   }
 
   export type ClientSchemaCountOrderByAggregateInput = {
@@ -3576,8 +6388,96 @@ export namespace Prisma {
     _max?: NestedStringNullableFilter<$PrismaModel>
   }
 
+  export type UserSchemaScalarRelationFilter = {
+    is?: UserSchemaWhereInput
+    isNot?: UserSchemaWhereInput
+  }
+
+  export type ProfileSchemaCountOrderByAggregateInput = {
+    profile_id?: SortOrder
+    About?: SortOrder
+    ProjectLink?: SortOrder
+    userid?: SortOrder
+  }
+
+  export type ProfileSchemaAvgOrderByAggregateInput = {
+    profile_id?: SortOrder
+    userid?: SortOrder
+  }
+
+  export type ProfileSchemaMaxOrderByAggregateInput = {
+    profile_id?: SortOrder
+    About?: SortOrder
+    userid?: SortOrder
+  }
+
+  export type ProfileSchemaMinOrderByAggregateInput = {
+    profile_id?: SortOrder
+    About?: SortOrder
+    userid?: SortOrder
+  }
+
+  export type ProfileSchemaSumOrderByAggregateInput = {
+    profile_id?: SortOrder
+    userid?: SortOrder
+  }
+
+  export type ClientSchemaScalarRelationFilter = {
+    is?: ClientSchemaWhereInput
+    isNot?: ClientSchemaWhereInput
+  }
+
+  export type JobSchemaCountOrderByAggregateInput = {
+    job_id?: SortOrder
+    clientid?: SortOrder
+    Job_titile?: SortOrder
+    Job_description?: SortOrder
+    Budget?: SortOrder
+    Timeline?: SortOrder
+  }
+
+  export type JobSchemaAvgOrderByAggregateInput = {
+    job_id?: SortOrder
+    clientid?: SortOrder
+  }
+
+  export type JobSchemaMaxOrderByAggregateInput = {
+    job_id?: SortOrder
+    clientid?: SortOrder
+    Job_titile?: SortOrder
+    Job_description?: SortOrder
+    Budget?: SortOrder
+    Timeline?: SortOrder
+  }
+
+  export type JobSchemaMinOrderByAggregateInput = {
+    job_id?: SortOrder
+    clientid?: SortOrder
+    Job_titile?: SortOrder
+    Job_description?: SortOrder
+    Budget?: SortOrder
+    Timeline?: SortOrder
+  }
+
+  export type JobSchemaSumOrderByAggregateInput = {
+    job_id?: SortOrder
+    clientid?: SortOrder
+  }
+
   export type UserSchemaCreateSkillsInput = {
     set: string[]
+  }
+
+  export type ProfileSchemaCreateNestedOneWithoutUserInput = {
+    create?: XOR<ProfileSchemaCreateWithoutUserInput, ProfileSchemaUncheckedCreateWithoutUserInput>
+    connectOrCreate?: ProfileSchemaCreateOrConnectWithoutUserInput
+    connect?: ProfileSchemaWhereUniqueInput
+  }
+
+  export type ProfileSchemaUncheckedCreateNestedOneWithoutUserInput = {
+    create?: XOR<ProfileSchemaCreateWithoutUserInput, ProfileSchemaUncheckedCreateWithoutUserInput>
+    connectOrCreate?: ProfileSchemaCreateOrConnectWithoutUserInput
+    connect?: ProfileSchemaWhereUniqueInput
   }
 
   export type StringFieldUpdateOperationsInput = {
@@ -3597,8 +6497,107 @@ export namespace Prisma {
     push?: string | string[]
   }
 
+  export type ProfileSchemaUpdateOneWithoutUserNestedInput = {
+    create?: XOR<ProfileSchemaCreateWithoutUserInput, ProfileSchemaUncheckedCreateWithoutUserInput>
+    connectOrCreate?: ProfileSchemaCreateOrConnectWithoutUserInput
+    upsert?: ProfileSchemaUpsertWithoutUserInput
+    disconnect?: ProfileSchemaWhereInput | boolean
+    delete?: ProfileSchemaWhereInput | boolean
+    connect?: ProfileSchemaWhereUniqueInput
+    update?: XOR<XOR<ProfileSchemaUpdateToOneWithWhereWithoutUserInput, ProfileSchemaUpdateWithoutUserInput>, ProfileSchemaUncheckedUpdateWithoutUserInput>
+  }
+
+  export type ProfileSchemaUncheckedUpdateOneWithoutUserNestedInput = {
+    create?: XOR<ProfileSchemaCreateWithoutUserInput, ProfileSchemaUncheckedCreateWithoutUserInput>
+    connectOrCreate?: ProfileSchemaCreateOrConnectWithoutUserInput
+    upsert?: ProfileSchemaUpsertWithoutUserInput
+    disconnect?: ProfileSchemaWhereInput | boolean
+    delete?: ProfileSchemaWhereInput | boolean
+    connect?: ProfileSchemaWhereUniqueInput
+    update?: XOR<XOR<ProfileSchemaUpdateToOneWithWhereWithoutUserInput, ProfileSchemaUpdateWithoutUserInput>, ProfileSchemaUncheckedUpdateWithoutUserInput>
+  }
+
+  export type JobSchemaCreateNestedManyWithoutClientInput = {
+    create?: XOR<JobSchemaCreateWithoutClientInput, JobSchemaUncheckedCreateWithoutClientInput> | JobSchemaCreateWithoutClientInput[] | JobSchemaUncheckedCreateWithoutClientInput[]
+    connectOrCreate?: JobSchemaCreateOrConnectWithoutClientInput | JobSchemaCreateOrConnectWithoutClientInput[]
+    createMany?: JobSchemaCreateManyClientInputEnvelope
+    connect?: JobSchemaWhereUniqueInput | JobSchemaWhereUniqueInput[]
+  }
+
+  export type JobSchemaUncheckedCreateNestedManyWithoutClientInput = {
+    create?: XOR<JobSchemaCreateWithoutClientInput, JobSchemaUncheckedCreateWithoutClientInput> | JobSchemaCreateWithoutClientInput[] | JobSchemaUncheckedCreateWithoutClientInput[]
+    connectOrCreate?: JobSchemaCreateOrConnectWithoutClientInput | JobSchemaCreateOrConnectWithoutClientInput[]
+    createMany?: JobSchemaCreateManyClientInputEnvelope
+    connect?: JobSchemaWhereUniqueInput | JobSchemaWhereUniqueInput[]
+  }
+
   export type NullableStringFieldUpdateOperationsInput = {
     set?: string | null
+  }
+
+  export type JobSchemaUpdateManyWithoutClientNestedInput = {
+    create?: XOR<JobSchemaCreateWithoutClientInput, JobSchemaUncheckedCreateWithoutClientInput> | JobSchemaCreateWithoutClientInput[] | JobSchemaUncheckedCreateWithoutClientInput[]
+    connectOrCreate?: JobSchemaCreateOrConnectWithoutClientInput | JobSchemaCreateOrConnectWithoutClientInput[]
+    upsert?: JobSchemaUpsertWithWhereUniqueWithoutClientInput | JobSchemaUpsertWithWhereUniqueWithoutClientInput[]
+    createMany?: JobSchemaCreateManyClientInputEnvelope
+    set?: JobSchemaWhereUniqueInput | JobSchemaWhereUniqueInput[]
+    disconnect?: JobSchemaWhereUniqueInput | JobSchemaWhereUniqueInput[]
+    delete?: JobSchemaWhereUniqueInput | JobSchemaWhereUniqueInput[]
+    connect?: JobSchemaWhereUniqueInput | JobSchemaWhereUniqueInput[]
+    update?: JobSchemaUpdateWithWhereUniqueWithoutClientInput | JobSchemaUpdateWithWhereUniqueWithoutClientInput[]
+    updateMany?: JobSchemaUpdateManyWithWhereWithoutClientInput | JobSchemaUpdateManyWithWhereWithoutClientInput[]
+    deleteMany?: JobSchemaScalarWhereInput | JobSchemaScalarWhereInput[]
+  }
+
+  export type JobSchemaUncheckedUpdateManyWithoutClientNestedInput = {
+    create?: XOR<JobSchemaCreateWithoutClientInput, JobSchemaUncheckedCreateWithoutClientInput> | JobSchemaCreateWithoutClientInput[] | JobSchemaUncheckedCreateWithoutClientInput[]
+    connectOrCreate?: JobSchemaCreateOrConnectWithoutClientInput | JobSchemaCreateOrConnectWithoutClientInput[]
+    upsert?: JobSchemaUpsertWithWhereUniqueWithoutClientInput | JobSchemaUpsertWithWhereUniqueWithoutClientInput[]
+    createMany?: JobSchemaCreateManyClientInputEnvelope
+    set?: JobSchemaWhereUniqueInput | JobSchemaWhereUniqueInput[]
+    disconnect?: JobSchemaWhereUniqueInput | JobSchemaWhereUniqueInput[]
+    delete?: JobSchemaWhereUniqueInput | JobSchemaWhereUniqueInput[]
+    connect?: JobSchemaWhereUniqueInput | JobSchemaWhereUniqueInput[]
+    update?: JobSchemaUpdateWithWhereUniqueWithoutClientInput | JobSchemaUpdateWithWhereUniqueWithoutClientInput[]
+    updateMany?: JobSchemaUpdateManyWithWhereWithoutClientInput | JobSchemaUpdateManyWithWhereWithoutClientInput[]
+    deleteMany?: JobSchemaScalarWhereInput | JobSchemaScalarWhereInput[]
+  }
+
+  export type ProfileSchemaCreateProjectLinkInput = {
+    set: string[]
+  }
+
+  export type UserSchemaCreateNestedOneWithoutProfileInput = {
+    create?: XOR<UserSchemaCreateWithoutProfileInput, UserSchemaUncheckedCreateWithoutProfileInput>
+    connectOrCreate?: UserSchemaCreateOrConnectWithoutProfileInput
+    connect?: UserSchemaWhereUniqueInput
+  }
+
+  export type ProfileSchemaUpdateProjectLinkInput = {
+    set?: string[]
+    push?: string | string[]
+  }
+
+  export type UserSchemaUpdateOneRequiredWithoutProfileNestedInput = {
+    create?: XOR<UserSchemaCreateWithoutProfileInput, UserSchemaUncheckedCreateWithoutProfileInput>
+    connectOrCreate?: UserSchemaCreateOrConnectWithoutProfileInput
+    upsert?: UserSchemaUpsertWithoutProfileInput
+    connect?: UserSchemaWhereUniqueInput
+    update?: XOR<XOR<UserSchemaUpdateToOneWithWhereWithoutProfileInput, UserSchemaUpdateWithoutProfileInput>, UserSchemaUncheckedUpdateWithoutProfileInput>
+  }
+
+  export type ClientSchemaCreateNestedOneWithoutJobschemaInput = {
+    create?: XOR<ClientSchemaCreateWithoutJobschemaInput, ClientSchemaUncheckedCreateWithoutJobschemaInput>
+    connectOrCreate?: ClientSchemaCreateOrConnectWithoutJobschemaInput
+    connect?: ClientSchemaWhereUniqueInput
+  }
+
+  export type ClientSchemaUpdateOneRequiredWithoutJobschemaNestedInput = {
+    create?: XOR<ClientSchemaCreateWithoutJobschemaInput, ClientSchemaUncheckedCreateWithoutJobschemaInput>
+    connectOrCreate?: ClientSchemaCreateOrConnectWithoutJobschemaInput
+    upsert?: ClientSchemaUpsertWithoutJobschemaInput
+    connect?: ClientSchemaWhereUniqueInput
+    update?: XOR<XOR<ClientSchemaUpdateToOneWithWhereWithoutJobschemaInput, ClientSchemaUpdateWithoutJobschemaInput>, ClientSchemaUncheckedUpdateWithoutJobschemaInput>
   }
 
   export type NestedIntFilter<$PrismaModel = never> = {
@@ -3710,6 +6709,228 @@ export namespace Prisma {
     gt?: number | IntFieldRefInput<$PrismaModel>
     gte?: number | IntFieldRefInput<$PrismaModel>
     not?: NestedIntNullableFilter<$PrismaModel> | number | null
+  }
+
+  export type ProfileSchemaCreateWithoutUserInput = {
+    About: string
+    ProjectLink?: ProfileSchemaCreateProjectLinkInput | string[]
+  }
+
+  export type ProfileSchemaUncheckedCreateWithoutUserInput = {
+    profile_id?: number
+    About: string
+    ProjectLink?: ProfileSchemaCreateProjectLinkInput | string[]
+  }
+
+  export type ProfileSchemaCreateOrConnectWithoutUserInput = {
+    where: ProfileSchemaWhereUniqueInput
+    create: XOR<ProfileSchemaCreateWithoutUserInput, ProfileSchemaUncheckedCreateWithoutUserInput>
+  }
+
+  export type ProfileSchemaUpsertWithoutUserInput = {
+    update: XOR<ProfileSchemaUpdateWithoutUserInput, ProfileSchemaUncheckedUpdateWithoutUserInput>
+    create: XOR<ProfileSchemaCreateWithoutUserInput, ProfileSchemaUncheckedCreateWithoutUserInput>
+    where?: ProfileSchemaWhereInput
+  }
+
+  export type ProfileSchemaUpdateToOneWithWhereWithoutUserInput = {
+    where?: ProfileSchemaWhereInput
+    data: XOR<ProfileSchemaUpdateWithoutUserInput, ProfileSchemaUncheckedUpdateWithoutUserInput>
+  }
+
+  export type ProfileSchemaUpdateWithoutUserInput = {
+    About?: StringFieldUpdateOperationsInput | string
+    ProjectLink?: ProfileSchemaUpdateProjectLinkInput | string[]
+  }
+
+  export type ProfileSchemaUncheckedUpdateWithoutUserInput = {
+    profile_id?: IntFieldUpdateOperationsInput | number
+    About?: StringFieldUpdateOperationsInput | string
+    ProjectLink?: ProfileSchemaUpdateProjectLinkInput | string[]
+  }
+
+  export type JobSchemaCreateWithoutClientInput = {
+    Job_titile: string
+    Job_description: string
+    Budget: string
+    Timeline: string
+  }
+
+  export type JobSchemaUncheckedCreateWithoutClientInput = {
+    job_id?: number
+    Job_titile: string
+    Job_description: string
+    Budget: string
+    Timeline: string
+  }
+
+  export type JobSchemaCreateOrConnectWithoutClientInput = {
+    where: JobSchemaWhereUniqueInput
+    create: XOR<JobSchemaCreateWithoutClientInput, JobSchemaUncheckedCreateWithoutClientInput>
+  }
+
+  export type JobSchemaCreateManyClientInputEnvelope = {
+    data: JobSchemaCreateManyClientInput | JobSchemaCreateManyClientInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type JobSchemaUpsertWithWhereUniqueWithoutClientInput = {
+    where: JobSchemaWhereUniqueInput
+    update: XOR<JobSchemaUpdateWithoutClientInput, JobSchemaUncheckedUpdateWithoutClientInput>
+    create: XOR<JobSchemaCreateWithoutClientInput, JobSchemaUncheckedCreateWithoutClientInput>
+  }
+
+  export type JobSchemaUpdateWithWhereUniqueWithoutClientInput = {
+    where: JobSchemaWhereUniqueInput
+    data: XOR<JobSchemaUpdateWithoutClientInput, JobSchemaUncheckedUpdateWithoutClientInput>
+  }
+
+  export type JobSchemaUpdateManyWithWhereWithoutClientInput = {
+    where: JobSchemaScalarWhereInput
+    data: XOR<JobSchemaUpdateManyMutationInput, JobSchemaUncheckedUpdateManyWithoutClientInput>
+  }
+
+  export type JobSchemaScalarWhereInput = {
+    AND?: JobSchemaScalarWhereInput | JobSchemaScalarWhereInput[]
+    OR?: JobSchemaScalarWhereInput[]
+    NOT?: JobSchemaScalarWhereInput | JobSchemaScalarWhereInput[]
+    job_id?: IntFilter<"JobSchema"> | number
+    clientid?: IntFilter<"JobSchema"> | number
+    Job_titile?: StringFilter<"JobSchema"> | string
+    Job_description?: StringFilter<"JobSchema"> | string
+    Budget?: StringFilter<"JobSchema"> | string
+    Timeline?: StringFilter<"JobSchema"> | string
+  }
+
+  export type UserSchemaCreateWithoutProfileInput = {
+    Name: string
+    Email: string
+    Password: string
+    Experience: number
+    Rating: number
+    Skills?: UserSchemaCreateSkillsInput | string[]
+  }
+
+  export type UserSchemaUncheckedCreateWithoutProfileInput = {
+    user_id?: number
+    Name: string
+    Email: string
+    Password: string
+    Experience: number
+    Rating: number
+    Skills?: UserSchemaCreateSkillsInput | string[]
+  }
+
+  export type UserSchemaCreateOrConnectWithoutProfileInput = {
+    where: UserSchemaWhereUniqueInput
+    create: XOR<UserSchemaCreateWithoutProfileInput, UserSchemaUncheckedCreateWithoutProfileInput>
+  }
+
+  export type UserSchemaUpsertWithoutProfileInput = {
+    update: XOR<UserSchemaUpdateWithoutProfileInput, UserSchemaUncheckedUpdateWithoutProfileInput>
+    create: XOR<UserSchemaCreateWithoutProfileInput, UserSchemaUncheckedCreateWithoutProfileInput>
+    where?: UserSchemaWhereInput
+  }
+
+  export type UserSchemaUpdateToOneWithWhereWithoutProfileInput = {
+    where?: UserSchemaWhereInput
+    data: XOR<UserSchemaUpdateWithoutProfileInput, UserSchemaUncheckedUpdateWithoutProfileInput>
+  }
+
+  export type UserSchemaUpdateWithoutProfileInput = {
+    Name?: StringFieldUpdateOperationsInput | string
+    Email?: StringFieldUpdateOperationsInput | string
+    Password?: StringFieldUpdateOperationsInput | string
+    Experience?: IntFieldUpdateOperationsInput | number
+    Rating?: IntFieldUpdateOperationsInput | number
+    Skills?: UserSchemaUpdateSkillsInput | string[]
+  }
+
+  export type UserSchemaUncheckedUpdateWithoutProfileInput = {
+    user_id?: IntFieldUpdateOperationsInput | number
+    Name?: StringFieldUpdateOperationsInput | string
+    Email?: StringFieldUpdateOperationsInput | string
+    Password?: StringFieldUpdateOperationsInput | string
+    Experience?: IntFieldUpdateOperationsInput | number
+    Rating?: IntFieldUpdateOperationsInput | number
+    Skills?: UserSchemaUpdateSkillsInput | string[]
+  }
+
+  export type ClientSchemaCreateWithoutJobschemaInput = {
+    client_name: string
+    Email: string
+    Password: string
+    Organization?: string | null
+  }
+
+  export type ClientSchemaUncheckedCreateWithoutJobschemaInput = {
+    client_id?: number
+    client_name: string
+    Email: string
+    Password: string
+    Organization?: string | null
+  }
+
+  export type ClientSchemaCreateOrConnectWithoutJobschemaInput = {
+    where: ClientSchemaWhereUniqueInput
+    create: XOR<ClientSchemaCreateWithoutJobschemaInput, ClientSchemaUncheckedCreateWithoutJobschemaInput>
+  }
+
+  export type ClientSchemaUpsertWithoutJobschemaInput = {
+    update: XOR<ClientSchemaUpdateWithoutJobschemaInput, ClientSchemaUncheckedUpdateWithoutJobschemaInput>
+    create: XOR<ClientSchemaCreateWithoutJobschemaInput, ClientSchemaUncheckedCreateWithoutJobschemaInput>
+    where?: ClientSchemaWhereInput
+  }
+
+  export type ClientSchemaUpdateToOneWithWhereWithoutJobschemaInput = {
+    where?: ClientSchemaWhereInput
+    data: XOR<ClientSchemaUpdateWithoutJobschemaInput, ClientSchemaUncheckedUpdateWithoutJobschemaInput>
+  }
+
+  export type ClientSchemaUpdateWithoutJobschemaInput = {
+    client_name?: StringFieldUpdateOperationsInput | string
+    Email?: StringFieldUpdateOperationsInput | string
+    Password?: StringFieldUpdateOperationsInput | string
+    Organization?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type ClientSchemaUncheckedUpdateWithoutJobschemaInput = {
+    client_id?: IntFieldUpdateOperationsInput | number
+    client_name?: StringFieldUpdateOperationsInput | string
+    Email?: StringFieldUpdateOperationsInput | string
+    Password?: StringFieldUpdateOperationsInput | string
+    Organization?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type JobSchemaCreateManyClientInput = {
+    job_id?: number
+    Job_titile: string
+    Job_description: string
+    Budget: string
+    Timeline: string
+  }
+
+  export type JobSchemaUpdateWithoutClientInput = {
+    Job_titile?: StringFieldUpdateOperationsInput | string
+    Job_description?: StringFieldUpdateOperationsInput | string
+    Budget?: StringFieldUpdateOperationsInput | string
+    Timeline?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type JobSchemaUncheckedUpdateWithoutClientInput = {
+    job_id?: IntFieldUpdateOperationsInput | number
+    Job_titile?: StringFieldUpdateOperationsInput | string
+    Job_description?: StringFieldUpdateOperationsInput | string
+    Budget?: StringFieldUpdateOperationsInput | string
+    Timeline?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type JobSchemaUncheckedUpdateManyWithoutClientInput = {
+    job_id?: IntFieldUpdateOperationsInput | number
+    Job_titile?: StringFieldUpdateOperationsInput | string
+    Job_description?: StringFieldUpdateOperationsInput | string
+    Budget?: StringFieldUpdateOperationsInput | string
+    Timeline?: StringFieldUpdateOperationsInput | string
   }
 
 

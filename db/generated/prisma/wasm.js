@@ -135,6 +135,22 @@ exports.Prisma.ClientSchemaScalarFieldEnum = {
   Organization: 'Organization'
 };
 
+exports.Prisma.ProfileSchemaScalarFieldEnum = {
+  profile_id: 'profile_id',
+  About: 'About',
+  ProjectLink: 'ProjectLink',
+  userid: 'userid'
+};
+
+exports.Prisma.JobSchemaScalarFieldEnum = {
+  job_id: 'job_id',
+  clientid: 'clientid',
+  Job_titile: 'Job_titile',
+  Job_description: 'Job_description',
+  Budget: 'Budget',
+  Timeline: 'Timeline'
+};
+
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -153,7 +169,9 @@ exports.Prisma.NullsOrder = {
 
 exports.Prisma.ModelName = {
   UserSchema: 'UserSchema',
-  ClientSchema: 'ClientSchema'
+  ClientSchema: 'ClientSchema',
+  ProfileSchema: 'ProfileSchema',
+  JobSchema: 'JobSchema'
 };
 
 /**

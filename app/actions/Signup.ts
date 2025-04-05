@@ -37,12 +37,12 @@ async function Signup(name: string, email: string, password: string, experience:
     
                     }
                 })
-                return user;
+                return user.user_id;
            
         }
         catch (err) {
             console.log(err);
-            return "Error in inserting the data in the database"
+            return -1;
         }
     }
     else {

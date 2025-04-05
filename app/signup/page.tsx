@@ -1,6 +1,8 @@
 'use client'
 import { useState } from "react"
 import Signup from "../actions/Signup"
+import { useStore } from "../zustand/Store/useStore";
+import { useRouter } from "next/navigation";
 export default function(){
     const [name,setName] = useState<string>('');
     const [email,setEmail] = useState('');
@@ -9,14 +11,25 @@ export default function(){
     const [rating,setRating] = useState<number>(0);
     const [skills,setSkills] = useState<Array<string>>([]);
     const [loading,setLoading] = useState<Boolean>(false);
+    // Using state variable from the zustand
+    const {setuserid} = useStore();
+    const router = useRouter();
     async function insertdataintodb(){
        setLoading(true);
        try{
         const createnewuser = await Signup(name,email,password,expeience,rating,skills);
+        if (createnewuser==-1){
+            alert("Try after some time some error occured");
+            return;
+        }
         if (createnewuser==1){
             alert("User exist please do the signin");
             setLoading(false);
             return;
+        }
+        // Here we can store the user_id globally can use that user_id in the profile creation of the user
+        if (createnewuser){
+            setuserid(createnewuser);
         }
         alert("User Registered Successfully");
         setLoading(false);
@@ -25,6 +38,7 @@ export default function(){
          console.log(err);
          return err;
        }
+       router.push('/userprofile');
     }
     return(
         <div className="flex flex-col justify-center items-center min-h-screen bg-gray-100">

@@ -21,3 +21,15 @@ export const clientregister = zod.object({
     organization:zod.string()
 
 })
+
+export const userprofile = zod.object({
+    about:zod.string(),
+    projectlink:zod.string().array().nonempty()
+})
+
+export const jobschema = zod.object({
+    job_title:zod.string(),
+    job_description:zod.string(),
+    budget:zod.string(),
+    timeline:zod.string()
+})

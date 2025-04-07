@@ -30,3 +30,4 @@ async function projectDescription(clintid: number, job_title: string, job_descri
         return -1;
     }
 }
+export default projectDescription;

@@ -151,6 +151,12 @@ exports.Prisma.JobSchemaScalarFieldEnum = {
   Timeline: 'Timeline'
 };
 
+exports.Prisma.ApplyJobScalarFieldEnum = {
+  applyjobid: 'applyjobid',
+  clientid: 'clientid',
+  userid: 'userid'
+};
+
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -171,7 +177,8 @@ exports.Prisma.ModelName = {
   UserSchema: 'UserSchema',
   ClientSchema: 'ClientSchema',
   ProfileSchema: 'ProfileSchema',
-  JobSchema: 'JobSchema'
+  JobSchema: 'JobSchema',
+  ApplyJob: 'ApplyJob'
 };
 
 /**

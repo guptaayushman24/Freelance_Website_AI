@@ -12,7 +12,6 @@ export default async function ServerClientInfo() {
     const cookieStore = await cookies();
     const cookieindex = await cookies();
     const datastate = cookieStore.get('buttonvisibility')?.value
-    console.log("The datastate is", datastate);
     async function getAllJobs() {
         try {
             const jobs = await client.jobSchema.findMany({
@@ -20,7 +19,8 @@ export default async function ServerClientInfo() {
                     client: {
                         select: {
                             client_name: true,
-                            Email: true
+                            Email: true,
+                            client_id:true
                         }
                     }
                 }
@@ -39,7 +39,8 @@ export default async function ServerClientInfo() {
                 budget: job.Budget,
                 timeline: job.Timeline,
                 clientName: job.client.client_name,
-                clientEmail: job.client.Email
+                clientEmail: job.client.Email,
+                clientid:job.client.client_id
             }))
 
         }
@@ -49,7 +50,6 @@ export default async function ServerClientInfo() {
     }
 
     const jobdetails = await getAllJobs();
-    console.log("The jobdetails is", jobdetails);
     return (
         <div>
             <RoleBasedDashboard></RoleBasedDashboard>
@@ -72,7 +72,7 @@ export default async function ServerClientInfo() {
 
                         </div>
 
-                        <Apply_Client_details_button user={whichuser}></Apply_Client_details_button>
+                        <Apply_Client_details_button user={whichuser} clientid={job.clientid}></Apply_Client_details_button>
 
                     </div>
                 ))}

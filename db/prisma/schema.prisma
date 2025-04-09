@@ -53,3 +53,9 @@ model JobSchema{
   Timeline String
   client ClientSchema @relation(fields: [clientid],references: [client_id])
 }
+
+model ApplyJob{
+  applyjobid Int @id @default(autoincrement())
+  clientid Int
+  userid Int
+}

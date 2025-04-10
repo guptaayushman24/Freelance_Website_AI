@@ -10,6 +10,10 @@ export default function(){
         const projects = await ClientProject(clientid);
         Setfreelancerdetail(projects || [{}]);
     }
+    function rejectrequest(index:number){
+      Setfreelancerdetail(prev=>prev.filter((_,i)=>i!==index))
+       
+    }
     useEffect(()=>{
         allprojectsofclient();
     },[])
@@ -62,7 +66,7 @@ export default function(){
             </p>
             <div className="flex flex-row gap-[2rem]">
             <button className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-6 rounded-xl shadow-md transition-all duration-200 mt-[2rem]">Accept and Start Commnication</button>
-            <button className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-6 rounded-xl shadow-md transition-all duration-200 mt-[2rem]">Reject</button>
+            <button className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-6 rounded-xl shadow-md transition-all duration-200 mt-[2rem]" onClick={()=>rejectrequest(index)}>Reject</button>
             </div>
         </div>
          

@@ -5,10 +5,11 @@ import { useState } from "react";
 import Apply_Project from '../actions/Apply_Project'
 interface Props {
   user: string;
-  clientid:number
+  clientid:number,
+  jobtitle:string
 }
 
-export default  function ApplyClinetDetailButton({ user,clientid}: Props) {
+export default  function ApplyClinetDetailButton({ user,clientid,jobtitle}: Props) {
   // const [visibledata, Setvisibledata] = useState<boolean>(false);
   // const [showdata,Setshowdata] = useState<string>('');
   // function togglebutton() {
@@ -31,12 +32,14 @@ export default  function ApplyClinetDetailButton({ user,clientid}: Props) {
       const userid =  session?.user.id;
      console.log("The client id is",clientid);
      console.log("The user id is",userid);
-      const jobapply = await Apply_Project (clientid,userid);
+      const jobapply = await Apply_Project (clientid,userid,jobtitle);
       if (jobapply==1){
         Setloading(false);
       } 
       else if (jobapply==-1){
         alert("Server goes does try after some time");
+        console.log(jobapply);
+        console.log("The title is",jobtitle);
         return;
       }
     }

@@ -24,6 +24,7 @@ model UserSchema {
   Rating     Int
   Skills     String[]
   Profile    ProfileSchema?
+  ApplyJob   ApplyJob[]
 }
 
 model ClientSchema {
@@ -33,6 +34,7 @@ model ClientSchema {
   Password     String
   Organization String?     @default("Personal")
   jobschema    JobSchema[]
+  ApplyJobs    ApplyJob[]
 }
 
 model ProfileSchema {
@@ -41,6 +43,7 @@ model ProfileSchema {
   ProjectLink String[]
   userid      Int        @unique
   user        UserSchema @relation(fields: [userid], references: [user_id])
+  applyJobs   ApplyJob[]
 }
 
 model JobSchema {
@@ -54,7 +57,11 @@ model JobSchema {
 }
 
 model ApplyJob {
-  applyjobid Int @id @default(autoincrement())
+  applyjobid Int           @id @default(autoincrement())
   clientid   Int
   userid     Int
+  user       UserSchema    @relation(fields: [userid], references: [user_id])
+  client     ClientSchema  @relation(fields: [clientid], references: [client_id])
+  profile    ProfileSchema @relation(fields: [userid], references: [userid], map: "profile_userid_fkey")
+  jobtitle   String
 }

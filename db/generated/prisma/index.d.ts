@@ -1229,15 +1229,48 @@ export namespace Prisma {
 
 
   /**
+   * Count Type UserSchemaCountOutputType
+   */
+
+  export type UserSchemaCountOutputType = {
+    ApplyJob: number
+  }
+
+  export type UserSchemaCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    ApplyJob?: boolean | UserSchemaCountOutputTypeCountApplyJobArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * UserSchemaCountOutputType without action
+   */
+  export type UserSchemaCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UserSchemaCountOutputType
+     */
+    select?: UserSchemaCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * UserSchemaCountOutputType without action
+   */
+  export type UserSchemaCountOutputTypeCountApplyJobArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ApplyJobWhereInput
+  }
+
+
+  /**
    * Count Type ClientSchemaCountOutputType
    */
 
   export type ClientSchemaCountOutputType = {
     jobschema: number
+    ApplyJobs: number
   }
 
   export type ClientSchemaCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     jobschema?: boolean | ClientSchemaCountOutputTypeCountJobschemaArgs
+    ApplyJobs?: boolean | ClientSchemaCountOutputTypeCountApplyJobsArgs
   }
 
   // Custom InputTypes
@@ -1256,6 +1289,44 @@ export namespace Prisma {
    */
   export type ClientSchemaCountOutputTypeCountJobschemaArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: JobSchemaWhereInput
+  }
+
+  /**
+   * ClientSchemaCountOutputType without action
+   */
+  export type ClientSchemaCountOutputTypeCountApplyJobsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ApplyJobWhereInput
+  }
+
+
+  /**
+   * Count Type ProfileSchemaCountOutputType
+   */
+
+  export type ProfileSchemaCountOutputType = {
+    applyJobs: number
+  }
+
+  export type ProfileSchemaCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    applyJobs?: boolean | ProfileSchemaCountOutputTypeCountApplyJobsArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * ProfileSchemaCountOutputType without action
+   */
+  export type ProfileSchemaCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProfileSchemaCountOutputType
+     */
+    select?: ProfileSchemaCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * ProfileSchemaCountOutputType without action
+   */
+  export type ProfileSchemaCountOutputTypeCountApplyJobsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ApplyJobWhereInput
   }
 
 
@@ -1482,6 +1553,8 @@ export namespace Prisma {
     Rating?: boolean
     Skills?: boolean
     Profile?: boolean | UserSchema$ProfileArgs<ExtArgs>
+    ApplyJob?: boolean | UserSchema$ApplyJobArgs<ExtArgs>
+    _count?: boolean | UserSchemaCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["userSchema"]>
 
   export type UserSchemaSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -1517,6 +1590,8 @@ export namespace Prisma {
   export type UserSchemaOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"user_id" | "Name" | "Email" | "Password" | "Experience" | "Rating" | "Skills", ExtArgs["result"]["userSchema"]>
   export type UserSchemaInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     Profile?: boolean | UserSchema$ProfileArgs<ExtArgs>
+    ApplyJob?: boolean | UserSchema$ApplyJobArgs<ExtArgs>
+    _count?: boolean | UserSchemaCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type UserSchemaIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
   export type UserSchemaIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
@@ -1525,6 +1600,7 @@ export namespace Prisma {
     name: "UserSchema"
     objects: {
       Profile: Prisma.$ProfileSchemaPayload<ExtArgs> | null
+      ApplyJob: Prisma.$ApplyJobPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       user_id: number
@@ -1929,6 +2005,7 @@ export namespace Prisma {
   export interface Prisma__UserSchemaClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     Profile<T extends UserSchema$ProfileArgs<ExtArgs> = {}>(args?: Subset<T, UserSchema$ProfileArgs<ExtArgs>>): Prisma__ProfileSchemaClient<$Result.GetResult<Prisma.$ProfileSchemaPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    ApplyJob<T extends UserSchema$ApplyJobArgs<ExtArgs> = {}>(args?: Subset<T, UserSchema$ApplyJobArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ApplyJobPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -2372,6 +2449,30 @@ export namespace Prisma {
   }
 
   /**
+   * UserSchema.ApplyJob
+   */
+  export type UserSchema$ApplyJobArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ApplyJob
+     */
+    select?: ApplyJobSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ApplyJob
+     */
+    omit?: ApplyJobOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ApplyJobInclude<ExtArgs> | null
+    where?: ApplyJobWhereInput
+    orderBy?: ApplyJobOrderByWithRelationInput | ApplyJobOrderByWithRelationInput[]
+    cursor?: ApplyJobWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: ApplyJobScalarFieldEnum | ApplyJobScalarFieldEnum[]
+  }
+
+  /**
    * UserSchema without action
    */
   export type UserSchemaDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -2589,6 +2690,7 @@ export namespace Prisma {
     Password?: boolean
     Organization?: boolean
     jobschema?: boolean | ClientSchema$jobschemaArgs<ExtArgs>
+    ApplyJobs?: boolean | ClientSchema$ApplyJobsArgs<ExtArgs>
     _count?: boolean | ClientSchemaCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["clientSchema"]>
 
@@ -2619,6 +2721,7 @@ export namespace Prisma {
   export type ClientSchemaOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"client_id" | "client_name" | "Email" | "Password" | "Organization", ExtArgs["result"]["clientSchema"]>
   export type ClientSchemaInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     jobschema?: boolean | ClientSchema$jobschemaArgs<ExtArgs>
+    ApplyJobs?: boolean | ClientSchema$ApplyJobsArgs<ExtArgs>
     _count?: boolean | ClientSchemaCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type ClientSchemaIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
@@ -2628,6 +2731,7 @@ export namespace Prisma {
     name: "ClientSchema"
     objects: {
       jobschema: Prisma.$JobSchemaPayload<ExtArgs>[]
+      ApplyJobs: Prisma.$ApplyJobPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       client_id: number
@@ -3030,6 +3134,7 @@ export namespace Prisma {
   export interface Prisma__ClientSchemaClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     jobschema<T extends ClientSchema$jobschemaArgs<ExtArgs> = {}>(args?: Subset<T, ClientSchema$jobschemaArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$JobSchemaPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    ApplyJobs<T extends ClientSchema$ApplyJobsArgs<ExtArgs> = {}>(args?: Subset<T, ClientSchema$ApplyJobsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ApplyJobPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -3476,6 +3581,30 @@ export namespace Prisma {
   }
 
   /**
+   * ClientSchema.ApplyJobs
+   */
+  export type ClientSchema$ApplyJobsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ApplyJob
+     */
+    select?: ApplyJobSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ApplyJob
+     */
+    omit?: ApplyJobOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ApplyJobInclude<ExtArgs> | null
+    where?: ApplyJobWhereInput
+    orderBy?: ApplyJobOrderByWithRelationInput | ApplyJobOrderByWithRelationInput[]
+    cursor?: ApplyJobWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: ApplyJobScalarFieldEnum | ApplyJobScalarFieldEnum[]
+  }
+
+  /**
    * ClientSchema without action
    */
   export type ClientSchemaDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -3685,6 +3814,8 @@ export namespace Prisma {
     ProjectLink?: boolean
     userid?: boolean
     user?: boolean | UserSchemaDefaultArgs<ExtArgs>
+    applyJobs?: boolean | ProfileSchema$applyJobsArgs<ExtArgs>
+    _count?: boolean | ProfileSchemaCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["profileSchema"]>
 
   export type ProfileSchemaSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -3713,6 +3844,8 @@ export namespace Prisma {
   export type ProfileSchemaOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"profile_id" | "About" | "ProjectLink" | "userid", ExtArgs["result"]["profileSchema"]>
   export type ProfileSchemaInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     user?: boolean | UserSchemaDefaultArgs<ExtArgs>
+    applyJobs?: boolean | ProfileSchema$applyJobsArgs<ExtArgs>
+    _count?: boolean | ProfileSchemaCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type ProfileSchemaIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     user?: boolean | UserSchemaDefaultArgs<ExtArgs>
@@ -3725,6 +3858,7 @@ export namespace Prisma {
     name: "ProfileSchema"
     objects: {
       user: Prisma.$UserSchemaPayload<ExtArgs>
+      applyJobs: Prisma.$ApplyJobPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       profile_id: number
@@ -4126,6 +4260,7 @@ export namespace Prisma {
   export interface Prisma__ProfileSchemaClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     user<T extends UserSchemaDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserSchemaDefaultArgs<ExtArgs>>): Prisma__UserSchemaClient<$Result.GetResult<Prisma.$UserSchemaPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    applyJobs<T extends ProfileSchema$applyJobsArgs<ExtArgs> = {}>(args?: Subset<T, ProfileSchema$applyJobsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ApplyJobPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -4552,6 +4687,30 @@ export namespace Prisma {
      * Limit how many ProfileSchemas to delete.
      */
     limit?: number
+  }
+
+  /**
+   * ProfileSchema.applyJobs
+   */
+  export type ProfileSchema$applyJobsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ApplyJob
+     */
+    select?: ApplyJobSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ApplyJob
+     */
+    omit?: ApplyJobOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ApplyJobInclude<ExtArgs> | null
+    where?: ApplyJobWhereInput
+    orderBy?: ApplyJobOrderByWithRelationInput | ApplyJobOrderByWithRelationInput[]
+    cursor?: ApplyJobWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: ApplyJobScalarFieldEnum | ApplyJobScalarFieldEnum[]
   }
 
   /**
@@ -5710,18 +5869,21 @@ export namespace Prisma {
     applyjobid: number | null
     clientid: number | null
     userid: number | null
+    jobtitle: string | null
   }
 
   export type ApplyJobMaxAggregateOutputType = {
     applyjobid: number | null
     clientid: number | null
     userid: number | null
+    jobtitle: string | null
   }
 
   export type ApplyJobCountAggregateOutputType = {
     applyjobid: number
     clientid: number
     userid: number
+    jobtitle: number
     _all: number
   }
 
@@ -5742,18 +5904,21 @@ export namespace Prisma {
     applyjobid?: true
     clientid?: true
     userid?: true
+    jobtitle?: true
   }
 
   export type ApplyJobMaxAggregateInputType = {
     applyjobid?: true
     clientid?: true
     userid?: true
+    jobtitle?: true
   }
 
   export type ApplyJobCountAggregateInputType = {
     applyjobid?: true
     clientid?: true
     userid?: true
+    jobtitle?: true
     _all?: true
   }
 
@@ -5847,6 +6012,7 @@ export namespace Prisma {
     applyjobid: number
     clientid: number
     userid: number
+    jobtitle: string
     _count: ApplyJobCountAggregateOutputType | null
     _avg: ApplyJobAvgAggregateOutputType | null
     _sum: ApplyJobSumAggregateOutputType | null
@@ -5872,35 +6038,68 @@ export namespace Prisma {
     applyjobid?: boolean
     clientid?: boolean
     userid?: boolean
+    jobtitle?: boolean
+    user?: boolean | UserSchemaDefaultArgs<ExtArgs>
+    client?: boolean | ClientSchemaDefaultArgs<ExtArgs>
+    profile?: boolean | ProfileSchemaDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["applyJob"]>
 
   export type ApplyJobSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     applyjobid?: boolean
     clientid?: boolean
     userid?: boolean
+    jobtitle?: boolean
+    user?: boolean | UserSchemaDefaultArgs<ExtArgs>
+    client?: boolean | ClientSchemaDefaultArgs<ExtArgs>
+    profile?: boolean | ProfileSchemaDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["applyJob"]>
 
   export type ApplyJobSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     applyjobid?: boolean
     clientid?: boolean
     userid?: boolean
+    jobtitle?: boolean
+    user?: boolean | UserSchemaDefaultArgs<ExtArgs>
+    client?: boolean | ClientSchemaDefaultArgs<ExtArgs>
+    profile?: boolean | ProfileSchemaDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["applyJob"]>
 
   export type ApplyJobSelectScalar = {
     applyjobid?: boolean
     clientid?: boolean
     userid?: boolean
+    jobtitle?: boolean
   }
 
-  export type ApplyJobOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"applyjobid" | "clientid" | "userid", ExtArgs["result"]["applyJob"]>
+  export type ApplyJobOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"applyjobid" | "clientid" | "userid" | "jobtitle", ExtArgs["result"]["applyJob"]>
+  export type ApplyJobInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UserSchemaDefaultArgs<ExtArgs>
+    client?: boolean | ClientSchemaDefaultArgs<ExtArgs>
+    profile?: boolean | ProfileSchemaDefaultArgs<ExtArgs>
+  }
+  export type ApplyJobIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UserSchemaDefaultArgs<ExtArgs>
+    client?: boolean | ClientSchemaDefaultArgs<ExtArgs>
+    profile?: boolean | ProfileSchemaDefaultArgs<ExtArgs>
+  }
+  export type ApplyJobIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UserSchemaDefaultArgs<ExtArgs>
+    client?: boolean | ClientSchemaDefaultArgs<ExtArgs>
+    profile?: boolean | ProfileSchemaDefaultArgs<ExtArgs>
+  }
 
   export type $ApplyJobPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "ApplyJob"
-    objects: {}
+    objects: {
+      user: Prisma.$UserSchemaPayload<ExtArgs>
+      client: Prisma.$ClientSchemaPayload<ExtArgs>
+      profile: Prisma.$ProfileSchemaPayload<ExtArgs>
+    }
     scalars: $Extensions.GetPayloadResult<{
       applyjobid: number
       clientid: number
       userid: number
+      jobtitle: string
     }, ExtArgs["result"]["applyJob"]>
     composites: {}
   }
@@ -6295,6 +6494,9 @@ export namespace Prisma {
    */
   export interface Prisma__ApplyJobClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
+    user<T extends UserSchemaDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserSchemaDefaultArgs<ExtArgs>>): Prisma__UserSchemaClient<$Result.GetResult<Prisma.$UserSchemaPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    client<T extends ClientSchemaDefaultArgs<ExtArgs> = {}>(args?: Subset<T, ClientSchemaDefaultArgs<ExtArgs>>): Prisma__ClientSchemaClient<$Result.GetResult<Prisma.$ClientSchemaPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    profile<T extends ProfileSchemaDefaultArgs<ExtArgs> = {}>(args?: Subset<T, ProfileSchemaDefaultArgs<ExtArgs>>): Prisma__ProfileSchemaClient<$Result.GetResult<Prisma.$ProfileSchemaPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -6327,6 +6529,7 @@ export namespace Prisma {
     readonly applyjobid: FieldRef<"ApplyJob", 'Int'>
     readonly clientid: FieldRef<"ApplyJob", 'Int'>
     readonly userid: FieldRef<"ApplyJob", 'Int'>
+    readonly jobtitle: FieldRef<"ApplyJob", 'String'>
   }
     
 
@@ -6343,6 +6546,10 @@ export namespace Prisma {
      * Omit specific fields from the ApplyJob
      */
     omit?: ApplyJobOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ApplyJobInclude<ExtArgs> | null
     /**
      * Filter, which ApplyJob to fetch.
      */
@@ -6362,6 +6569,10 @@ export namespace Prisma {
      */
     omit?: ApplyJobOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ApplyJobInclude<ExtArgs> | null
+    /**
      * Filter, which ApplyJob to fetch.
      */
     where: ApplyJobWhereUniqueInput
@@ -6379,6 +6590,10 @@ export namespace Prisma {
      * Omit specific fields from the ApplyJob
      */
     omit?: ApplyJobOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ApplyJobInclude<ExtArgs> | null
     /**
      * Filter, which ApplyJob to fetch.
      */
@@ -6428,6 +6643,10 @@ export namespace Prisma {
      */
     omit?: ApplyJobOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ApplyJobInclude<ExtArgs> | null
+    /**
      * Filter, which ApplyJob to fetch.
      */
     where?: ApplyJobWhereInput
@@ -6476,6 +6695,10 @@ export namespace Prisma {
      */
     omit?: ApplyJobOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ApplyJobInclude<ExtArgs> | null
+    /**
      * Filter, which ApplyJobs to fetch.
      */
     where?: ApplyJobWhereInput
@@ -6519,6 +6742,10 @@ export namespace Prisma {
      */
     omit?: ApplyJobOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ApplyJobInclude<ExtArgs> | null
+    /**
      * The data needed to create a ApplyJob.
      */
     data: XOR<ApplyJobCreateInput, ApplyJobUncheckedCreateInput>
@@ -6552,6 +6779,10 @@ export namespace Prisma {
      */
     data: ApplyJobCreateManyInput | ApplyJobCreateManyInput[]
     skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ApplyJobIncludeCreateManyAndReturn<ExtArgs> | null
   }
 
   /**
@@ -6566,6 +6797,10 @@ export namespace Prisma {
      * Omit specific fields from the ApplyJob
      */
     omit?: ApplyJobOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ApplyJobInclude<ExtArgs> | null
     /**
      * The data needed to update a ApplyJob.
      */
@@ -6618,6 +6853,10 @@ export namespace Prisma {
      * Limit how many ApplyJobs to update.
      */
     limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ApplyJobIncludeUpdateManyAndReturn<ExtArgs> | null
   }
 
   /**
@@ -6632,6 +6871,10 @@ export namespace Prisma {
      * Omit specific fields from the ApplyJob
      */
     omit?: ApplyJobOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ApplyJobInclude<ExtArgs> | null
     /**
      * The filter to search for the ApplyJob to update in case it exists.
      */
@@ -6658,6 +6901,10 @@ export namespace Prisma {
      * Omit specific fields from the ApplyJob
      */
     omit?: ApplyJobOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ApplyJobInclude<ExtArgs> | null
     /**
      * Filter which ApplyJob to delete.
      */
@@ -6690,6 +6937,10 @@ export namespace Prisma {
      * Omit specific fields from the ApplyJob
      */
     omit?: ApplyJobOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ApplyJobInclude<ExtArgs> | null
   }
 
 
@@ -6756,7 +7007,8 @@ export namespace Prisma {
   export const ApplyJobScalarFieldEnum: {
     applyjobid: 'applyjobid',
     clientid: 'clientid',
-    userid: 'userid'
+    userid: 'userid',
+    jobtitle: 'jobtitle'
   };
 
   export type ApplyJobScalarFieldEnum = (typeof ApplyJobScalarFieldEnum)[keyof typeof ApplyJobScalarFieldEnum]
@@ -6848,6 +7100,7 @@ export namespace Prisma {
     Rating?: IntFilter<"UserSchema"> | number
     Skills?: StringNullableListFilter<"UserSchema">
     Profile?: XOR<ProfileSchemaNullableScalarRelationFilter, ProfileSchemaWhereInput> | null
+    ApplyJob?: ApplyJobListRelationFilter
   }
 
   export type UserSchemaOrderByWithRelationInput = {
@@ -6859,6 +7112,7 @@ export namespace Prisma {
     Rating?: SortOrder
     Skills?: SortOrder
     Profile?: ProfileSchemaOrderByWithRelationInput
+    ApplyJob?: ApplyJobOrderByRelationAggregateInput
   }
 
   export type UserSchemaWhereUniqueInput = Prisma.AtLeast<{
@@ -6873,6 +7127,7 @@ export namespace Prisma {
     Rating?: IntFilter<"UserSchema"> | number
     Skills?: StringNullableListFilter<"UserSchema">
     Profile?: XOR<ProfileSchemaNullableScalarRelationFilter, ProfileSchemaWhereInput> | null
+    ApplyJob?: ApplyJobListRelationFilter
   }, "user_id" | "Email">
 
   export type UserSchemaOrderByWithAggregationInput = {
@@ -6913,6 +7168,7 @@ export namespace Prisma {
     Password?: StringFilter<"ClientSchema"> | string
     Organization?: StringNullableFilter<"ClientSchema"> | string | null
     jobschema?: JobSchemaListRelationFilter
+    ApplyJobs?: ApplyJobListRelationFilter
   }
 
   export type ClientSchemaOrderByWithRelationInput = {
@@ -6922,6 +7178,7 @@ export namespace Prisma {
     Password?: SortOrder
     Organization?: SortOrderInput | SortOrder
     jobschema?: JobSchemaOrderByRelationAggregateInput
+    ApplyJobs?: ApplyJobOrderByRelationAggregateInput
   }
 
   export type ClientSchemaWhereUniqueInput = Prisma.AtLeast<{
@@ -6934,6 +7191,7 @@ export namespace Prisma {
     Password?: StringFilter<"ClientSchema"> | string
     Organization?: StringNullableFilter<"ClientSchema"> | string | null
     jobschema?: JobSchemaListRelationFilter
+    ApplyJobs?: ApplyJobListRelationFilter
   }, "client_id" | "Email">
 
   export type ClientSchemaOrderByWithAggregationInput = {
@@ -6969,6 +7227,7 @@ export namespace Prisma {
     ProjectLink?: StringNullableListFilter<"ProfileSchema">
     userid?: IntFilter<"ProfileSchema"> | number
     user?: XOR<UserSchemaScalarRelationFilter, UserSchemaWhereInput>
+    applyJobs?: ApplyJobListRelationFilter
   }
 
   export type ProfileSchemaOrderByWithRelationInput = {
@@ -6977,6 +7236,7 @@ export namespace Prisma {
     ProjectLink?: SortOrder
     userid?: SortOrder
     user?: UserSchemaOrderByWithRelationInput
+    applyJobs?: ApplyJobOrderByRelationAggregateInput
   }
 
   export type ProfileSchemaWhereUniqueInput = Prisma.AtLeast<{
@@ -6988,6 +7248,7 @@ export namespace Prisma {
     About?: StringFilter<"ProfileSchema"> | string
     ProjectLink?: StringNullableListFilter<"ProfileSchema">
     user?: XOR<UserSchemaScalarRelationFilter, UserSchemaWhereInput>
+    applyJobs?: ApplyJobListRelationFilter
   }, "profile_id" | "userid">
 
   export type ProfileSchemaOrderByWithAggregationInput = {
@@ -7081,12 +7342,20 @@ export namespace Prisma {
     applyjobid?: IntFilter<"ApplyJob"> | number
     clientid?: IntFilter<"ApplyJob"> | number
     userid?: IntFilter<"ApplyJob"> | number
+    jobtitle?: StringFilter<"ApplyJob"> | string
+    user?: XOR<UserSchemaScalarRelationFilter, UserSchemaWhereInput>
+    client?: XOR<ClientSchemaScalarRelationFilter, ClientSchemaWhereInput>
+    profile?: XOR<ProfileSchemaScalarRelationFilter, ProfileSchemaWhereInput>
   }
 
   export type ApplyJobOrderByWithRelationInput = {
     applyjobid?: SortOrder
     clientid?: SortOrder
     userid?: SortOrder
+    jobtitle?: SortOrder
+    user?: UserSchemaOrderByWithRelationInput
+    client?: ClientSchemaOrderByWithRelationInput
+    profile?: ProfileSchemaOrderByWithRelationInput
   }
 
   export type ApplyJobWhereUniqueInput = Prisma.AtLeast<{
@@ -7096,12 +7365,17 @@ export namespace Prisma {
     NOT?: ApplyJobWhereInput | ApplyJobWhereInput[]
     clientid?: IntFilter<"ApplyJob"> | number
     userid?: IntFilter<"ApplyJob"> | number
+    jobtitle?: StringFilter<"ApplyJob"> | string
+    user?: XOR<UserSchemaScalarRelationFilter, UserSchemaWhereInput>
+    client?: XOR<ClientSchemaScalarRelationFilter, ClientSchemaWhereInput>
+    profile?: XOR<ProfileSchemaScalarRelationFilter, ProfileSchemaWhereInput>
   }, "applyjobid">
 
   export type ApplyJobOrderByWithAggregationInput = {
     applyjobid?: SortOrder
     clientid?: SortOrder
     userid?: SortOrder
+    jobtitle?: SortOrder
     _count?: ApplyJobCountOrderByAggregateInput
     _avg?: ApplyJobAvgOrderByAggregateInput
     _max?: ApplyJobMaxOrderByAggregateInput
@@ -7116,6 +7390,7 @@ export namespace Prisma {
     applyjobid?: IntWithAggregatesFilter<"ApplyJob"> | number
     clientid?: IntWithAggregatesFilter<"ApplyJob"> | number
     userid?: IntWithAggregatesFilter<"ApplyJob"> | number
+    jobtitle?: StringWithAggregatesFilter<"ApplyJob"> | string
   }
 
   export type UserSchemaCreateInput = {
@@ -7126,6 +7401,7 @@ export namespace Prisma {
     Rating: number
     Skills?: UserSchemaCreateSkillsInput | string[]
     Profile?: ProfileSchemaCreateNestedOneWithoutUserInput
+    ApplyJob?: ApplyJobCreateNestedManyWithoutUserInput
   }
 
   export type UserSchemaUncheckedCreateInput = {
@@ -7137,6 +7413,7 @@ export namespace Prisma {
     Rating: number
     Skills?: UserSchemaCreateSkillsInput | string[]
     Profile?: ProfileSchemaUncheckedCreateNestedOneWithoutUserInput
+    ApplyJob?: ApplyJobUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserSchemaUpdateInput = {
@@ -7147,6 +7424,7 @@ export namespace Prisma {
     Rating?: IntFieldUpdateOperationsInput | number
     Skills?: UserSchemaUpdateSkillsInput | string[]
     Profile?: ProfileSchemaUpdateOneWithoutUserNestedInput
+    ApplyJob?: ApplyJobUpdateManyWithoutUserNestedInput
   }
 
   export type UserSchemaUncheckedUpdateInput = {
@@ -7158,6 +7436,7 @@ export namespace Prisma {
     Rating?: IntFieldUpdateOperationsInput | number
     Skills?: UserSchemaUpdateSkillsInput | string[]
     Profile?: ProfileSchemaUncheckedUpdateOneWithoutUserNestedInput
+    ApplyJob?: ApplyJobUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type UserSchemaCreateManyInput = {
@@ -7195,6 +7474,7 @@ export namespace Prisma {
     Password: string
     Organization?: string | null
     jobschema?: JobSchemaCreateNestedManyWithoutClientInput
+    ApplyJobs?: ApplyJobCreateNestedManyWithoutClientInput
   }
 
   export type ClientSchemaUncheckedCreateInput = {
@@ -7204,6 +7484,7 @@ export namespace Prisma {
     Password: string
     Organization?: string | null
     jobschema?: JobSchemaUncheckedCreateNestedManyWithoutClientInput
+    ApplyJobs?: ApplyJobUncheckedCreateNestedManyWithoutClientInput
   }
 
   export type ClientSchemaUpdateInput = {
@@ -7212,6 +7493,7 @@ export namespace Prisma {
     Password?: StringFieldUpdateOperationsInput | string
     Organization?: NullableStringFieldUpdateOperationsInput | string | null
     jobschema?: JobSchemaUpdateManyWithoutClientNestedInput
+    ApplyJobs?: ApplyJobUpdateManyWithoutClientNestedInput
   }
 
   export type ClientSchemaUncheckedUpdateInput = {
@@ -7221,6 +7503,7 @@ export namespace Prisma {
     Password?: StringFieldUpdateOperationsInput | string
     Organization?: NullableStringFieldUpdateOperationsInput | string | null
     jobschema?: JobSchemaUncheckedUpdateManyWithoutClientNestedInput
+    ApplyJobs?: ApplyJobUncheckedUpdateManyWithoutClientNestedInput
   }
 
   export type ClientSchemaCreateManyInput = {
@@ -7250,6 +7533,7 @@ export namespace Prisma {
     About: string
     ProjectLink?: ProfileSchemaCreateProjectLinkInput | string[]
     user: UserSchemaCreateNestedOneWithoutProfileInput
+    applyJobs?: ApplyJobCreateNestedManyWithoutProfileInput
   }
 
   export type ProfileSchemaUncheckedCreateInput = {
@@ -7257,12 +7541,14 @@ export namespace Prisma {
     About: string
     ProjectLink?: ProfileSchemaCreateProjectLinkInput | string[]
     userid: number
+    applyJobs?: ApplyJobUncheckedCreateNestedManyWithoutProfileInput
   }
 
   export type ProfileSchemaUpdateInput = {
     About?: StringFieldUpdateOperationsInput | string
     ProjectLink?: ProfileSchemaUpdateProjectLinkInput | string[]
     user?: UserSchemaUpdateOneRequiredWithoutProfileNestedInput
+    applyJobs?: ApplyJobUpdateManyWithoutProfileNestedInput
   }
 
   export type ProfileSchemaUncheckedUpdateInput = {
@@ -7270,6 +7556,7 @@ export namespace Prisma {
     About?: StringFieldUpdateOperationsInput | string
     ProjectLink?: ProfileSchemaUpdateProjectLinkInput | string[]
     userid?: IntFieldUpdateOperationsInput | number
+    applyJobs?: ApplyJobUncheckedUpdateManyWithoutProfileNestedInput
   }
 
   export type ProfileSchemaCreateManyInput = {
@@ -7351,42 +7638,49 @@ export namespace Prisma {
   }
 
   export type ApplyJobCreateInput = {
-    clientid: number
-    userid: number
+    jobtitle: string
+    user: UserSchemaCreateNestedOneWithoutApplyJobInput
+    client: ClientSchemaCreateNestedOneWithoutApplyJobsInput
+    profile: ProfileSchemaCreateNestedOneWithoutApplyJobsInput
   }
 
   export type ApplyJobUncheckedCreateInput = {
     applyjobid?: number
     clientid: number
     userid: number
+    jobtitle: string
   }
 
   export type ApplyJobUpdateInput = {
-    clientid?: IntFieldUpdateOperationsInput | number
-    userid?: IntFieldUpdateOperationsInput | number
+    jobtitle?: StringFieldUpdateOperationsInput | string
+    user?: UserSchemaUpdateOneRequiredWithoutApplyJobNestedInput
+    client?: ClientSchemaUpdateOneRequiredWithoutApplyJobsNestedInput
+    profile?: ProfileSchemaUpdateOneRequiredWithoutApplyJobsNestedInput
   }
 
   export type ApplyJobUncheckedUpdateInput = {
     applyjobid?: IntFieldUpdateOperationsInput | number
     clientid?: IntFieldUpdateOperationsInput | number
     userid?: IntFieldUpdateOperationsInput | number
+    jobtitle?: StringFieldUpdateOperationsInput | string
   }
 
   export type ApplyJobCreateManyInput = {
     applyjobid?: number
     clientid: number
     userid: number
+    jobtitle: string
   }
 
   export type ApplyJobUpdateManyMutationInput = {
-    clientid?: IntFieldUpdateOperationsInput | number
-    userid?: IntFieldUpdateOperationsInput | number
+    jobtitle?: StringFieldUpdateOperationsInput | string
   }
 
   export type ApplyJobUncheckedUpdateManyInput = {
     applyjobid?: IntFieldUpdateOperationsInput | number
     clientid?: IntFieldUpdateOperationsInput | number
     userid?: IntFieldUpdateOperationsInput | number
+    jobtitle?: StringFieldUpdateOperationsInput | string
   }
 
   export type IntFilter<$PrismaModel = never> = {
@@ -7426,6 +7720,16 @@ export namespace Prisma {
   export type ProfileSchemaNullableScalarRelationFilter = {
     is?: ProfileSchemaWhereInput | null
     isNot?: ProfileSchemaWhereInput | null
+  }
+
+  export type ApplyJobListRelationFilter = {
+    every?: ApplyJobWhereInput
+    some?: ApplyJobWhereInput
+    none?: ApplyJobWhereInput
+  }
+
+  export type ApplyJobOrderByRelationAggregateInput = {
+    _count?: SortOrder
   }
 
   export type UserSchemaCountOrderByAggregateInput = {
@@ -7658,10 +7962,16 @@ export namespace Prisma {
     clientid?: SortOrder
   }
 
+  export type ProfileSchemaScalarRelationFilter = {
+    is?: ProfileSchemaWhereInput
+    isNot?: ProfileSchemaWhereInput
+  }
+
   export type ApplyJobCountOrderByAggregateInput = {
     applyjobid?: SortOrder
     clientid?: SortOrder
     userid?: SortOrder
+    jobtitle?: SortOrder
   }
 
   export type ApplyJobAvgOrderByAggregateInput = {
@@ -7674,12 +7984,14 @@ export namespace Prisma {
     applyjobid?: SortOrder
     clientid?: SortOrder
     userid?: SortOrder
+    jobtitle?: SortOrder
   }
 
   export type ApplyJobMinOrderByAggregateInput = {
     applyjobid?: SortOrder
     clientid?: SortOrder
     userid?: SortOrder
+    jobtitle?: SortOrder
   }
 
   export type ApplyJobSumOrderByAggregateInput = {
@@ -7698,10 +8010,24 @@ export namespace Prisma {
     connect?: ProfileSchemaWhereUniqueInput
   }
 
+  export type ApplyJobCreateNestedManyWithoutUserInput = {
+    create?: XOR<ApplyJobCreateWithoutUserInput, ApplyJobUncheckedCreateWithoutUserInput> | ApplyJobCreateWithoutUserInput[] | ApplyJobUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: ApplyJobCreateOrConnectWithoutUserInput | ApplyJobCreateOrConnectWithoutUserInput[]
+    createMany?: ApplyJobCreateManyUserInputEnvelope
+    connect?: ApplyJobWhereUniqueInput | ApplyJobWhereUniqueInput[]
+  }
+
   export type ProfileSchemaUncheckedCreateNestedOneWithoutUserInput = {
     create?: XOR<ProfileSchemaCreateWithoutUserInput, ProfileSchemaUncheckedCreateWithoutUserInput>
     connectOrCreate?: ProfileSchemaCreateOrConnectWithoutUserInput
     connect?: ProfileSchemaWhereUniqueInput
+  }
+
+  export type ApplyJobUncheckedCreateNestedManyWithoutUserInput = {
+    create?: XOR<ApplyJobCreateWithoutUserInput, ApplyJobUncheckedCreateWithoutUserInput> | ApplyJobCreateWithoutUserInput[] | ApplyJobUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: ApplyJobCreateOrConnectWithoutUserInput | ApplyJobCreateOrConnectWithoutUserInput[]
+    createMany?: ApplyJobCreateManyUserInputEnvelope
+    connect?: ApplyJobWhereUniqueInput | ApplyJobWhereUniqueInput[]
   }
 
   export type StringFieldUpdateOperationsInput = {
@@ -7731,6 +8057,20 @@ export namespace Prisma {
     update?: XOR<XOR<ProfileSchemaUpdateToOneWithWhereWithoutUserInput, ProfileSchemaUpdateWithoutUserInput>, ProfileSchemaUncheckedUpdateWithoutUserInput>
   }
 
+  export type ApplyJobUpdateManyWithoutUserNestedInput = {
+    create?: XOR<ApplyJobCreateWithoutUserInput, ApplyJobUncheckedCreateWithoutUserInput> | ApplyJobCreateWithoutUserInput[] | ApplyJobUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: ApplyJobCreateOrConnectWithoutUserInput | ApplyJobCreateOrConnectWithoutUserInput[]
+    upsert?: ApplyJobUpsertWithWhereUniqueWithoutUserInput | ApplyJobUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: ApplyJobCreateManyUserInputEnvelope
+    set?: ApplyJobWhereUniqueInput | ApplyJobWhereUniqueInput[]
+    disconnect?: ApplyJobWhereUniqueInput | ApplyJobWhereUniqueInput[]
+    delete?: ApplyJobWhereUniqueInput | ApplyJobWhereUniqueInput[]
+    connect?: ApplyJobWhereUniqueInput | ApplyJobWhereUniqueInput[]
+    update?: ApplyJobUpdateWithWhereUniqueWithoutUserInput | ApplyJobUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: ApplyJobUpdateManyWithWhereWithoutUserInput | ApplyJobUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: ApplyJobScalarWhereInput | ApplyJobScalarWhereInput[]
+  }
+
   export type ProfileSchemaUncheckedUpdateOneWithoutUserNestedInput = {
     create?: XOR<ProfileSchemaCreateWithoutUserInput, ProfileSchemaUncheckedCreateWithoutUserInput>
     connectOrCreate?: ProfileSchemaCreateOrConnectWithoutUserInput
@@ -7741,6 +8081,20 @@ export namespace Prisma {
     update?: XOR<XOR<ProfileSchemaUpdateToOneWithWhereWithoutUserInput, ProfileSchemaUpdateWithoutUserInput>, ProfileSchemaUncheckedUpdateWithoutUserInput>
   }
 
+  export type ApplyJobUncheckedUpdateManyWithoutUserNestedInput = {
+    create?: XOR<ApplyJobCreateWithoutUserInput, ApplyJobUncheckedCreateWithoutUserInput> | ApplyJobCreateWithoutUserInput[] | ApplyJobUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: ApplyJobCreateOrConnectWithoutUserInput | ApplyJobCreateOrConnectWithoutUserInput[]
+    upsert?: ApplyJobUpsertWithWhereUniqueWithoutUserInput | ApplyJobUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: ApplyJobCreateManyUserInputEnvelope
+    set?: ApplyJobWhereUniqueInput | ApplyJobWhereUniqueInput[]
+    disconnect?: ApplyJobWhereUniqueInput | ApplyJobWhereUniqueInput[]
+    delete?: ApplyJobWhereUniqueInput | ApplyJobWhereUniqueInput[]
+    connect?: ApplyJobWhereUniqueInput | ApplyJobWhereUniqueInput[]
+    update?: ApplyJobUpdateWithWhereUniqueWithoutUserInput | ApplyJobUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: ApplyJobUpdateManyWithWhereWithoutUserInput | ApplyJobUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: ApplyJobScalarWhereInput | ApplyJobScalarWhereInput[]
+  }
+
   export type JobSchemaCreateNestedManyWithoutClientInput = {
     create?: XOR<JobSchemaCreateWithoutClientInput, JobSchemaUncheckedCreateWithoutClientInput> | JobSchemaCreateWithoutClientInput[] | JobSchemaUncheckedCreateWithoutClientInput[]
     connectOrCreate?: JobSchemaCreateOrConnectWithoutClientInput | JobSchemaCreateOrConnectWithoutClientInput[]
@@ -7748,11 +8102,25 @@ export namespace Prisma {
     connect?: JobSchemaWhereUniqueInput | JobSchemaWhereUniqueInput[]
   }
 
+  export type ApplyJobCreateNestedManyWithoutClientInput = {
+    create?: XOR<ApplyJobCreateWithoutClientInput, ApplyJobUncheckedCreateWithoutClientInput> | ApplyJobCreateWithoutClientInput[] | ApplyJobUncheckedCreateWithoutClientInput[]
+    connectOrCreate?: ApplyJobCreateOrConnectWithoutClientInput | ApplyJobCreateOrConnectWithoutClientInput[]
+    createMany?: ApplyJobCreateManyClientInputEnvelope
+    connect?: ApplyJobWhereUniqueInput | ApplyJobWhereUniqueInput[]
+  }
+
   export type JobSchemaUncheckedCreateNestedManyWithoutClientInput = {
     create?: XOR<JobSchemaCreateWithoutClientInput, JobSchemaUncheckedCreateWithoutClientInput> | JobSchemaCreateWithoutClientInput[] | JobSchemaUncheckedCreateWithoutClientInput[]
     connectOrCreate?: JobSchemaCreateOrConnectWithoutClientInput | JobSchemaCreateOrConnectWithoutClientInput[]
     createMany?: JobSchemaCreateManyClientInputEnvelope
     connect?: JobSchemaWhereUniqueInput | JobSchemaWhereUniqueInput[]
+  }
+
+  export type ApplyJobUncheckedCreateNestedManyWithoutClientInput = {
+    create?: XOR<ApplyJobCreateWithoutClientInput, ApplyJobUncheckedCreateWithoutClientInput> | ApplyJobCreateWithoutClientInput[] | ApplyJobUncheckedCreateWithoutClientInput[]
+    connectOrCreate?: ApplyJobCreateOrConnectWithoutClientInput | ApplyJobCreateOrConnectWithoutClientInput[]
+    createMany?: ApplyJobCreateManyClientInputEnvelope
+    connect?: ApplyJobWhereUniqueInput | ApplyJobWhereUniqueInput[]
   }
 
   export type NullableStringFieldUpdateOperationsInput = {
@@ -7773,6 +8141,20 @@ export namespace Prisma {
     deleteMany?: JobSchemaScalarWhereInput | JobSchemaScalarWhereInput[]
   }
 
+  export type ApplyJobUpdateManyWithoutClientNestedInput = {
+    create?: XOR<ApplyJobCreateWithoutClientInput, ApplyJobUncheckedCreateWithoutClientInput> | ApplyJobCreateWithoutClientInput[] | ApplyJobUncheckedCreateWithoutClientInput[]
+    connectOrCreate?: ApplyJobCreateOrConnectWithoutClientInput | ApplyJobCreateOrConnectWithoutClientInput[]
+    upsert?: ApplyJobUpsertWithWhereUniqueWithoutClientInput | ApplyJobUpsertWithWhereUniqueWithoutClientInput[]
+    createMany?: ApplyJobCreateManyClientInputEnvelope
+    set?: ApplyJobWhereUniqueInput | ApplyJobWhereUniqueInput[]
+    disconnect?: ApplyJobWhereUniqueInput | ApplyJobWhereUniqueInput[]
+    delete?: ApplyJobWhereUniqueInput | ApplyJobWhereUniqueInput[]
+    connect?: ApplyJobWhereUniqueInput | ApplyJobWhereUniqueInput[]
+    update?: ApplyJobUpdateWithWhereUniqueWithoutClientInput | ApplyJobUpdateWithWhereUniqueWithoutClientInput[]
+    updateMany?: ApplyJobUpdateManyWithWhereWithoutClientInput | ApplyJobUpdateManyWithWhereWithoutClientInput[]
+    deleteMany?: ApplyJobScalarWhereInput | ApplyJobScalarWhereInput[]
+  }
+
   export type JobSchemaUncheckedUpdateManyWithoutClientNestedInput = {
     create?: XOR<JobSchemaCreateWithoutClientInput, JobSchemaUncheckedCreateWithoutClientInput> | JobSchemaCreateWithoutClientInput[] | JobSchemaUncheckedCreateWithoutClientInput[]
     connectOrCreate?: JobSchemaCreateOrConnectWithoutClientInput | JobSchemaCreateOrConnectWithoutClientInput[]
@@ -7787,6 +8169,20 @@ export namespace Prisma {
     deleteMany?: JobSchemaScalarWhereInput | JobSchemaScalarWhereInput[]
   }
 
+  export type ApplyJobUncheckedUpdateManyWithoutClientNestedInput = {
+    create?: XOR<ApplyJobCreateWithoutClientInput, ApplyJobUncheckedCreateWithoutClientInput> | ApplyJobCreateWithoutClientInput[] | ApplyJobUncheckedCreateWithoutClientInput[]
+    connectOrCreate?: ApplyJobCreateOrConnectWithoutClientInput | ApplyJobCreateOrConnectWithoutClientInput[]
+    upsert?: ApplyJobUpsertWithWhereUniqueWithoutClientInput | ApplyJobUpsertWithWhereUniqueWithoutClientInput[]
+    createMany?: ApplyJobCreateManyClientInputEnvelope
+    set?: ApplyJobWhereUniqueInput | ApplyJobWhereUniqueInput[]
+    disconnect?: ApplyJobWhereUniqueInput | ApplyJobWhereUniqueInput[]
+    delete?: ApplyJobWhereUniqueInput | ApplyJobWhereUniqueInput[]
+    connect?: ApplyJobWhereUniqueInput | ApplyJobWhereUniqueInput[]
+    update?: ApplyJobUpdateWithWhereUniqueWithoutClientInput | ApplyJobUpdateWithWhereUniqueWithoutClientInput[]
+    updateMany?: ApplyJobUpdateManyWithWhereWithoutClientInput | ApplyJobUpdateManyWithWhereWithoutClientInput[]
+    deleteMany?: ApplyJobScalarWhereInput | ApplyJobScalarWhereInput[]
+  }
+
   export type ProfileSchemaCreateProjectLinkInput = {
     set: string[]
   }
@@ -7795,6 +8191,20 @@ export namespace Prisma {
     create?: XOR<UserSchemaCreateWithoutProfileInput, UserSchemaUncheckedCreateWithoutProfileInput>
     connectOrCreate?: UserSchemaCreateOrConnectWithoutProfileInput
     connect?: UserSchemaWhereUniqueInput
+  }
+
+  export type ApplyJobCreateNestedManyWithoutProfileInput = {
+    create?: XOR<ApplyJobCreateWithoutProfileInput, ApplyJobUncheckedCreateWithoutProfileInput> | ApplyJobCreateWithoutProfileInput[] | ApplyJobUncheckedCreateWithoutProfileInput[]
+    connectOrCreate?: ApplyJobCreateOrConnectWithoutProfileInput | ApplyJobCreateOrConnectWithoutProfileInput[]
+    createMany?: ApplyJobCreateManyProfileInputEnvelope
+    connect?: ApplyJobWhereUniqueInput | ApplyJobWhereUniqueInput[]
+  }
+
+  export type ApplyJobUncheckedCreateNestedManyWithoutProfileInput = {
+    create?: XOR<ApplyJobCreateWithoutProfileInput, ApplyJobUncheckedCreateWithoutProfileInput> | ApplyJobCreateWithoutProfileInput[] | ApplyJobUncheckedCreateWithoutProfileInput[]
+    connectOrCreate?: ApplyJobCreateOrConnectWithoutProfileInput | ApplyJobCreateOrConnectWithoutProfileInput[]
+    createMany?: ApplyJobCreateManyProfileInputEnvelope
+    connect?: ApplyJobWhereUniqueInput | ApplyJobWhereUniqueInput[]
   }
 
   export type ProfileSchemaUpdateProjectLinkInput = {
@@ -7810,6 +8220,34 @@ export namespace Prisma {
     update?: XOR<XOR<UserSchemaUpdateToOneWithWhereWithoutProfileInput, UserSchemaUpdateWithoutProfileInput>, UserSchemaUncheckedUpdateWithoutProfileInput>
   }
 
+  export type ApplyJobUpdateManyWithoutProfileNestedInput = {
+    create?: XOR<ApplyJobCreateWithoutProfileInput, ApplyJobUncheckedCreateWithoutProfileInput> | ApplyJobCreateWithoutProfileInput[] | ApplyJobUncheckedCreateWithoutProfileInput[]
+    connectOrCreate?: ApplyJobCreateOrConnectWithoutProfileInput | ApplyJobCreateOrConnectWithoutProfileInput[]
+    upsert?: ApplyJobUpsertWithWhereUniqueWithoutProfileInput | ApplyJobUpsertWithWhereUniqueWithoutProfileInput[]
+    createMany?: ApplyJobCreateManyProfileInputEnvelope
+    set?: ApplyJobWhereUniqueInput | ApplyJobWhereUniqueInput[]
+    disconnect?: ApplyJobWhereUniqueInput | ApplyJobWhereUniqueInput[]
+    delete?: ApplyJobWhereUniqueInput | ApplyJobWhereUniqueInput[]
+    connect?: ApplyJobWhereUniqueInput | ApplyJobWhereUniqueInput[]
+    update?: ApplyJobUpdateWithWhereUniqueWithoutProfileInput | ApplyJobUpdateWithWhereUniqueWithoutProfileInput[]
+    updateMany?: ApplyJobUpdateManyWithWhereWithoutProfileInput | ApplyJobUpdateManyWithWhereWithoutProfileInput[]
+    deleteMany?: ApplyJobScalarWhereInput | ApplyJobScalarWhereInput[]
+  }
+
+  export type ApplyJobUncheckedUpdateManyWithoutProfileNestedInput = {
+    create?: XOR<ApplyJobCreateWithoutProfileInput, ApplyJobUncheckedCreateWithoutProfileInput> | ApplyJobCreateWithoutProfileInput[] | ApplyJobUncheckedCreateWithoutProfileInput[]
+    connectOrCreate?: ApplyJobCreateOrConnectWithoutProfileInput | ApplyJobCreateOrConnectWithoutProfileInput[]
+    upsert?: ApplyJobUpsertWithWhereUniqueWithoutProfileInput | ApplyJobUpsertWithWhereUniqueWithoutProfileInput[]
+    createMany?: ApplyJobCreateManyProfileInputEnvelope
+    set?: ApplyJobWhereUniqueInput | ApplyJobWhereUniqueInput[]
+    disconnect?: ApplyJobWhereUniqueInput | ApplyJobWhereUniqueInput[]
+    delete?: ApplyJobWhereUniqueInput | ApplyJobWhereUniqueInput[]
+    connect?: ApplyJobWhereUniqueInput | ApplyJobWhereUniqueInput[]
+    update?: ApplyJobUpdateWithWhereUniqueWithoutProfileInput | ApplyJobUpdateWithWhereUniqueWithoutProfileInput[]
+    updateMany?: ApplyJobUpdateManyWithWhereWithoutProfileInput | ApplyJobUpdateManyWithWhereWithoutProfileInput[]
+    deleteMany?: ApplyJobScalarWhereInput | ApplyJobScalarWhereInput[]
+  }
+
   export type ClientSchemaCreateNestedOneWithoutJobschemaInput = {
     create?: XOR<ClientSchemaCreateWithoutJobschemaInput, ClientSchemaUncheckedCreateWithoutJobschemaInput>
     connectOrCreate?: ClientSchemaCreateOrConnectWithoutJobschemaInput
@@ -7822,6 +8260,48 @@ export namespace Prisma {
     upsert?: ClientSchemaUpsertWithoutJobschemaInput
     connect?: ClientSchemaWhereUniqueInput
     update?: XOR<XOR<ClientSchemaUpdateToOneWithWhereWithoutJobschemaInput, ClientSchemaUpdateWithoutJobschemaInput>, ClientSchemaUncheckedUpdateWithoutJobschemaInput>
+  }
+
+  export type UserSchemaCreateNestedOneWithoutApplyJobInput = {
+    create?: XOR<UserSchemaCreateWithoutApplyJobInput, UserSchemaUncheckedCreateWithoutApplyJobInput>
+    connectOrCreate?: UserSchemaCreateOrConnectWithoutApplyJobInput
+    connect?: UserSchemaWhereUniqueInput
+  }
+
+  export type ClientSchemaCreateNestedOneWithoutApplyJobsInput = {
+    create?: XOR<ClientSchemaCreateWithoutApplyJobsInput, ClientSchemaUncheckedCreateWithoutApplyJobsInput>
+    connectOrCreate?: ClientSchemaCreateOrConnectWithoutApplyJobsInput
+    connect?: ClientSchemaWhereUniqueInput
+  }
+
+  export type ProfileSchemaCreateNestedOneWithoutApplyJobsInput = {
+    create?: XOR<ProfileSchemaCreateWithoutApplyJobsInput, ProfileSchemaUncheckedCreateWithoutApplyJobsInput>
+    connectOrCreate?: ProfileSchemaCreateOrConnectWithoutApplyJobsInput
+    connect?: ProfileSchemaWhereUniqueInput
+  }
+
+  export type UserSchemaUpdateOneRequiredWithoutApplyJobNestedInput = {
+    create?: XOR<UserSchemaCreateWithoutApplyJobInput, UserSchemaUncheckedCreateWithoutApplyJobInput>
+    connectOrCreate?: UserSchemaCreateOrConnectWithoutApplyJobInput
+    upsert?: UserSchemaUpsertWithoutApplyJobInput
+    connect?: UserSchemaWhereUniqueInput
+    update?: XOR<XOR<UserSchemaUpdateToOneWithWhereWithoutApplyJobInput, UserSchemaUpdateWithoutApplyJobInput>, UserSchemaUncheckedUpdateWithoutApplyJobInput>
+  }
+
+  export type ClientSchemaUpdateOneRequiredWithoutApplyJobsNestedInput = {
+    create?: XOR<ClientSchemaCreateWithoutApplyJobsInput, ClientSchemaUncheckedCreateWithoutApplyJobsInput>
+    connectOrCreate?: ClientSchemaCreateOrConnectWithoutApplyJobsInput
+    upsert?: ClientSchemaUpsertWithoutApplyJobsInput
+    connect?: ClientSchemaWhereUniqueInput
+    update?: XOR<XOR<ClientSchemaUpdateToOneWithWhereWithoutApplyJobsInput, ClientSchemaUpdateWithoutApplyJobsInput>, ClientSchemaUncheckedUpdateWithoutApplyJobsInput>
+  }
+
+  export type ProfileSchemaUpdateOneRequiredWithoutApplyJobsNestedInput = {
+    create?: XOR<ProfileSchemaCreateWithoutApplyJobsInput, ProfileSchemaUncheckedCreateWithoutApplyJobsInput>
+    connectOrCreate?: ProfileSchemaCreateOrConnectWithoutApplyJobsInput
+    upsert?: ProfileSchemaUpsertWithoutApplyJobsInput
+    connect?: ProfileSchemaWhereUniqueInput
+    update?: XOR<XOR<ProfileSchemaUpdateToOneWithWhereWithoutApplyJobsInput, ProfileSchemaUpdateWithoutApplyJobsInput>, ProfileSchemaUncheckedUpdateWithoutApplyJobsInput>
   }
 
   export type NestedIntFilter<$PrismaModel = never> = {
@@ -7938,17 +8418,41 @@ export namespace Prisma {
   export type ProfileSchemaCreateWithoutUserInput = {
     About: string
     ProjectLink?: ProfileSchemaCreateProjectLinkInput | string[]
+    applyJobs?: ApplyJobCreateNestedManyWithoutProfileInput
   }
 
   export type ProfileSchemaUncheckedCreateWithoutUserInput = {
     profile_id?: number
     About: string
     ProjectLink?: ProfileSchemaCreateProjectLinkInput | string[]
+    applyJobs?: ApplyJobUncheckedCreateNestedManyWithoutProfileInput
   }
 
   export type ProfileSchemaCreateOrConnectWithoutUserInput = {
     where: ProfileSchemaWhereUniqueInput
     create: XOR<ProfileSchemaCreateWithoutUserInput, ProfileSchemaUncheckedCreateWithoutUserInput>
+  }
+
+  export type ApplyJobCreateWithoutUserInput = {
+    jobtitle: string
+    client: ClientSchemaCreateNestedOneWithoutApplyJobsInput
+    profile: ProfileSchemaCreateNestedOneWithoutApplyJobsInput
+  }
+
+  export type ApplyJobUncheckedCreateWithoutUserInput = {
+    applyjobid?: number
+    clientid: number
+    jobtitle: string
+  }
+
+  export type ApplyJobCreateOrConnectWithoutUserInput = {
+    where: ApplyJobWhereUniqueInput
+    create: XOR<ApplyJobCreateWithoutUserInput, ApplyJobUncheckedCreateWithoutUserInput>
+  }
+
+  export type ApplyJobCreateManyUserInputEnvelope = {
+    data: ApplyJobCreateManyUserInput | ApplyJobCreateManyUserInput[]
+    skipDuplicates?: boolean
   }
 
   export type ProfileSchemaUpsertWithoutUserInput = {
@@ -7965,12 +8469,40 @@ export namespace Prisma {
   export type ProfileSchemaUpdateWithoutUserInput = {
     About?: StringFieldUpdateOperationsInput | string
     ProjectLink?: ProfileSchemaUpdateProjectLinkInput | string[]
+    applyJobs?: ApplyJobUpdateManyWithoutProfileNestedInput
   }
 
   export type ProfileSchemaUncheckedUpdateWithoutUserInput = {
     profile_id?: IntFieldUpdateOperationsInput | number
     About?: StringFieldUpdateOperationsInput | string
     ProjectLink?: ProfileSchemaUpdateProjectLinkInput | string[]
+    applyJobs?: ApplyJobUncheckedUpdateManyWithoutProfileNestedInput
+  }
+
+  export type ApplyJobUpsertWithWhereUniqueWithoutUserInput = {
+    where: ApplyJobWhereUniqueInput
+    update: XOR<ApplyJobUpdateWithoutUserInput, ApplyJobUncheckedUpdateWithoutUserInput>
+    create: XOR<ApplyJobCreateWithoutUserInput, ApplyJobUncheckedCreateWithoutUserInput>
+  }
+
+  export type ApplyJobUpdateWithWhereUniqueWithoutUserInput = {
+    where: ApplyJobWhereUniqueInput
+    data: XOR<ApplyJobUpdateWithoutUserInput, ApplyJobUncheckedUpdateWithoutUserInput>
+  }
+
+  export type ApplyJobUpdateManyWithWhereWithoutUserInput = {
+    where: ApplyJobScalarWhereInput
+    data: XOR<ApplyJobUpdateManyMutationInput, ApplyJobUncheckedUpdateManyWithoutUserInput>
+  }
+
+  export type ApplyJobScalarWhereInput = {
+    AND?: ApplyJobScalarWhereInput | ApplyJobScalarWhereInput[]
+    OR?: ApplyJobScalarWhereInput[]
+    NOT?: ApplyJobScalarWhereInput | ApplyJobScalarWhereInput[]
+    applyjobid?: IntFilter<"ApplyJob"> | number
+    clientid?: IntFilter<"ApplyJob"> | number
+    userid?: IntFilter<"ApplyJob"> | number
+    jobtitle?: StringFilter<"ApplyJob"> | string
   }
 
   export type JobSchemaCreateWithoutClientInput = {
@@ -7995,6 +8527,28 @@ export namespace Prisma {
 
   export type JobSchemaCreateManyClientInputEnvelope = {
     data: JobSchemaCreateManyClientInput | JobSchemaCreateManyClientInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type ApplyJobCreateWithoutClientInput = {
+    jobtitle: string
+    user: UserSchemaCreateNestedOneWithoutApplyJobInput
+    profile: ProfileSchemaCreateNestedOneWithoutApplyJobsInput
+  }
+
+  export type ApplyJobUncheckedCreateWithoutClientInput = {
+    applyjobid?: number
+    userid: number
+    jobtitle: string
+  }
+
+  export type ApplyJobCreateOrConnectWithoutClientInput = {
+    where: ApplyJobWhereUniqueInput
+    create: XOR<ApplyJobCreateWithoutClientInput, ApplyJobUncheckedCreateWithoutClientInput>
+  }
+
+  export type ApplyJobCreateManyClientInputEnvelope = {
+    data: ApplyJobCreateManyClientInput | ApplyJobCreateManyClientInput[]
     skipDuplicates?: boolean
   }
 
@@ -8026,6 +8580,22 @@ export namespace Prisma {
     Timeline?: StringFilter<"JobSchema"> | string
   }
 
+  export type ApplyJobUpsertWithWhereUniqueWithoutClientInput = {
+    where: ApplyJobWhereUniqueInput
+    update: XOR<ApplyJobUpdateWithoutClientInput, ApplyJobUncheckedUpdateWithoutClientInput>
+    create: XOR<ApplyJobCreateWithoutClientInput, ApplyJobUncheckedCreateWithoutClientInput>
+  }
+
+  export type ApplyJobUpdateWithWhereUniqueWithoutClientInput = {
+    where: ApplyJobWhereUniqueInput
+    data: XOR<ApplyJobUpdateWithoutClientInput, ApplyJobUncheckedUpdateWithoutClientInput>
+  }
+
+  export type ApplyJobUpdateManyWithWhereWithoutClientInput = {
+    where: ApplyJobScalarWhereInput
+    data: XOR<ApplyJobUpdateManyMutationInput, ApplyJobUncheckedUpdateManyWithoutClientInput>
+  }
+
   export type UserSchemaCreateWithoutProfileInput = {
     Name: string
     Email: string
@@ -8033,6 +8603,7 @@ export namespace Prisma {
     Experience: number
     Rating: number
     Skills?: UserSchemaCreateSkillsInput | string[]
+    ApplyJob?: ApplyJobCreateNestedManyWithoutUserInput
   }
 
   export type UserSchemaUncheckedCreateWithoutProfileInput = {
@@ -8043,11 +8614,34 @@ export namespace Prisma {
     Experience: number
     Rating: number
     Skills?: UserSchemaCreateSkillsInput | string[]
+    ApplyJob?: ApplyJobUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserSchemaCreateOrConnectWithoutProfileInput = {
     where: UserSchemaWhereUniqueInput
     create: XOR<UserSchemaCreateWithoutProfileInput, UserSchemaUncheckedCreateWithoutProfileInput>
+  }
+
+  export type ApplyJobCreateWithoutProfileInput = {
+    jobtitle: string
+    user: UserSchemaCreateNestedOneWithoutApplyJobInput
+    client: ClientSchemaCreateNestedOneWithoutApplyJobsInput
+  }
+
+  export type ApplyJobUncheckedCreateWithoutProfileInput = {
+    applyjobid?: number
+    clientid: number
+    jobtitle: string
+  }
+
+  export type ApplyJobCreateOrConnectWithoutProfileInput = {
+    where: ApplyJobWhereUniqueInput
+    create: XOR<ApplyJobCreateWithoutProfileInput, ApplyJobUncheckedCreateWithoutProfileInput>
+  }
+
+  export type ApplyJobCreateManyProfileInputEnvelope = {
+    data: ApplyJobCreateManyProfileInput | ApplyJobCreateManyProfileInput[]
+    skipDuplicates?: boolean
   }
 
   export type UserSchemaUpsertWithoutProfileInput = {
@@ -8068,6 +8662,7 @@ export namespace Prisma {
     Experience?: IntFieldUpdateOperationsInput | number
     Rating?: IntFieldUpdateOperationsInput | number
     Skills?: UserSchemaUpdateSkillsInput | string[]
+    ApplyJob?: ApplyJobUpdateManyWithoutUserNestedInput
   }
 
   export type UserSchemaUncheckedUpdateWithoutProfileInput = {
@@ -8078,6 +8673,23 @@ export namespace Prisma {
     Experience?: IntFieldUpdateOperationsInput | number
     Rating?: IntFieldUpdateOperationsInput | number
     Skills?: UserSchemaUpdateSkillsInput | string[]
+    ApplyJob?: ApplyJobUncheckedUpdateManyWithoutUserNestedInput
+  }
+
+  export type ApplyJobUpsertWithWhereUniqueWithoutProfileInput = {
+    where: ApplyJobWhereUniqueInput
+    update: XOR<ApplyJobUpdateWithoutProfileInput, ApplyJobUncheckedUpdateWithoutProfileInput>
+    create: XOR<ApplyJobCreateWithoutProfileInput, ApplyJobUncheckedCreateWithoutProfileInput>
+  }
+
+  export type ApplyJobUpdateWithWhereUniqueWithoutProfileInput = {
+    where: ApplyJobWhereUniqueInput
+    data: XOR<ApplyJobUpdateWithoutProfileInput, ApplyJobUncheckedUpdateWithoutProfileInput>
+  }
+
+  export type ApplyJobUpdateManyWithWhereWithoutProfileInput = {
+    where: ApplyJobScalarWhereInput
+    data: XOR<ApplyJobUpdateManyMutationInput, ApplyJobUncheckedUpdateManyWithoutProfileInput>
   }
 
   export type ClientSchemaCreateWithoutJobschemaInput = {
@@ -8085,6 +8697,7 @@ export namespace Prisma {
     Email: string
     Password: string
     Organization?: string | null
+    ApplyJobs?: ApplyJobCreateNestedManyWithoutClientInput
   }
 
   export type ClientSchemaUncheckedCreateWithoutJobschemaInput = {
@@ -8093,6 +8706,7 @@ export namespace Prisma {
     Email: string
     Password: string
     Organization?: string | null
+    ApplyJobs?: ApplyJobUncheckedCreateNestedManyWithoutClientInput
   }
 
   export type ClientSchemaCreateOrConnectWithoutJobschemaInput = {
@@ -8116,6 +8730,7 @@ export namespace Prisma {
     Email?: StringFieldUpdateOperationsInput | string
     Password?: StringFieldUpdateOperationsInput | string
     Organization?: NullableStringFieldUpdateOperationsInput | string | null
+    ApplyJobs?: ApplyJobUpdateManyWithoutClientNestedInput
   }
 
   export type ClientSchemaUncheckedUpdateWithoutJobschemaInput = {
@@ -8124,6 +8739,181 @@ export namespace Prisma {
     Email?: StringFieldUpdateOperationsInput | string
     Password?: StringFieldUpdateOperationsInput | string
     Organization?: NullableStringFieldUpdateOperationsInput | string | null
+    ApplyJobs?: ApplyJobUncheckedUpdateManyWithoutClientNestedInput
+  }
+
+  export type UserSchemaCreateWithoutApplyJobInput = {
+    Name: string
+    Email: string
+    Password: string
+    Experience: number
+    Rating: number
+    Skills?: UserSchemaCreateSkillsInput | string[]
+    Profile?: ProfileSchemaCreateNestedOneWithoutUserInput
+  }
+
+  export type UserSchemaUncheckedCreateWithoutApplyJobInput = {
+    user_id?: number
+    Name: string
+    Email: string
+    Password: string
+    Experience: number
+    Rating: number
+    Skills?: UserSchemaCreateSkillsInput | string[]
+    Profile?: ProfileSchemaUncheckedCreateNestedOneWithoutUserInput
+  }
+
+  export type UserSchemaCreateOrConnectWithoutApplyJobInput = {
+    where: UserSchemaWhereUniqueInput
+    create: XOR<UserSchemaCreateWithoutApplyJobInput, UserSchemaUncheckedCreateWithoutApplyJobInput>
+  }
+
+  export type ClientSchemaCreateWithoutApplyJobsInput = {
+    client_name: string
+    Email: string
+    Password: string
+    Organization?: string | null
+    jobschema?: JobSchemaCreateNestedManyWithoutClientInput
+  }
+
+  export type ClientSchemaUncheckedCreateWithoutApplyJobsInput = {
+    client_id?: number
+    client_name: string
+    Email: string
+    Password: string
+    Organization?: string | null
+    jobschema?: JobSchemaUncheckedCreateNestedManyWithoutClientInput
+  }
+
+  export type ClientSchemaCreateOrConnectWithoutApplyJobsInput = {
+    where: ClientSchemaWhereUniqueInput
+    create: XOR<ClientSchemaCreateWithoutApplyJobsInput, ClientSchemaUncheckedCreateWithoutApplyJobsInput>
+  }
+
+  export type ProfileSchemaCreateWithoutApplyJobsInput = {
+    About: string
+    ProjectLink?: ProfileSchemaCreateProjectLinkInput | string[]
+    user: UserSchemaCreateNestedOneWithoutProfileInput
+  }
+
+  export type ProfileSchemaUncheckedCreateWithoutApplyJobsInput = {
+    profile_id?: number
+    About: string
+    ProjectLink?: ProfileSchemaCreateProjectLinkInput | string[]
+    userid: number
+  }
+
+  export type ProfileSchemaCreateOrConnectWithoutApplyJobsInput = {
+    where: ProfileSchemaWhereUniqueInput
+    create: XOR<ProfileSchemaCreateWithoutApplyJobsInput, ProfileSchemaUncheckedCreateWithoutApplyJobsInput>
+  }
+
+  export type UserSchemaUpsertWithoutApplyJobInput = {
+    update: XOR<UserSchemaUpdateWithoutApplyJobInput, UserSchemaUncheckedUpdateWithoutApplyJobInput>
+    create: XOR<UserSchemaCreateWithoutApplyJobInput, UserSchemaUncheckedCreateWithoutApplyJobInput>
+    where?: UserSchemaWhereInput
+  }
+
+  export type UserSchemaUpdateToOneWithWhereWithoutApplyJobInput = {
+    where?: UserSchemaWhereInput
+    data: XOR<UserSchemaUpdateWithoutApplyJobInput, UserSchemaUncheckedUpdateWithoutApplyJobInput>
+  }
+
+  export type UserSchemaUpdateWithoutApplyJobInput = {
+    Name?: StringFieldUpdateOperationsInput | string
+    Email?: StringFieldUpdateOperationsInput | string
+    Password?: StringFieldUpdateOperationsInput | string
+    Experience?: IntFieldUpdateOperationsInput | number
+    Rating?: IntFieldUpdateOperationsInput | number
+    Skills?: UserSchemaUpdateSkillsInput | string[]
+    Profile?: ProfileSchemaUpdateOneWithoutUserNestedInput
+  }
+
+  export type UserSchemaUncheckedUpdateWithoutApplyJobInput = {
+    user_id?: IntFieldUpdateOperationsInput | number
+    Name?: StringFieldUpdateOperationsInput | string
+    Email?: StringFieldUpdateOperationsInput | string
+    Password?: StringFieldUpdateOperationsInput | string
+    Experience?: IntFieldUpdateOperationsInput | number
+    Rating?: IntFieldUpdateOperationsInput | number
+    Skills?: UserSchemaUpdateSkillsInput | string[]
+    Profile?: ProfileSchemaUncheckedUpdateOneWithoutUserNestedInput
+  }
+
+  export type ClientSchemaUpsertWithoutApplyJobsInput = {
+    update: XOR<ClientSchemaUpdateWithoutApplyJobsInput, ClientSchemaUncheckedUpdateWithoutApplyJobsInput>
+    create: XOR<ClientSchemaCreateWithoutApplyJobsInput, ClientSchemaUncheckedCreateWithoutApplyJobsInput>
+    where?: ClientSchemaWhereInput
+  }
+
+  export type ClientSchemaUpdateToOneWithWhereWithoutApplyJobsInput = {
+    where?: ClientSchemaWhereInput
+    data: XOR<ClientSchemaUpdateWithoutApplyJobsInput, ClientSchemaUncheckedUpdateWithoutApplyJobsInput>
+  }
+
+  export type ClientSchemaUpdateWithoutApplyJobsInput = {
+    client_name?: StringFieldUpdateOperationsInput | string
+    Email?: StringFieldUpdateOperationsInput | string
+    Password?: StringFieldUpdateOperationsInput | string
+    Organization?: NullableStringFieldUpdateOperationsInput | string | null
+    jobschema?: JobSchemaUpdateManyWithoutClientNestedInput
+  }
+
+  export type ClientSchemaUncheckedUpdateWithoutApplyJobsInput = {
+    client_id?: IntFieldUpdateOperationsInput | number
+    client_name?: StringFieldUpdateOperationsInput | string
+    Email?: StringFieldUpdateOperationsInput | string
+    Password?: StringFieldUpdateOperationsInput | string
+    Organization?: NullableStringFieldUpdateOperationsInput | string | null
+    jobschema?: JobSchemaUncheckedUpdateManyWithoutClientNestedInput
+  }
+
+  export type ProfileSchemaUpsertWithoutApplyJobsInput = {
+    update: XOR<ProfileSchemaUpdateWithoutApplyJobsInput, ProfileSchemaUncheckedUpdateWithoutApplyJobsInput>
+    create: XOR<ProfileSchemaCreateWithoutApplyJobsInput, ProfileSchemaUncheckedCreateWithoutApplyJobsInput>
+    where?: ProfileSchemaWhereInput
+  }
+
+  export type ProfileSchemaUpdateToOneWithWhereWithoutApplyJobsInput = {
+    where?: ProfileSchemaWhereInput
+    data: XOR<ProfileSchemaUpdateWithoutApplyJobsInput, ProfileSchemaUncheckedUpdateWithoutApplyJobsInput>
+  }
+
+  export type ProfileSchemaUpdateWithoutApplyJobsInput = {
+    About?: StringFieldUpdateOperationsInput | string
+    ProjectLink?: ProfileSchemaUpdateProjectLinkInput | string[]
+    user?: UserSchemaUpdateOneRequiredWithoutProfileNestedInput
+  }
+
+  export type ProfileSchemaUncheckedUpdateWithoutApplyJobsInput = {
+    profile_id?: IntFieldUpdateOperationsInput | number
+    About?: StringFieldUpdateOperationsInput | string
+    ProjectLink?: ProfileSchemaUpdateProjectLinkInput | string[]
+    userid?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type ApplyJobCreateManyUserInput = {
+    applyjobid?: number
+    clientid: number
+    jobtitle: string
+  }
+
+  export type ApplyJobUpdateWithoutUserInput = {
+    jobtitle?: StringFieldUpdateOperationsInput | string
+    client?: ClientSchemaUpdateOneRequiredWithoutApplyJobsNestedInput
+    profile?: ProfileSchemaUpdateOneRequiredWithoutApplyJobsNestedInput
+  }
+
+  export type ApplyJobUncheckedUpdateWithoutUserInput = {
+    applyjobid?: IntFieldUpdateOperationsInput | number
+    clientid?: IntFieldUpdateOperationsInput | number
+    jobtitle?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type ApplyJobUncheckedUpdateManyWithoutUserInput = {
+    applyjobid?: IntFieldUpdateOperationsInput | number
+    clientid?: IntFieldUpdateOperationsInput | number
+    jobtitle?: StringFieldUpdateOperationsInput | string
   }
 
   export type JobSchemaCreateManyClientInput = {
@@ -8132,6 +8922,12 @@ export namespace Prisma {
     Job_description: string
     Budget: string
     Timeline: string
+  }
+
+  export type ApplyJobCreateManyClientInput = {
+    applyjobid?: number
+    userid: number
+    jobtitle: string
   }
 
   export type JobSchemaUpdateWithoutClientInput = {
@@ -8155,6 +8951,48 @@ export namespace Prisma {
     Job_description?: StringFieldUpdateOperationsInput | string
     Budget?: StringFieldUpdateOperationsInput | string
     Timeline?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type ApplyJobUpdateWithoutClientInput = {
+    jobtitle?: StringFieldUpdateOperationsInput | string
+    user?: UserSchemaUpdateOneRequiredWithoutApplyJobNestedInput
+    profile?: ProfileSchemaUpdateOneRequiredWithoutApplyJobsNestedInput
+  }
+
+  export type ApplyJobUncheckedUpdateWithoutClientInput = {
+    applyjobid?: IntFieldUpdateOperationsInput | number
+    userid?: IntFieldUpdateOperationsInput | number
+    jobtitle?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type ApplyJobUncheckedUpdateManyWithoutClientInput = {
+    applyjobid?: IntFieldUpdateOperationsInput | number
+    userid?: IntFieldUpdateOperationsInput | number
+    jobtitle?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type ApplyJobCreateManyProfileInput = {
+    applyjobid?: number
+    clientid: number
+    jobtitle: string
+  }
+
+  export type ApplyJobUpdateWithoutProfileInput = {
+    jobtitle?: StringFieldUpdateOperationsInput | string
+    user?: UserSchemaUpdateOneRequiredWithoutApplyJobNestedInput
+    client?: ClientSchemaUpdateOneRequiredWithoutApplyJobsNestedInput
+  }
+
+  export type ApplyJobUncheckedUpdateWithoutProfileInput = {
+    applyjobid?: IntFieldUpdateOperationsInput | number
+    clientid?: IntFieldUpdateOperationsInput | number
+    jobtitle?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type ApplyJobUncheckedUpdateManyWithoutProfileInput = {
+    applyjobid?: IntFieldUpdateOperationsInput | number
+    clientid?: IntFieldUpdateOperationsInput | number
+    jobtitle?: StringFieldUpdateOperationsInput | string
   }
 
 

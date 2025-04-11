@@ -72,7 +72,7 @@ export default async function ServerClientInfo() {
 
                         </div>
 
-                        <Apply_Client_details_button user={whichuser} clientid={job.clientid} jobtitle={job.jobbtitle}></Apply_Client_details_button>
+                        <Apply_Client_details_button user={whichuser} clientid={job.clientid} jobtitle={job.jobbtitle} budget={job.budget} timeline={job.timeline}></Apply_Client_details_button>
 
                     </div>
                 ))}

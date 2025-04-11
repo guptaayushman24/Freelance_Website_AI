@@ -31,7 +31,7 @@ export default function RoleBasedDashboard(){
                     ) : session?.user.whichuser === 'Job Seeker' ? (
                         <div className="flex flex-row justify-end gap-[2rem] mt-[2.5rem]">
                             <button className="bg-white text-red-500 px-4 py-2 rounded">User Completed Project</button>
-                            <button className="bg-white text-red-500 px-4 py-2 rounded">User Ongoing Project</button>
+                            <button className="bg-white text-red-500 px-4 py-2 rounded" onClick={()=>route.push('/userongoingproject')}>User Ongoing Project</button>
                         </div>
                     ) : null
                 }

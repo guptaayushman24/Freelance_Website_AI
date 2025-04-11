@@ -1,13 +1,15 @@
 'use server'
 import { PrismaClient } from "@/db/generated/prisma";
 const client = new PrismaClient();
-export default async function Apply_Project(client_id:number,user_id:number,jobtitle:string){
+export default async function Apply_Project(client_id:number,user_id:number,jobtitle:string,budget:string,timeline:string){
     try{    
         await client.applyJob.createMany({
             data:{
                 clientid:client_id,
                 userid:user_id,
-                jobtitle:jobtitle
+                jobtitle:jobtitle,
+                budget:budget,
+                timeline:timeline
 
             },
         })

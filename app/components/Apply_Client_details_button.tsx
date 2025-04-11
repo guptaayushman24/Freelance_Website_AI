@@ -4,12 +4,14 @@ import { useSession } from "next-auth/react";
 import { useState } from "react";
 import Apply_Project from '../actions/Apply_Project'
 interface Props {
-  user: string;
+  user: string,
   clientid:number,
-  jobtitle:string
+  jobtitle:string,
+  budget :string,
+  timeline : string
 }
 
-export default  function ApplyClinetDetailButton({ user,clientid,jobtitle}: Props) {
+export default  function ApplyClinetDetailButton({ user,clientid,jobtitle,budget,timeline}: Props) {
   // const [visibledata, Setvisibledata] = useState<boolean>(false);
   // const [showdata,Setshowdata] = useState<string>('');
   // function togglebutton() {
@@ -32,14 +34,15 @@ export default  function ApplyClinetDetailButton({ user,clientid,jobtitle}: Prop
       const userid =  session?.user.id;
      console.log("The client id is",clientid);
      console.log("The user id is",userid);
-      const jobapply = await Apply_Project (clientid,userid,jobtitle);
+      const jobapply = await Apply_Project (clientid,userid,jobtitle,budget,timeline);
       if (jobapply==1){
         Setloading(false);
       } 
       else if (jobapply==-1){
         alert("Server goes does try after some time");
         console.log(jobapply);
-        console.log("The title is",jobtitle);
+        console.log("The budget  is",budget);
+        console.log("The timeline  is",timeline);
         return;
       }
     }

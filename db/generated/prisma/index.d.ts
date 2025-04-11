@@ -5870,6 +5870,8 @@ export namespace Prisma {
     clientid: number | null
     userid: number | null
     jobtitle: string | null
+    budget: string | null
+    timeline: string | null
   }
 
   export type ApplyJobMaxAggregateOutputType = {
@@ -5877,6 +5879,8 @@ export namespace Prisma {
     clientid: number | null
     userid: number | null
     jobtitle: string | null
+    budget: string | null
+    timeline: string | null
   }
 
   export type ApplyJobCountAggregateOutputType = {
@@ -5884,6 +5888,8 @@ export namespace Prisma {
     clientid: number
     userid: number
     jobtitle: number
+    budget: number
+    timeline: number
     _all: number
   }
 
@@ -5905,6 +5911,8 @@ export namespace Prisma {
     clientid?: true
     userid?: true
     jobtitle?: true
+    budget?: true
+    timeline?: true
   }
 
   export type ApplyJobMaxAggregateInputType = {
@@ -5912,6 +5920,8 @@ export namespace Prisma {
     clientid?: true
     userid?: true
     jobtitle?: true
+    budget?: true
+    timeline?: true
   }
 
   export type ApplyJobCountAggregateInputType = {
@@ -5919,6 +5929,8 @@ export namespace Prisma {
     clientid?: true
     userid?: true
     jobtitle?: true
+    budget?: true
+    timeline?: true
     _all?: true
   }
 
@@ -6013,6 +6025,8 @@ export namespace Prisma {
     clientid: number
     userid: number
     jobtitle: string
+    budget: string
+    timeline: string
     _count: ApplyJobCountAggregateOutputType | null
     _avg: ApplyJobAvgAggregateOutputType | null
     _sum: ApplyJobSumAggregateOutputType | null
@@ -6039,6 +6053,8 @@ export namespace Prisma {
     clientid?: boolean
     userid?: boolean
     jobtitle?: boolean
+    budget?: boolean
+    timeline?: boolean
     user?: boolean | UserSchemaDefaultArgs<ExtArgs>
     client?: boolean | ClientSchemaDefaultArgs<ExtArgs>
     profile?: boolean | ProfileSchemaDefaultArgs<ExtArgs>
@@ -6049,6 +6065,8 @@ export namespace Prisma {
     clientid?: boolean
     userid?: boolean
     jobtitle?: boolean
+    budget?: boolean
+    timeline?: boolean
     user?: boolean | UserSchemaDefaultArgs<ExtArgs>
     client?: boolean | ClientSchemaDefaultArgs<ExtArgs>
     profile?: boolean | ProfileSchemaDefaultArgs<ExtArgs>
@@ -6059,6 +6077,8 @@ export namespace Prisma {
     clientid?: boolean
     userid?: boolean
     jobtitle?: boolean
+    budget?: boolean
+    timeline?: boolean
     user?: boolean | UserSchemaDefaultArgs<ExtArgs>
     client?: boolean | ClientSchemaDefaultArgs<ExtArgs>
     profile?: boolean | ProfileSchemaDefaultArgs<ExtArgs>
@@ -6069,9 +6089,11 @@ export namespace Prisma {
     clientid?: boolean
     userid?: boolean
     jobtitle?: boolean
+    budget?: boolean
+    timeline?: boolean
   }
 
-  export type ApplyJobOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"applyjobid" | "clientid" | "userid" | "jobtitle", ExtArgs["result"]["applyJob"]>
+  export type ApplyJobOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"applyjobid" | "clientid" | "userid" | "jobtitle" | "budget" | "timeline", ExtArgs["result"]["applyJob"]>
   export type ApplyJobInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     user?: boolean | UserSchemaDefaultArgs<ExtArgs>
     client?: boolean | ClientSchemaDefaultArgs<ExtArgs>
@@ -6100,6 +6122,8 @@ export namespace Prisma {
       clientid: number
       userid: number
       jobtitle: string
+      budget: string
+      timeline: string
     }, ExtArgs["result"]["applyJob"]>
     composites: {}
   }
@@ -6530,6 +6554,8 @@ export namespace Prisma {
     readonly clientid: FieldRef<"ApplyJob", 'Int'>
     readonly userid: FieldRef<"ApplyJob", 'Int'>
     readonly jobtitle: FieldRef<"ApplyJob", 'String'>
+    readonly budget: FieldRef<"ApplyJob", 'String'>
+    readonly timeline: FieldRef<"ApplyJob", 'String'>
   }
     
 
@@ -7008,7 +7034,9 @@ export namespace Prisma {
     applyjobid: 'applyjobid',
     clientid: 'clientid',
     userid: 'userid',
-    jobtitle: 'jobtitle'
+    jobtitle: 'jobtitle',
+    budget: 'budget',
+    timeline: 'timeline'
   };
 
   export type ApplyJobScalarFieldEnum = (typeof ApplyJobScalarFieldEnum)[keyof typeof ApplyJobScalarFieldEnum]
@@ -7343,6 +7371,8 @@ export namespace Prisma {
     clientid?: IntFilter<"ApplyJob"> | number
     userid?: IntFilter<"ApplyJob"> | number
     jobtitle?: StringFilter<"ApplyJob"> | string
+    budget?: StringFilter<"ApplyJob"> | string
+    timeline?: StringFilter<"ApplyJob"> | string
     user?: XOR<UserSchemaScalarRelationFilter, UserSchemaWhereInput>
     client?: XOR<ClientSchemaScalarRelationFilter, ClientSchemaWhereInput>
     profile?: XOR<ProfileSchemaScalarRelationFilter, ProfileSchemaWhereInput>
@@ -7353,6 +7383,8 @@ export namespace Prisma {
     clientid?: SortOrder
     userid?: SortOrder
     jobtitle?: SortOrder
+    budget?: SortOrder
+    timeline?: SortOrder
     user?: UserSchemaOrderByWithRelationInput
     client?: ClientSchemaOrderByWithRelationInput
     profile?: ProfileSchemaOrderByWithRelationInput
@@ -7366,6 +7398,8 @@ export namespace Prisma {
     clientid?: IntFilter<"ApplyJob"> | number
     userid?: IntFilter<"ApplyJob"> | number
     jobtitle?: StringFilter<"ApplyJob"> | string
+    budget?: StringFilter<"ApplyJob"> | string
+    timeline?: StringFilter<"ApplyJob"> | string
     user?: XOR<UserSchemaScalarRelationFilter, UserSchemaWhereInput>
     client?: XOR<ClientSchemaScalarRelationFilter, ClientSchemaWhereInput>
     profile?: XOR<ProfileSchemaScalarRelationFilter, ProfileSchemaWhereInput>
@@ -7376,6 +7410,8 @@ export namespace Prisma {
     clientid?: SortOrder
     userid?: SortOrder
     jobtitle?: SortOrder
+    budget?: SortOrder
+    timeline?: SortOrder
     _count?: ApplyJobCountOrderByAggregateInput
     _avg?: ApplyJobAvgOrderByAggregateInput
     _max?: ApplyJobMaxOrderByAggregateInput
@@ -7391,6 +7427,8 @@ export namespace Prisma {
     clientid?: IntWithAggregatesFilter<"ApplyJob"> | number
     userid?: IntWithAggregatesFilter<"ApplyJob"> | number
     jobtitle?: StringWithAggregatesFilter<"ApplyJob"> | string
+    budget?: StringWithAggregatesFilter<"ApplyJob"> | string
+    timeline?: StringWithAggregatesFilter<"ApplyJob"> | string
   }
 
   export type UserSchemaCreateInput = {
@@ -7639,6 +7677,8 @@ export namespace Prisma {
 
   export type ApplyJobCreateInput = {
     jobtitle: string
+    budget?: string
+    timeline?: string
     user: UserSchemaCreateNestedOneWithoutApplyJobInput
     client: ClientSchemaCreateNestedOneWithoutApplyJobsInput
     profile: ProfileSchemaCreateNestedOneWithoutApplyJobsInput
@@ -7649,10 +7689,14 @@ export namespace Prisma {
     clientid: number
     userid: number
     jobtitle: string
+    budget?: string
+    timeline?: string
   }
 
   export type ApplyJobUpdateInput = {
     jobtitle?: StringFieldUpdateOperationsInput | string
+    budget?: StringFieldUpdateOperationsInput | string
+    timeline?: StringFieldUpdateOperationsInput | string
     user?: UserSchemaUpdateOneRequiredWithoutApplyJobNestedInput
     client?: ClientSchemaUpdateOneRequiredWithoutApplyJobsNestedInput
     profile?: ProfileSchemaUpdateOneRequiredWithoutApplyJobsNestedInput
@@ -7663,6 +7707,8 @@ export namespace Prisma {
     clientid?: IntFieldUpdateOperationsInput | number
     userid?: IntFieldUpdateOperationsInput | number
     jobtitle?: StringFieldUpdateOperationsInput | string
+    budget?: StringFieldUpdateOperationsInput | string
+    timeline?: StringFieldUpdateOperationsInput | string
   }
 
   export type ApplyJobCreateManyInput = {
@@ -7670,10 +7716,14 @@ export namespace Prisma {
     clientid: number
     userid: number
     jobtitle: string
+    budget?: string
+    timeline?: string
   }
 
   export type ApplyJobUpdateManyMutationInput = {
     jobtitle?: StringFieldUpdateOperationsInput | string
+    budget?: StringFieldUpdateOperationsInput | string
+    timeline?: StringFieldUpdateOperationsInput | string
   }
 
   export type ApplyJobUncheckedUpdateManyInput = {
@@ -7681,6 +7731,8 @@ export namespace Prisma {
     clientid?: IntFieldUpdateOperationsInput | number
     userid?: IntFieldUpdateOperationsInput | number
     jobtitle?: StringFieldUpdateOperationsInput | string
+    budget?: StringFieldUpdateOperationsInput | string
+    timeline?: StringFieldUpdateOperationsInput | string
   }
 
   export type IntFilter<$PrismaModel = never> = {
@@ -7972,6 +8024,8 @@ export namespace Prisma {
     clientid?: SortOrder
     userid?: SortOrder
     jobtitle?: SortOrder
+    budget?: SortOrder
+    timeline?: SortOrder
   }
 
   export type ApplyJobAvgOrderByAggregateInput = {
@@ -7985,6 +8039,8 @@ export namespace Prisma {
     clientid?: SortOrder
     userid?: SortOrder
     jobtitle?: SortOrder
+    budget?: SortOrder
+    timeline?: SortOrder
   }
 
   export type ApplyJobMinOrderByAggregateInput = {
@@ -7992,6 +8048,8 @@ export namespace Prisma {
     clientid?: SortOrder
     userid?: SortOrder
     jobtitle?: SortOrder
+    budget?: SortOrder
+    timeline?: SortOrder
   }
 
   export type ApplyJobSumOrderByAggregateInput = {
@@ -8435,6 +8493,8 @@ export namespace Prisma {
 
   export type ApplyJobCreateWithoutUserInput = {
     jobtitle: string
+    budget?: string
+    timeline?: string
     client: ClientSchemaCreateNestedOneWithoutApplyJobsInput
     profile: ProfileSchemaCreateNestedOneWithoutApplyJobsInput
   }
@@ -8443,6 +8503,8 @@ export namespace Prisma {
     applyjobid?: number
     clientid: number
     jobtitle: string
+    budget?: string
+    timeline?: string
   }
 
   export type ApplyJobCreateOrConnectWithoutUserInput = {
@@ -8503,6 +8565,8 @@ export namespace Prisma {
     clientid?: IntFilter<"ApplyJob"> | number
     userid?: IntFilter<"ApplyJob"> | number
     jobtitle?: StringFilter<"ApplyJob"> | string
+    budget?: StringFilter<"ApplyJob"> | string
+    timeline?: StringFilter<"ApplyJob"> | string
   }
 
   export type JobSchemaCreateWithoutClientInput = {
@@ -8532,6 +8596,8 @@ export namespace Prisma {
 
   export type ApplyJobCreateWithoutClientInput = {
     jobtitle: string
+    budget?: string
+    timeline?: string
     user: UserSchemaCreateNestedOneWithoutApplyJobInput
     profile: ProfileSchemaCreateNestedOneWithoutApplyJobsInput
   }
@@ -8540,6 +8606,8 @@ export namespace Prisma {
     applyjobid?: number
     userid: number
     jobtitle: string
+    budget?: string
+    timeline?: string
   }
 
   export type ApplyJobCreateOrConnectWithoutClientInput = {
@@ -8624,6 +8692,8 @@ export namespace Prisma {
 
   export type ApplyJobCreateWithoutProfileInput = {
     jobtitle: string
+    budget?: string
+    timeline?: string
     user: UserSchemaCreateNestedOneWithoutApplyJobInput
     client: ClientSchemaCreateNestedOneWithoutApplyJobsInput
   }
@@ -8632,6 +8702,8 @@ export namespace Prisma {
     applyjobid?: number
     clientid: number
     jobtitle: string
+    budget?: string
+    timeline?: string
   }
 
   export type ApplyJobCreateOrConnectWithoutProfileInput = {
@@ -8896,10 +8968,14 @@ export namespace Prisma {
     applyjobid?: number
     clientid: number
     jobtitle: string
+    budget?: string
+    timeline?: string
   }
 
   export type ApplyJobUpdateWithoutUserInput = {
     jobtitle?: StringFieldUpdateOperationsInput | string
+    budget?: StringFieldUpdateOperationsInput | string
+    timeline?: StringFieldUpdateOperationsInput | string
     client?: ClientSchemaUpdateOneRequiredWithoutApplyJobsNestedInput
     profile?: ProfileSchemaUpdateOneRequiredWithoutApplyJobsNestedInput
   }
@@ -8908,12 +8984,16 @@ export namespace Prisma {
     applyjobid?: IntFieldUpdateOperationsInput | number
     clientid?: IntFieldUpdateOperationsInput | number
     jobtitle?: StringFieldUpdateOperationsInput | string
+    budget?: StringFieldUpdateOperationsInput | string
+    timeline?: StringFieldUpdateOperationsInput | string
   }
 
   export type ApplyJobUncheckedUpdateManyWithoutUserInput = {
     applyjobid?: IntFieldUpdateOperationsInput | number
     clientid?: IntFieldUpdateOperationsInput | number
     jobtitle?: StringFieldUpdateOperationsInput | string
+    budget?: StringFieldUpdateOperationsInput | string
+    timeline?: StringFieldUpdateOperationsInput | string
   }
 
   export type JobSchemaCreateManyClientInput = {
@@ -8928,6 +9008,8 @@ export namespace Prisma {
     applyjobid?: number
     userid: number
     jobtitle: string
+    budget?: string
+    timeline?: string
   }
 
   export type JobSchemaUpdateWithoutClientInput = {
@@ -8955,6 +9037,8 @@ export namespace Prisma {
 
   export type ApplyJobUpdateWithoutClientInput = {
     jobtitle?: StringFieldUpdateOperationsInput | string
+    budget?: StringFieldUpdateOperationsInput | string
+    timeline?: StringFieldUpdateOperationsInput | string
     user?: UserSchemaUpdateOneRequiredWithoutApplyJobNestedInput
     profile?: ProfileSchemaUpdateOneRequiredWithoutApplyJobsNestedInput
   }
@@ -8963,22 +9047,30 @@ export namespace Prisma {
     applyjobid?: IntFieldUpdateOperationsInput | number
     userid?: IntFieldUpdateOperationsInput | number
     jobtitle?: StringFieldUpdateOperationsInput | string
+    budget?: StringFieldUpdateOperationsInput | string
+    timeline?: StringFieldUpdateOperationsInput | string
   }
 
   export type ApplyJobUncheckedUpdateManyWithoutClientInput = {
     applyjobid?: IntFieldUpdateOperationsInput | number
     userid?: IntFieldUpdateOperationsInput | number
     jobtitle?: StringFieldUpdateOperationsInput | string
+    budget?: StringFieldUpdateOperationsInput | string
+    timeline?: StringFieldUpdateOperationsInput | string
   }
 
   export type ApplyJobCreateManyProfileInput = {
     applyjobid?: number
     clientid: number
     jobtitle: string
+    budget?: string
+    timeline?: string
   }
 
   export type ApplyJobUpdateWithoutProfileInput = {
     jobtitle?: StringFieldUpdateOperationsInput | string
+    budget?: StringFieldUpdateOperationsInput | string
+    timeline?: StringFieldUpdateOperationsInput | string
     user?: UserSchemaUpdateOneRequiredWithoutApplyJobNestedInput
     client?: ClientSchemaUpdateOneRequiredWithoutApplyJobsNestedInput
   }
@@ -8987,12 +9079,16 @@ export namespace Prisma {
     applyjobid?: IntFieldUpdateOperationsInput | number
     clientid?: IntFieldUpdateOperationsInput | number
     jobtitle?: StringFieldUpdateOperationsInput | string
+    budget?: StringFieldUpdateOperationsInput | string
+    timeline?: StringFieldUpdateOperationsInput | string
   }
 
   export type ApplyJobUncheckedUpdateManyWithoutProfileInput = {
     applyjobid?: IntFieldUpdateOperationsInput | number
     clientid?: IntFieldUpdateOperationsInput | number
     jobtitle?: StringFieldUpdateOperationsInput | string
+    budget?: StringFieldUpdateOperationsInput | string
+    timeline?: StringFieldUpdateOperationsInput | string
   }
 
 

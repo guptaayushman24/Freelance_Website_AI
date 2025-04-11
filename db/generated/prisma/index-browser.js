@@ -155,7 +155,9 @@ exports.Prisma.ApplyJobScalarFieldEnum = {
   applyjobid: 'applyjobid',
   clientid: 'clientid',
   userid: 'userid',
-  jobtitle: 'jobtitle'
+  jobtitle: 'jobtitle',
+  budget: 'budget',
+  timeline: 'timeline'
 };
 
 exports.Prisma.SortOrder = {

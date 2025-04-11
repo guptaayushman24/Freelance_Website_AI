@@ -66,5 +66,8 @@ model ApplyJob{
   client ClientSchema @relation(fields: [clientid],references: [client_id])
   profile     ProfileSchema @relation(fields: [userid], references: [userid],map: "profile_userid_fkey")
   jobtitle String
+  budget String @default("0")
+  timeline String @default("0")
+
 
 } 
